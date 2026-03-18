@@ -1,0 +1,101 @@
+{
+  "name": "BITSET",
+  "description": "Set a specific bit in an integer value",
+  "category": "Bit Operations",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "BITSET",
+  "simulationFunctionName": "bit_set_32",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 80.0,
+    "height": 40.0
+  },
+  "style": "BITSET",
+  "parameters": {
+    "exprs": {
+      "height": 2,
+      "width": 1,
+      "values": ["3", "0"],
+      "labels": ["bit_index", "data_type"],
+      "descriptions": [
+        "Bit index to set (0-indexed)",
+        "Data type: 0=uint32"
+      ]
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "objectsParameters": [
+      {
+        "intPrecision": "sci_uint32",
+        "value": 0
+      }
+    ],
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "INT32_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Integer input (32-bit signed)"
+      }
+    ],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "INT32_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "Integer with bit set"
+      }
+    ],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"BITSET\" blockType=\"c\" simulationFunctionName=\"bit_set_32\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"BITSET\">\n  <ScilabString as=\"exprs\" height=\"2\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"3\"/>\n    <data line=\"1\" column=\"0\" value=\"0\"/>\n  </ScilabString>\n  <Array as=\"objectsParameters\" scilabClass=\"ScilabInteger\" intPrecision=\"sci_uint32\">\n    <data value=\"0\"/>\n  </Array>\n  <mxGeometry as=\"geometry\" x=\"100.0\" y=\"100.0\" width=\"80.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "exprs[0]=bit index to set, [1]=data type (0=uint32)",
+    "Uses INT32_MATRIX data type for both input and output",
+    "objectsParameters stores config with sci_uint32 precision",
+    "Block is 80x40 - wider than standard",
+    "Uses sci_uint32 in objectsParameters (unlike BITCLEAR which uses sci_int32)"
+  ],
+  "criticalRules": [
+    "exprs[0]=bit index to set, [1]=data type (0=uint32)",
+    "Uses INT32_MATRIX data type for both input and output",
+    "objectsParameters stores config with sci_uint32 precision",
+    "Block is 80x40 - wider than standard"
+  ],
+  "commonUses": [
+    "Setting flag bits in control systems",
+    "Integer manipulation",
+    "Bit-masking operations"
+  ],
+  "relatedBlocks": [
+    "BITCLEAR - clear specific bits",
+    "EXTRACTBITS - extract bit ranges",
+    "SHIFT - bitwise shift operations"
+  ]
+}

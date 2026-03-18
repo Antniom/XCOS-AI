@@ -1,0 +1,11 @@
+XcosAICompiler - AI-Powered Xcos Block Diagram Compiler
+Copyright (c) 2026
+
+This software is provided "as-is" without warranty of any kind.
+Redistribution and use permitted with attribution.
+
+Third-party licenses:
+  google-genai:  Apache License 2.0
+  python-dotenv: BSD 3-Clause License
+  pypdf:         BSD 3-Clause License
+  NSIS:          zlib/libpng License

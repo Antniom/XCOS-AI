@@ -1,0 +1,113 @@
+{
+  "name": "CEVENTSCOPE",
+  "description": "Event scope for visualizing event timing and sequences",
+  "category": "Sinks/Visualization",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CEVENTSCOPE",
+  "simulationFunctionName": "cevscpe",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "CEVENTSCOPE",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 6,
+      "width": 1,
+      "values": [
+        "1",
+        "1",
+        "-1",
+        "[]",
+        "[600;400]",
+        "30"
+      ],
+      "labels": [
+        "number_of_inputs",
+        "number_of_curves",
+        "refresh_mode",
+        " Legends",
+        "window_size",
+        "buffer_size"
+      ],
+      "descriptions": [
+        "Number of event input ports",
+        "Number of curves to display",
+        "Refresh mode (-1=auto)",
+        "Legend text []=none",
+        "Window size [width;height] in pixels",
+        "Circular buffer size"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 1,
+      "values": [30.0],
+      "description": "Buffer size"
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 7,
+      "values": [-1, 1, 1, -1, -1, 600, 400],
+      "intPrecision": "sci_int32",
+      "description": "Display config: ID, auto-flag, num_inputs, refresh_mode, legend_flag, width, height"
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event input to visualize"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CEVENTSCOPE\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"cevscpe\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"CEVENTSCOPE\">\n  <ScilabString as=\"exprs\" height=\"6\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"1\"/>\n    <data line=\"1\" column=\"0\" value=\"1\"/>\n    <data line=\"2\" column=\"0\" value=\"-1\"/>\n    <data line=\"3\" column=\"0\" value=\"[]\"/>\n    <data line=\"4\" column=\"0\" value=\"[600;400]\"/>\n    <data line=\"5\" column=\"0\" value=\"30\"/>\n  </ScilabString>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Only has ControlPort (no explicit inputs/outputs)",
+    "Visualizes events, not continuous signals",
+    "Circular buffer for timing history",
+    "blockType='d' - discrete event recording"
+  ],
+  "criticalRules": [
+    "Records event arrival times",
+    "Displays event timing patterns",
+    "Uses circular buffer for storage",
+    "No explicit data - pure event visualization"
+  ],
+  "commonUses": [
+    "Event sequence debugging",
+    "Timing analysis",
+    "Clock visualization",
+    "Digital signal timing"
+  ],
+  "relatedBlocks": ["CSCOPE", "CFSCOPE", "CLOCK_c", "ANDBLK"]
+}

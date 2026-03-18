@@ -1,0 +1,83 @@
+{
+  "name": "ABS_VALUE",
+  "description": "Computes the absolute value of the input signal",
+  "category": "Math Operations",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "ABS_VALUE",
+  "simulationFunctionName": "absolute_value",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "ABS_VALUE",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 1,
+      "width": 1,
+      "values": ["1"],
+      "description": "exprs[0] controls output datatype: 1=floating point, 2=integer, 3=uint"
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": -1
+    },
+    "nmode": {
+      "value": -1
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": -1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Input signal (any dimension)"
+      }
+    ],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": -1,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "Absolute value of input"
+      }
+    ],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"ABS_VALUE\" blockType=\"c\" simulationFunctionName=\"absolute_value\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"ABS_VALUE\">\n  <ScilabString as=\"exprs\" height=\"1\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"1\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\"/>\n  <mxGeometry as=\"geometry\" x=\"100.0\" y=\"100.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "nbZerosCrossing=-1 indicates default behavior (use solver default)",
+    "dataLines=-1 indicates variable/auto-sized matrix support",
+    "Simple block with exactly 1 input and 1 output"
+  ],
+  "criticalRules": [
+    "exprs[0] controls output datatype: 1=floating point, 2=integer, 3=uint",
+    "Simple block with exactly 1 input and 1 output"
+  ],
+  "commonUses": [
+    "Converting bipolar signals to unipolar",
+    "Computing signal magnitude",
+    "Ensuring positive values for downstream blocks"
+  ]
+}

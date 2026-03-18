@@ -1,0 +1,84 @@
+{
+  "name": "CLKFROM",
+  "description": "Clock From block - receives clock/event signals from a CLKGOTO block via tag",
+  "category": "Signal Routing/Events",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CLKFROM",
+  "simulationFunctionName": "clkfrom",
+  "simulationFunctionType": "DEFAULT",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "width": 40,
+    "height": 20
+  },
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 1,
+      "width": 1,
+      "data": [
+        {"line": 0, "column": 0, "value": "A"}
+      ]
+    },
+    "realParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "state": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": 0,
+    "nmode": 0
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [],
+    "commands": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": -1.0,
+        "style": "CommandPort;align=center;verticalAlign=bottom;spacing=10.0"
+      }
+    ]
+  },
+  "xmlExample": "<BasicBlock id=\"...\" interfaceFunctionName=\"CLKFROM\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"clkfrom\" simulationFunctionType=\"DEFAULT\" style=\"CLKFROM\" value=\"From\">\n  <ScilabString as=\"exprs\" height=\"1\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"A\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\"/>\n  <Array as=\"objectsParameters\" scilabClass=\"ScilabList\">\n    <ScilabString height=\"1\" width=\"1\">\n      <data line=\"0\" column=\"0\" value=\"A\"/>\n    </ScilabString>\n  </Array>\n  <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabDouble as=\"state\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"dState\" height=\"0\" width=\"0\"/>\n  <mxGeometry as=\"geometry\" x=\"0.0\" y=\"-10.0\" width=\"40.0\" height=\"20.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Short height of 20 (half of standard 40)",
+    "Has 'value' attribute showing display label \"From\"",
+    "Tag value 'A' is duplicated in exprs AND objectsParameters",
+    "objectsParameters contains ScilabString with same tag value",
+    "Command port with initialState=-1.0 (event port signature)"
+  ],
+  "criticalRules": [
+    "Must match with a CLKGOTO block with the same tag name",
+    "Use CLKGotoTagVisibility to manage tag scope",
+    "Can receive from multiple CLKGOTO blocks with same tag",
+    "Creates implicit connection - no visible wire needed"
+  ],
+  "commonUses": [
+    "Event signal routing across long distances in diagram",
+    "Connecting event signals across subsystem boundaries",
+    "Avoiding wire clutter in event-driven models",
+    "Implementing broadcast/multicast event patterns"
+  ],
+  "relatedBlocks": ["CLKGOTO", "CLKGotoTagVisibility", "FROM", "GOTO"]
+}

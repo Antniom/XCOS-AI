@@ -1,0 +1,147 @@
+{
+  "name": "CANIMXY",
+  "description": "Animated XY scope with incremental trajectory display",
+  "category": "Sinks/Visualization",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CANIMXY",
+  "simulationFunctionName": "canimxy",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "CANIMXY",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 11,
+      "width": 1,
+      "values": [
+        "1",
+        "-4",
+        "1",
+        "-1",
+        "[]",
+        "[]",
+        "-15",
+        "15",
+        "-15",
+        "15",
+        "2"
+      ],
+      "labels": [
+        "number_of_curves",
+        "color",
+        "line_style",
+        "thickness",
+        " Legends",
+        "window_title",
+        "xmin",
+        "xmax",
+        "ymin",
+        "ymax",
+        "window_position"
+      ],
+      "descriptions": [
+        "Number of curves to display",
+        "Line color (-4=auto, or color index)",
+        "Line style (0=solid, 1=dash, etc.)",
+        "Line thickness (-1=auto)",
+        "Legend labels []=none",
+        "Window title text",
+        "X-axis minimum",
+        "X-axis maximum",
+        "Y-axis minimum",
+        "Y-axis maximum",
+        "Window position index"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 4,
+      "values": [-15.0, 15.0, -15.0, 15.0],
+      "description": "Axis limits: xmin, xmax, ymin, ymax"
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 11,
+      "values": [-1, 1, 2, -4, 1, 0, -1, -1, -1, -1, 1],
+      "intPrecision": "sci_int32",
+      "description": "Display ID, auto-flag, position, num_curves, color, style, thickness flags"
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "X coordinate (X vs Y plot)"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Y coordinate"
+      }
+    ],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for sampling data points"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CANIMXY\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"canimxy\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"CANIMXY\">\n  <ScilabString as=\"exprs\" height=\"11\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"1\"/>\n    <data line=\"1\" column=\"0\" value=\"-4\"/>\n    <data line=\"2\" column=\"0\" value=\"1\"/>\n    <data line=\"3\" column=\"0\" value=\"-1\"/>\n    <data line=\"4\" column=\"0\" value=\"[]\"/>\n    <data line=\"5\" column=\"0\" value=\"[]\"/>\n    <data line=\"6\" column=\"0\" value=\"-15\"/>\n    <data line=\"7\" column=\"0\" value=\"15\"/>\n    <data line=\"8\" column=\"0\" value=\"-15\"/>\n    <data line=\"9\" column=\"0\" value=\"15\"/>\n    <data line=\"10\" column=\"0\" value=\"2\"/>\n  </ScilabString>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "blockType='d' - discrete sampling",
+    "Has ControlPort for sampling trigger",
+    "color=-4 means auto-assigned",
+    "thickness=-1 means auto",
+    "11 parameters - complex configuration"
+  ],
+  "criticalRules": [
+    "Every event on ControlPort samples a new point",
+    "Builds trajectory incrementally over time",
+    "Auto color assignment when color=-4"
+  ],
+  "commonUses": [
+    "Phase portraits",
+    "Trajectory animations",
+    "Lissajous figures",
+    "Parametric curve visualization"
+  ],
+  "relatedBlocks": ["CSCOPXY", "CANIMXY3D", "CSCOPE"]
+}

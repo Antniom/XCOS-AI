@@ -1,0 +1,66 @@
+{
+  "name": "ANDBLK",
+  "description": "SuperBlock containing an AND gate with 2 clock inputs and 1 clock output",
+  "category": "Logic Gates/SuperBlocks",
+  "blockType": "h",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "ANDBLK",
+  "simulationFunctionName": "csuper",
+  "simulationFunctionType": "DEFAULT",
+  "isSuperBlock": true,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "ANDBLK",
+  "parameters": {
+    "exprs": {
+      "height": 0,
+      "width": 0
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "internalStructure": {
+    "contains": ["ANDLOG_f", "CLKIN_f(2)", "CLKOUT_f", "IFTHEL_f", "CLKSPLIT_f"],
+    "description": "SuperBlock containing an AND gate with 2 clock inputs and 1 clock output"
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [],
+    "commands": [],
+    "note": "Ports defined by internal SuperBlock structure via CLKIN_f and CLKOUT_f"
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"ANDBLK\" blockType=\"h\" simulationFunctionName=\"csuper\" simulationFunctionType=\"DEFAULT\" style=\"ANDBLK\">\n  <SuperBlockDiagram as=\"child\" background=\"-1\" gridEnabled=\"1\" title=\"\">\n    <mxGraphModel as=\"model\">\n      <root>\n        <!-- Internal blocks: ANDLOG_f, CLKIN_f, CLKOUT_f, IFTHEL_f, CLKSPLIT_f -->\n      </root>\n    </mxGraphModel>\n  </SuperBlockDiagram>\n  <mxGeometry as=\"geometry\" x=\"100.0\" y=\"100.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "SuperBlock (blockType='h') - contains internal diagram",
+    "Ports are defined by CLKIN_f and CLKOUT_f internal blocks",
+    "Cannot be used directly for code generation",
+    "No explicit ports at top level - all connectivity is internal"
+  ],
+  "criticalRules": [
+    "SuperBlock (blockType='h') - contains internal diagram",
+    "Ports are defined by CLKIN_f and CLKOUT_f internal blocks",
+    "Cannot be used directly for code generation"
+  ],
+  "commonUses": [
+    "Event-based logic combining multiple triggers",
+    "Conditional execution of subsystems",
+    "Synchronizing multiple event sources"
+  ]
+}

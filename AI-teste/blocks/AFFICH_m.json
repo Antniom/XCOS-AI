@@ -1,0 +1,101 @@
+{
+  "name": "AFFICH_m",
+  "description": "Display block for showing signal values during simulation",
+  "category": "Sinks/Visualization",
+  "blockType": "c",
+  "tag": "AfficheBlock",
+  "interfaceFunctionName": "AFFICH_m",
+  "simulationFunctionName": "affich2",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 60.0,
+    "height": 40.0
+  },
+  "style": "AFFICH_m",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 7,
+      "width": 1,
+      "values": ["[1,1]", "1", "1", "1", "5", "1", "0"],
+      "labels": ["input_size", "font_size", "color", "background", "digits", "show", "input_type"],
+      "descriptions": [
+        "Input matrix dimensions [rows,cols]",
+        "Font size for display",
+        "Text color index",
+        "Background color index",
+        "Number of digits to display",
+        "Show block label (0=no, 1=yes)",
+        "Input data type (0=real, 1=complex)"
+      ]
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 7,
+      "values": [1, 1, 1, 1000, 5, 1, 1],
+      "description": "encoded display parameters"
+    },
+    "dState": {
+      "height": 1,
+      "width": 7,
+      "values": [-1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0],
+      "description": "Display state tracking history"
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0"
+      }
+    ],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for display refresh"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<AfficheBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"AFFICH_m\" blockType=\"c\" simulationFunctionName=\"affich2\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"AFFICH_m\" dependsOnU=\"1\" dependsOnT=\"0\">\n    <ScilabString as=\"exprs\" height=\"7\" width=\"1\">\n        <data line=\"0\" column=\"0\" value=\"[1,1]\" />\n        <data line=\"1\" column=\"0\" value=\"1\" />\n        <data line=\"2\" column=\"0\" value=\"1\" />\n        <data line=\"3\" column=\"0\" value=\"1\" />\n        <data line=\"4\" column=\"0\" value=\"5\" />\n        <data line=\"5\" column=\"0\" value=\"1\" />\n        <data line=\"6\" column=\"0\" value=\"0\" />\n    </ScilabString>\n    <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\" />\n    <ScilabInteger as=\"integerParameters\" height=\"1\" width=\"7\" intPrecision=\"sci_int32\">\n        <data line=\"0\" column=\"0\" value=\"1\" />\n        <data line=\"0\" column=\"1\" value=\"1\" />\n        <data line=\"0\" column=\"2\" value=\"1\" />\n        <data line=\"0\" column=\"3\" value=\"1000\" />\n        <data line=\"0\" column=\"4\" value=\"5\" />\n        <data line=\"0\" column=\"5\" value=\"1\" />\n        <data line=\"0\" column=\"6\" value=\"1\" />\n    </ScilabInteger>\n    <Array as=\"objectsParameters\" scilabClass=\"ScilabList\" />\n    <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n        <data line=\"0\" column=\"0\" value=\"0\" />\n    </ScilabInteger>\n    <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n        <data line=\"0\" column=\"0\" value=\"0\" />\n    </ScilabInteger>\n    <ScilabDouble as=\"state\" height=\"0\" width=\"0\" />\n    <ScilabDouble as=\"dState\" height=\"1\" width=\"7\">\n        <data line=\"0\" column=\"0\" realPart=\"-1.0\" />\n        <data line=\"0\" column=\"1\" realPart=\"0.0\" />\n        <data line=\"0\" column=\"2\" realPart=\"0.0\" />\n        <data line=\"0\" column=\"3\" realPart=\"1.0\" />\n        <data line=\"0\" column=\"4\" realPart=\"1.0\" />\n        <data line=\"0\" column=\"5\" realPart=\"0.0\" />\n        <data line=\"0\" column=\"6\" realPart=\"0.0\" />\n    </ScilabDouble>\n    <Array as=\"oDState\" scilabClass=\"ScilabList\" />\n    <Array as=\"equations\" scilabClass=\"ScilabList\" />\n    <mxGeometry as=\"geometry\" x=\"200.0\" y=\"200.0\" width=\"60.0\" height=\"40.0\" />\n</AfficheBlock>",
+  "anomalies": [
+    "Has ControlPort for event trigger - NOT a clock input but a refresh trigger",
+    "dState array stores display history - unique among blocks",
+    "Display/scope block - consumes simulation data with no outputs",
+    "Width is 60 (1.5x standard) to accommodate display area"
+  ],
+  "criticalRules": [
+    "Has ControlPort for event trigger (not clock)",
+    "dState array stores display history",
+    "Display/scope block - consumes simulation data"
+  ],
+  "commonUses": [
+    "Real-time signal monitoring",
+    "Debugging simulation values",
+    "Displaying matrix values"
+  ]
+}

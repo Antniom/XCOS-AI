@@ -1,0 +1,157 @@
+{
+  "name": "CANIMXY3D",
+  "description": "3D animated XY scope for 3D trajectory visualization",
+  "category": "Sinks/Visualization",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CANIMXY3D",
+  "simulationFunctionName": "canimxy3d",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "CANIMXY3D",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 11,
+      "width": 1,
+      "values": [
+        "1",
+        "1 2 3 4 5 6 7 13",
+        "1 1 1 1 1 1 1 1",
+        "-1",
+        "[]",
+        "[]",
+        "-15 15",
+        "-15 15",
+        "-15 15",
+        "50 280",
+        "2"
+      ],
+      "labels": [
+        "number_of_curves",
+        "color",
+        "thickness",
+        "line_style",
+        " Legends",
+        "window_title",
+        "x_min_max",
+        "y_min_max",
+        "z_min_max",
+        "window_size",
+        "window_position"
+      ],
+      "descriptions": [
+        "Number of 3D curves to display",
+        "Space-separated color indices for each curve",
+        "Space-separated line thickness values",
+        "Line style index (-1=auto)",
+        "Legend labels []=none",
+        "Window title text",
+        "X-axis limits [min max] or space-separated",
+        "Y-axis limits [min max] or space-separated",
+        "Z-axis limits [min max] or space-separated",
+        "Window size in pixels [width height]",
+        "Window position index"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 8,
+      "values": [-15.0, 15.0, -15.0, 15.0, -15.0, 15.0, 50.0, 280.0],
+      "description": "X/Y/Z axis limits and window size"
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 25,
+      "values": [-1, 8, 2, 1, 2, 3, 4, 5, 6, 7, 13, 1, 1, 1, 1, 1, 1, 1, 1, 8, -1, -1, -1, -1, 1],
+      "intPrecision": "sci_int32",
+      "description": "25 packed visualization params: displayID, num_curves, num_colors, colors[8], thicknesses[8], style, window flags"
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "X coordinate"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Y coordinate"
+      },
+      {
+        "ordering": 3,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Z coordinate"
+      }
+    ],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for sampling data points"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CANIMXY3D\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"canimxy3d\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"CANIMXY3D\">\n  <ScilabString as=\"exprs\" height=\"11\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"1\"/>\n    <data line=\"1\" column=\"0\" value=\"1 2 3 4 5 6 7 13\"/>\n    <data line=\"2\" column=\"0\" value=\"1 1 1 1 1 1 1 1\"/>\n    <data line=\"3\" column=\"0\" value=\"-1\"/>\n    <data line=\"4\" column=\"0\" value=\"[]\"/>\n    <data line=\"5\" column=\"0\" value=\"[]\"/>\n    <data line=\"6\" column=\"0\" value=\"-15 15\"/>\n    <data line=\"7\" column=\"0\" value=\"-15 15\"/>\n    <data line=\"8\" column=\"0\" value=\"-15 15\"/>\n    <data line=\"9\" column=\"0\" value=\"50 280\"/>\n    <data line=\"10\" column=\"0\" value=\"2\"/>\n  </ScilabString>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "25 integerParameters - largest in visualization blocks",
+    "Space-separated values in exprs for multiple colors/thicknesses",
+    "25-element integerParams pack: 1 display + 1 count + 1 style + 8 colors + 8 thicknesses + window flags",
+    "3 explicit inputs for X, Y, Z coordinates",
+    "Complex parameter structure with space-delimited matrices in strings"
+  ],
+  "criticalRules": [
+    "Event on ControlPort samples new 3D point and adds to trajectory",
+    "Color indices space-separated in exprs[1]",
+    "Thickness values space-separated in exprs[2]",
+    "Supports up to 8 curves with individual styling"
+  ],
+  "commonUses": [
+    "3D trajectory visualization",
+    "Attractor animations (Lorenz, etc.)",
+    "Orbital mechanics displays",
+    "3D motion capture visualization"
+  ],
+  "relatedBlocks": ["CANIMXY", "CSCOPXY3D", "CSCOPE"]
+}

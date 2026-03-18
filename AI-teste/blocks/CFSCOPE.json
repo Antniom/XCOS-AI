@@ -1,0 +1,123 @@
+{
+  "name": "CFSCOPE",
+  "description": "Floating scope with independent window for signal visualization",
+  "category": "Sinks/Visualization",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CFSCOPE",
+  "simulationFunctionName": "cfscope",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "CFSCOPE",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 9,
+      "width": 1,
+      "values": [
+        "1 3 5 7 9 11 13 15",
+        "-1",
+        "[]",
+        "[600;400]",
+        "-15",
+        "15",
+        "30",
+        "2",
+        "1"
+      ],
+      "labels": [
+        "curve_colors",
+        "line_style",
+        "y_min_max",
+        "window_size",
+        "x_min",
+        "x_max",
+        "refresh_period",
+        "buffer_size",
+        "show_grid"
+      ],
+      "descriptions": [
+        "Space-separated color indices for curves",
+        "Line style (-1=auto, 0=solid)",
+        "Y-axis limits [min;max] or []=auto",
+        "Window size [width;height] in pixels",
+        "X-axis minimum",
+        "X-axis maximum",
+        "Display refresh period",
+        "Buffer size",
+        "Show grid (1=yes, 0=no)"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 4,
+      "values": [0.0, -15.0, 15.0, 30.0],
+      "description": "Time offset, xmin, xmax, refresh period"
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 17,
+      "values": [-1, 1, 2, 1, 3, 5, 7, 9, 11, 13, 15, -1, -1, 600, 400, 1, 1],
+      "intPrecision": "sci_int32",
+      "description": "Display config: ID, auto-flag, buffer, num_curves, colors[8], style, Y-limits, window_size, grid"
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for display refresh and data sampling"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CFSCOPE\" blockType=\"c\" dependsOnU=\"1\" dependsOnT=\"0\" simulationFunctionName=\"cfscope\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"CFSCOPE\">\n  <ScilabString as=\"exprs\" height=\"9\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"1 3 5 7 9 11 13 15\"/>\n    <data line=\"1\" column=\"0\" value=\"-1\"/>\n    <data line=\"2\" column=\"0\" value=\"[]\"/>\n    <data line=\"3\" column=\"0\" value=\"[600;400]\"/>\n    <data line=\"4\" column=\"0\" value=\"-15\"/>\n    <data line=\"5\" column=\"0\" value=\"15\"/>\n    <data line=\"6\" column=\"0\" value=\"30\"/>\n    <data line=\"7\" column=\"0\" value=\"2\"/>\n    <data line=\"8\" column=\"0\" value=\"1\"/>\n  </ScilabString>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "No explicit input port - receives data via control event",
+    "17 integerParameters (more than CSCOPE's 15)",
+    "Floating/independent scope window",
+    "ControlPort serves dual purpose: refresh AND data input",
+    "9 parameters vs CSCOPE's 10"
+  ],
+  "criticalRules": [
+    "Event carries implicit data value (not just trigger)",
+    "Floating window independent of main diagram",
+    "Used for debugging/event monitoring",
+    " differs from CSCOPE in port structure"
+  ],
+  "commonUses": [
+    "Event data logging",
+    "Floating signal monitor",
+    "Independent debug display",
+    "Cross-model signal viewing"
+  ],
+  "relatedBlocks": ["CSCOPE", "CMSCOPE", "CEVENTSCOPE"]
+}

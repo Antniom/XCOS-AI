@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XcosGen</title>
+
+<!-- Warm Beige UI — Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   WARM BEIGE UI — DESIGN TOKENS
+═══════════════════════════════════════════════════════ */
+:root {
+    --bg-main:        #F3F1E9;
+    --bg-card:        #FFFFFF;
+    --panel-border:   #E0DEC8;
+    --card-border:    #E0DEC8;
+
+    --text-primary:   #191919;
+    --text-secondary: #565656;
+    --text-tertiary:  #8f8f8f;
+    --text-muted:     #8f8f8f;
+
+    --accent:         #D96C53;
+    --accent-hover:   #c45b42;
+    --accent-glow:    rgba(217,108,83,0.15);
+    --accent-strong:  #C05B42;
+
+    --wb-ink:         #2C302E;
+    --wb-accent:      #D96C53;
+
+    --success:        #2D6A4F;
+    --warning:        #D08C60;
+    --danger:         #BC4749;
+
+    --font-heading:   'Merriweather', 'Georgia', serif;
+    --font-body:      'Inter', system-ui, sans-serif;
+    --font-mono:      'JetBrains Mono', monospace;
+
+    --shadow-card:    0 4px 12px rgba(0,0,0,0.05);
+    --shadow-hover:   0 8px 24px rgba(0,0,0,0.08);
+
+    --radius-sm:  8px;
+    --radius-md:  12px;
+    --radius-lg:  16px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════════════ */
+@keyframes fadeIn    { from { opacity:0; transform:translateY(5px);  } to { opacity:1; transform:translateY(0); } }
+@keyframes iconPopIn { 0%{opacity:0;transform:scale(0.3) translateY(16px);} 65%{opacity:1;transform:scale(1.12) translateY(-4px);} 100%{opacity:1;transform:scale(1) translateY(0);} }
+@keyframes spin      { to { transform:rotate(360deg); } }
+@keyframes svgRotate { from{transform-origin:center;transform:rotate(0deg);} to{transform-origin:center;transform:rotate(360deg);} }
+@keyframes draw-in   { from{stroke-dashoffset:300;} to{stroke-dashoffset:0;} }
+@keyframes paint-in  { from{opacity:0;} to{opacity:0.88;} }
+@keyframes pulseRing { 0%{transform:scale(0.6);opacity:0.4;} 100%{transform:scale(1.4);opacity:0;} }
+@keyframes scaleBounce { 0%{transform:scale(0);opacity:0;} 60%{transform:scale(1.2);opacity:1;} 100%{transform:scale(1);} }
+@keyframes slideUp   { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
+@keyframes overlayIn { from{opacity:0;} to{opacity:1;} }
+
+/* ═══════════════════════════════════════════════════════
+   GLOBAL RESET
+═══════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background: var(--bg-main);
+    line-height: 1.6;
+    user-select: none;
+}
+h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:700; color:var(--text-primary); margin-top:0; }
+textarea, input, button { font-family: inherit; }
+textarea, input { color: var(--text-primary); }
+
+/* ═══════════════════════════════════════════════════════
+   ICON UTILITIES (DUOTONE)
+═══════════════════════════════════════════════════════ */
+.wb-stroke    { fill:none; stroke:var(--wb-ink); stroke-width:4px; stroke-linecap:round; stroke-linejoin:round; }
+.wb-backdrop  { fill:var(--wb-accent); stroke:none; opacity:0; animation:paint-in 0.55s ease-out forwards 0.8s; }
+.wb-draw      { stroke-dasharray:300; stroke-dashoffset:300; animation:draw-in 1.2s cubic-bezier(0.4,0,0.2,1) forwards; }
+.hover-pinch  { cursor:pointer; transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
+.hover-pinch:hover { transform:scale(0.85); }
+.hover-rotation { cursor:pointer; transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275); }
+.hover-rotation:hover { transform:rotate(20deg); }
+.icon-spin-slow { animation:svgRotate 8s linear infinite; display:inline-block; transform-box:fill-box; transform-origin:center; }
+.icon-spin-fast { animation:svgRotate 1.2s linear infinite; display:inline-block; transform-box:fill-box; transform-origin:center; }
+.hidden { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT — CHROME
+═══════════════════════════════════════════════════════ */
+.app-chrome {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ─── Top Bar ─── */
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--panel-border);
+    box-shadow: var(--shadow-card);
+    flex-shrink: 0;
+    -webkit-app-region: drag;
+}
+.topbar-icon { flex-shrink: 0; -webkit-app-region: no-drag; }
+.topbar-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+    letter-spacing: -0.01em;
+}
+.topbar-subtitle {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: -2px;
+}
+.topbar-actions { display:flex; gap:8px; align-items:center; -webkit-app-region: no-drag; }
+
+/* ─── Settings icon button ─── */
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.icon-btn:hover { background: var(--accent-glow); transform: scale(0.85); }
+
+/* ─── Main area ─── */
+.main-area {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    gap: 0;
+}
+
+/* ─── Left panel (prompt + controls) ─── */
+.panel-left {
+    display: flex;
+    flex-direction: column;
+    width: 56%;
+    min-width: 380px;
+    padding: 18px 20px;
+    gap: 12px;
+    overflow-y: auto;
+    border-right: 1px solid var(--panel-border);
+}
+
+/* ─── Right panel (console) ─── */
+.panel-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 18px 20px;
+    gap: 10px;
+    min-width: 0;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PROMPT SECTION
+═══════════════════════════════════════════════════════ */
+.section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.prompt-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.prompt-card:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-card);
+}
+
+.prompt-textarea {
+    width: 100%;
+    min-height: 130px;
+    max-height: 300px;
+    resize: vertical;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    background: transparent;
+    color: var(--text-primary);
+}
+.prompt-textarea::placeholder { color: var(--text-muted); }
+
+/* ─── Attachment zone ─── */
+.attach-zone {
+    border-top: 1px solid var(--panel-border);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-height: 48px;
+    cursor: pointer;
+    transition: background 0.2s;
+    position: relative;
+}
+.attach-zone.drag-over {
+    background: var(--accent-glow);
+    border-top-color: var(--accent);
+}
+.attach-hint {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+}
+.attach-hint svg { flex-shrink: 0; }
+.attach-file-input { display: none; }
+
+/* Attachment chips */
+.chips { display:flex; flex-wrap:wrap; gap:6px; }
+.chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--bg-main);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 3px 10px 3px 8px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    animation: fadeIn 0.2s ease forwards;
+}
+.chip-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 2px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1;
+    transition: color 0.15s;
+}
+.chip-remove:hover { color: var(--danger); }
+
+/* ═══════════════════════════════════════════════════════
+   OUTPUT ROW
+═══════════════════════════════════════════════════════ */
+.output-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.2s;
+}
+.output-row:hover { border-color: var(--accent); }
+.output-path-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+.output-path-display {
+    flex: 1;
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.output-path-display.placeholder { color: var(--text-muted); font-family: var(--font-body); font-size: 0.82rem; }
+.btn-pick-file {
+    background: var(--bg-main);
+    border: 1.5px solid var(--panel-border);
+    border-radius: var(--radius-sm);
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+.btn-pick-file:hover { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+
+/* ═══════════════════════════════════════════════════════
+   GENERATE BUTTON
+═══════════════════════════════════════════════════════ */
+.btn-generate {
+    width: 100%;
+    padding: 13px 24px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(217,108,83,0.25);
+}
+.btn-generate:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(217,108,83,0.35);
+}
+.btn-generate:active:not(:disabled) { transform: translateY(0); }
+.btn-generate:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+.btn-generate .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CONSOLE PANEL
+═══════════════════════════════════════════════════════ */
+.console-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.console-title {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex: 1;
+}
+.console-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-muted);
+}
+.status-dot.active {
+    background: var(--success);
+    position: relative;
+}
+.status-dot.active::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid var(--success);
+    opacity: 0;
+    animation: pulseRing 1.4s ease-out infinite;
+}
+.btn-clear-console {
+    background: none;
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-sm);
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.btn-clear-console:hover { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+
+.console-body {
+    flex: 1;
+    background: #1C1C1A;
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    overflow-y: auto;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.75;
+    min-height: 0;
+    border: 1px solid #333;
+}
+.console-body::-webkit-scrollbar { width: 6px; }
+.console-body::-webkit-scrollbar-track { background: transparent; }
+.console-body::-webkit-scrollbar-thumb { background: #3a3a38; border-radius: 3px; }
+
+.log-line { display: flex; gap: 8px; animation: fadeIn 0.15s ease forwards; }
+.log-ts   { color: #555; flex-shrink: 0; }
+.log-icon { flex-shrink: 0; }
+.log-msg  { word-break: break-word; white-space: pre-wrap; }
+
+.log-info    .log-msg { color: #C8C8C4; }
+.log-success .log-msg { color: #6EE7B7; }
+.log-warn    .log-msg { color: #FCD34D; }
+.log-error   .log-msg { color: #FCA5A5; }
+.log-scilab  .log-msg { color: #93C5FD; }
+.log-code    .log-msg { color: #A5B4FC; font-size: 0.72rem; }
+
+.log-info    .log-icon { color: #555; }
+.log-success .log-icon { color: #6EE7B7; }
+.log-warn    .log-icon { color: #FCD34D; }
+.log-error   .log-icon { color: #FCA5A5; }
+.log-scilab  .log-icon { color: #93C5FD; }
+.log-code    .log-icon { color: #A5B4FC; }
+
+/* ═══════════════════════════════════════════════════════
+   RESULT BANNER
+═══════════════════════════════════════════════════════ */
+.result-banner {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.82rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideUp 0.3s ease forwards;
+}
+.result-banner.success-banner {
+    background: rgba(45,106,79,0.12);
+    border: 1px solid rgba(45,106,79,0.3);
+    color: var(--success);
+}
+.result-banner.error-banner {
+    background: rgba(188,71,73,0.1);
+    border: 1px solid rgba(188,71,73,0.3);
+    color: var(--danger);
+}
+.banner-open-btn {
+    margin-left: auto;
+    background: var(--success);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+}
+.banner-open-btn:hover { opacity: 0.85; }
+
+/* ═══════════════════════════════════════════════════════
+   SETTINGS OVERLAY
+═══════════════════════════════════════════════════════ */
+.overlay-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: overlayIn 0.2s ease forwards;
+}
+.settings-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hover);
+    padding: 32px 32px 24px;
+    width: 480px;
+    max-width: 95vw;
+    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    position: relative;
+}
+.settings-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s, color 0.15s;
+}
+.settings-close:hover { background: var(--accent-glow); color: var(--accent); }
+.settings-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+.settings-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+.form-group { margin-bottom: 18px; }
+.form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    background: var(--bg-main);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.form-input-row { display:flex; gap:8px; }
+.form-input-row .form-input { flex:1; }
+.form-hint {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+    line-height: 1.5;
+}
+.settings-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--panel-border);
+}
+.btn-secondary {
+    background: var(--bg-main);
+    border: 1.5px solid var(--panel-border);
+    border-radius: var(--radius-sm);
+    padding: 9px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-secondary:hover { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+.btn-primary {
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 9px 22px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent-hover); }
+
+/* ═══════════════════════════════════════════════════════
+   SCROLLBAR (left panel)
+═══════════════════════════════════════════════════════ */
+.panel-left::-webkit-scrollbar { width: 5px; }
+.panel-left::-webkit-scrollbar-track { background: transparent; }
+.panel-left::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="app-chrome">
+
+  <!-- ──────────────────── TOP BAR ──────────────────── -->
+  <header class="topbar">
+    <div class="topbar-icon">
+      <!-- XcosGen duotone icon -->
+      <svg viewBox="0 0 100 100" width="36" height="36" overflow="visible" style="display:block;">
+        <g transform="translate(8,8) rotate(3,50,50)">
+          <rect class="wb-backdrop" x="15" y="20" width="55" height="55" rx="12"/>
+          <path class="wb-backdrop" d="M 38 20 L 55 20 L 55 12 C 55 8 52 5 50 5 C 48 5 45 8 45 12 Z"/>
+        </g>
+        <rect class="wb-stroke wb-draw" x="15" y="20" width="55" height="55" rx="12" style="stroke-dasharray:230;stroke-dashoffset:230;"/>
+        <path class="wb-stroke wb-draw" d="M 30 42 L 45 52 L 30 62" style="stroke-dasharray:55;stroke-dashoffset:55;animation-delay:0.4s;"/>
+        <line class="wb-stroke wb-draw" x1="52" y1="62" x2="70" y2="62" style="stroke-dasharray:22;stroke-dashoffset:22;animation-delay:0.6s;"/>
+        <line class="wb-stroke wb-draw" x1="52" y1="52" x2="66" y2="52" style="stroke-dasharray:18;stroke-dashoffset:18;animation-delay:0.7s;"/>
+      </svg>
+    </div>
+    <div>
+      <div class="topbar-title">XcosGen</div>
+      <div class="topbar-subtitle">AI-powered Xcos Diagram Generator for Scilab</div>
+    </div>
+    <div class="topbar-actions">
+      <!-- Settings gear -->
+      <button class="icon-btn hover-rotation" id="btn-settings" title="Settings" aria-label="Open Settings">
+        <svg viewBox="0 0 100 100" width="24" height="24">
+          <circle class="wb-stroke" cx="50" cy="50" r="14"/>
+          <g class="icon-spin-slow" style="animation-duration:10s;">
+            <path class="wb-stroke" d="M50 18 L50 10"/>
+            <path class="wb-stroke" d="M50 90 L50 82"/>
+            <path class="wb-stroke" d="M18 50 L10 50"/>
+            <path class="wb-stroke" d="M90 50 L82 50"/>
+            <path class="wb-stroke" d="M27.4 27.4 L21.8 21.8"/>
+            <path class="wb-stroke" d="M78.2 78.2 L72.6 72.6"/>
+            <path class="wb-stroke" d="M72.6 27.4 L78.2 21.8"/>
+            <path class="wb-stroke" d="M21.8 78.2 L27.4 72.6"/>
+          </g>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ──────────────────── MAIN ──────────────────── -->
+  <div class="main-area">
+
+    <!-- LEFT: prompt + controls -->
+    <div class="panel-left">
+
+      <div class="section-label">Model</div>
+      <div style="margin-bottom: 8px;">
+        <select id="model-select" class="form-input" style="padding: 8px; width: 100%; cursor: pointer;">
+          <option value="gemini-flash-latest">Gemini Flash (latest)</option>
+          <option value="gemini-3.1-flash-lite-preview">Gemini 3.1 Flash Lite (preview)</option>
+        </select>
+      </div>
+
+      <div class="section-label">Prompt</div>
+      <div class="prompt-card" id="prompt-card">
+        <textarea
+          class="prompt-textarea"
+          id="prompt-textarea"
+          placeholder="Describe the Xcos diagram you want to generate…&#10;&#10;Examples:&#10;• A sine wave generator feeding a scope block&#10;• A PID controller with plant transfer function 1/(s+1)&#10;• An adder block summing two constant sources"
+          spellcheck="true"
+        ></textarea>
+
+        <!-- Attachment zone -->
+        <div
+          class="attach-zone"
+          id="attach-zone"
+          title="Drag files here, click to browse, or paste an image"
+        >
+          <input type="file" class="attach-file-input" id="attach-input" multiple
+            accept=".pdf,.txt,.png,.jpg,.jpeg,.bmp,.gif,.webp,.csv,.m,.sce,.sci,.xcos,.xml">
+
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               style="color:var(--text-muted);flex-shrink:0;">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+          </svg>
+          <span class="attach-hint" id="attach-hint">Drag files, click to browse, or paste an image</span>
+          <div class="chips" id="chips"></div>
+        </div>
+      </div>
+
+      <!-- Output path -->
+      <div class="section-label" style="margin-top:4px;">Output File</div>
+      <div class="output-row">
+        <span class="output-path-label">Save as:</span>
+        <span class="output-path-display placeholder" id="output-display">No file selected…</span>
+        <button class="btn-pick-file" id="btn-pick-output">Browse</button>
+      </div>
+
+      <!-- Result banner (hidden initially) -->
+      <div id="result-banner" class="hidden"></div>
+
+      <!-- Generate -->
+      <button class="btn-generate" id="btn-generate">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        Generate Diagram
+      </button>
+
+      <!-- ── Manual Override Section ── -->
+      <div style="margin-top: 8px;">
+        <button id="btn-toggle-manual" style="background:none;border:none;color:var(--text-muted);font-size:0.75rem;cursor:pointer;display:flex;align-items:center;gap:4px;padding:4px 0;font-weight:600;">
+          <svg id="icon-manual-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.2s;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          MANUAL / EXTERNAL AI OVERRIDE
+        </button>
+        <div id="manual-section" class="hidden" style="margin-top: 8px; border: 1.5px dashed var(--panel-border); border-radius: var(--radius-md); padding: 12px; background: var(--bg-main);">
+          <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+            <button class="btn-secondary" id="btn-copy-sys" style="font-size:0.7rem; padding:4px 10px;">Copy System Prompt</button>
+            <button class="btn-secondary" id="btn-copy-prompt" style="font-size:0.7rem; padding:4px 10px;">Copy User Prompt</button>
+            <button class="btn-secondary" id="btn-copy-ref" style="font-size:0.7rem; padding:4px 10px;">Copy Reference File</button>
+          </div>
+          <textarea
+            class="prompt-textarea"
+            id="manual-xml-textarea"
+            placeholder="Paste XML generated by another AI here..."
+            spellcheck="false"
+            style="min-height: 80px; max-height: 200px; border: 1px solid var(--panel-border); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.75rem; margin-bottom: 8px; background: var(--bg-card);"
+          ></textarea>
+          <button class="btn-primary" id="btn-run-manual" style="width:100%; padding:8px 16px; font-size:0.8rem; background: var(--wb-ink);">
+            Save & Load Manual XML
+          </button>
+        </div>
+      </div>
+
+      <!-- spacer -->
+      <div style="flex:1;min-height:8px;"></div>
+
+      <!-- Usage hint -->
+      <p style="font-size:0.72rem;color:var(--text-muted);margin:0;text-align:center;line-height:1.6;">
+        Gemini will write the Scilab script · scilab-cli runs it to produce the <code style="font-family:var(--font-mono);font-size:0.68rem;">.xcos</code> file
+      </p>
+
+    </div><!-- /panel-left -->
+
+    <!-- RIGHT: console -->
+    <div class="panel-right">
+      <div class="console-header">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+             stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"/>
+          <line x1="12" y1="19" x2="20" y2="19"/>
+        </svg>
+        <span class="console-title">Console</span>
+        <div class="console-status">
+          <div class="status-dot" id="status-dot"></div>
+          <span id="status-text">Idle</span>
+        </div>
+        <button class="btn-clear-console" id="btn-copy">Copy</button>
+        <button class="btn-clear-console" id="btn-clear">Clear</button>
+      </div>
+      <div class="console-body" id="console-body">
+        <!-- log lines injected by app.js -->
+      </div>
+    </div>
+
+  </div><!-- /main-area -->
+
+</div><!-- /app-chrome -->
+
+<!-- ══════════════════════════════════════════════════
+     SETTINGS OVERLAY (hidden by default)
+══════════════════════════════════════════════════ -->
+<div class="overlay-bg hidden" id="settings-overlay" role="dialog" aria-modal="true" aria-label="Settings">
+  <div class="settings-card" id="settings-card">
+    <button class="settings-close" id="settings-close" aria-label="Close settings">&times;</button>
+    <h2 class="settings-title">Settings</h2>
+    <p class="settings-sub">Configure your API key and Scilab installation path.</p>
+
+    <div class="form-group">
+      <label class="form-label" for="inp-api-key">Gemini API Key</label>
+      <input
+        type="password"
+        class="form-input"
+        id="inp-api-key"
+        placeholder="AIza…"
+        autocomplete="off"
+        spellcheck="false"
+      >
+      <p class="form-hint">
+        Get your key at <strong>aistudio.google.com</strong>.
+        It is stored only on this device, never sent anywhere except to the Gemini API.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="inp-scilab-path">scilab-cli path <span style="font-weight:400;text-transform:none;">(optional — leave blank to auto-detect)</span></label>
+      <div class="form-input-row">
+        <input
+          type="text"
+          class="form-input"
+          id="inp-scilab-path"
+          placeholder="C:\Program Files\scilab-2024.0.0\bin\scilab-cli.exe"
+          spellcheck="false"
+        >
+        <button class="btn-secondary" id="btn-browse-scilab" style="white-space:nowrap;">Browse</button>
+      </div>
+      <p class="form-hint">
+        Leave blank: XcosGen searches <code style="font-family:var(--font-mono);font-size:0.72rem;">C:\Program Files\scilab-*</code> and <code style="font-family:var(--font-mono);font-size:0.72rem;">PATH</code> automatically.
+      </p>
+    </div>
+
+    <div class="settings-footer">
+      <button class="btn-secondary" id="btn-settings-cancel">Cancel</button>
+      <button class="btn-primary" id="btn-settings-save">Save Settings</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

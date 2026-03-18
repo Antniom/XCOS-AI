@@ -1,0 +1,9 @@
+# Standard ignores
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Project specific
+# scilab-2026.0.1 is specifically included as per user request

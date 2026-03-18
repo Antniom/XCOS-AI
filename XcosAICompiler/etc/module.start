@@ -1,0 +1,57 @@
+// etc/module.start
+etc_dir = get_absolute_file_path('module.start');
+MODULE_ROOT = fullpath(etc_dir + '/..');
+req_path = MODULE_ROOT + '/src/python/requirements.txt';
+
+global XCOSAI_SERVER_PORT;
+global XCOSAI_WEBAPP_PORT;
+XCOSAI_SERVER_PORT = 8000;
+XCOSAI_WEBAPP_PORT = 8000; // Currently same for FastAPI
+
+if getos() == 'Windows' then
+    python_exe = 'python';
+else
+    python_exe = 'python3';
+end
+
+mprintf('[XcosAICompiler] Checking Python dependencies...\n');
+[ret, out] = host(python_exe + ' -m pip show google-genai');
+pkg_ok = (ret == 0) & ~isempty(grep(out, 'Name:'));
+
+if ~pkg_ok then
+    mprintf('[XcosAICompiler] Installing required Python packages...\n');
+    [ret2, out2] = host(python_exe + ' -m pip install -r "' + req_path + '"');
+    if ret2 ~= 0 then
+        mprintf('[XcosAICompiler] ERROR: pip install failed:\n');
+        for k = 1:length(out2); mprintf('  %s\n', out2(k)); end
+    else
+        mprintf('[XcosAICompiler] Dependencies installed successfully.\n');
+    end
+else
+    mprintf('[XcosAICompiler] Python dependencies OK.\n');
+end
+
+if getscilabmode() == 'STD' then
+    global xcosai_menu_actions;
+    mprintf('[XcosAICompiler] Registering menu...\n');
+    try
+        // Using dedicated top-level menu for absolute visibility
+        addmenu('Xcos AI', ['Launch Xcos AI'; 'About'], list(0, 'xcosai_menu_actions'));
+        xcosai_menu_actions = [
+            'launch_ai_compiler_gui()';
+            'messagebox(""Xcos AI Application Flow:\n1. Open Dashboard\n2. Enter Prompt\n3. AI Generates XML\n4. Scilab Validates Model\n5. Success!"",""About Xcos AI"")'
+        ];
+        mprintf('[XcosAICompiler] Dedicated ''Xcos AI'' menu registered at top bar.\n');
+    catch
+        mprintf('[XcosAICompiler] WARNING: Could not register dedicated menu. Trying Applications fallback...\n');
+        try
+            addmenu(0, "Applications", ["Xcos AI Compiler"], list(0, "xcosai_launch_callback_0"));
+            global xcosai_launch_callback_0;
+            xcosai_launch_callback_0 = "launch_ai_compiler_gui()";
+            mprintf('[XcosAICompiler] Menu registered in Applications > Xcos AI Compiler.\n');
+        catch
+            mprintf('[XcosAICompiler] ERROR: Menu registration failed completely.\n');
+        end
+    end
+end
+mprintf('[XcosAICompiler] Module loaded successfully.\n');

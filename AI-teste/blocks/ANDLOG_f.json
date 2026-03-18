@@ -1,0 +1,88 @@
+{
+  "name": "ANDLOG_f",
+  "description": "AND logic gate with 2 control inputs (event triggered)",
+  "category": "Logic Gates",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "ANDLOG_f",
+  "simulationFunctionName": "andlog",
+  "simulationFunctionType": "DEFAULT",
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 60.0,
+    "height": 60.0
+  },
+  "style": "ANDLOG_f",
+  "parameters": {
+    "exprs": {
+      "height": 0,
+      "width": 0
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "AND result output"
+      }
+    ],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "First event input"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Second event input"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"ANDLOG_f\" blockType=\"d\" simulationFunctionName=\"andlog\" simulationFunctionType=\"DEFAULT\" style=\"ANDLOG_f\">\n  <ScilabDouble as=\"exprs\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\"/>\n  <mxGeometry as=\"geometry\" x=\"150.0\" y=\"150.0\" width=\"60.0\" height=\"60.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Has 2 ControlPort inputs and 1 ExplicitOutput (reverse of typical data flow)",
+    "Used inside SuperBlocks for conditional logic",
+    "Larger than standard: 60x60 to accommodate AND symbol"
+  ],
+  "criticalRules": [
+    "Logic gate with 2 control inputs (event triggers)",
+    "Produces 1 explicit output (REAL_MATRIX)",
+    "Used inside SuperBlocks for conditional logic"
+  ],
+  "commonUses": [
+    "Combining two event conditions",
+    "SuperBlock internal logic",
+    "AND condition for event triggering"
+  ]
+}

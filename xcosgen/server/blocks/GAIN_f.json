@@ -1,0 +1,14 @@
+{
+  "relatedBlocks": [],
+  "criticalRules": [
+    "NEVER use spacingLeft - use spacing=10.0",
+    "Preserve exact port styles from reference",
+    "Copy parameter structures exactly",
+    "exprs MUST have height=\"3\" width=\"1\" (to match ground truth, not 1)"
+  ],
+  "description": "GAIN_f block",
+  "anomalies": [],
+  "name": "GAIN_f",
+  "commonUses": [],
+  "sourceFile": "scilab-2026.0.1/scilab-2026.0.1/scilab/modules/scicos_blocks/macros/Linear/GAIN_f.sci"
+}

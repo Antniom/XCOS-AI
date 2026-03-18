@@ -1,0 +1,73 @@
+{
+  "name": "CLINDUMMY_f",
+  "description": "Clock dummy block - placeholder for continuous-time clock functionality",
+  "category": "Signal Routing/Events",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CLINDUMMY_f",
+  "simulationFunctionName": "cdummy",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 1,
+  "geometry": {
+    "width": 60,
+    "height": 40
+  },
+  "parameters": {
+    "exprs": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "realParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "state": {
+      "type": "ScilabDouble",
+      "height": 1,
+      "width": 1,
+      "data": [
+        {"line": 0, "column": 0, "realPart": 0.0}
+      ]
+    },
+    "dState": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": 0,
+    "nmode": 0
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"...\" interfaceFunctionName=\"CLINDUMMY_f\" blockType=\"c\" dependsOnU=\"0\" dependsOnT=\"1\" simulationFunctionName=\"cdummy\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"CLINDUMMY_f\">\n  <ScilabDouble as=\"exprs\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\"/>\n  <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabDouble as=\"state\" height=\"1\" width=\"1\">\n    <data line=\"0\" column=\"0\" realPart=\"0.0\"/>\n  </ScilabDouble>\n  <ScilabDouble as=\"dState\" height=\"0\" width=\"0\"/>\n  <mxGeometry as=\"geometry\" x=\"0.0\" y=\"-10.0\" width=\"60.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Empty exprs (ScilabDouble with height=0, width=0)",
+    "Zero ports - no inputs or outputs",
+    "Non-standard width of 60 (instead of 40)",
+    "Has state with realPart=0.0 despite being a dummy block",
+    "dependsOnT=1 but no time-dependent behavior visible"
+  ],
+  "criticalRules": [
+    "Used internally by XCOS for clock-related operations",
+    "Block is automatically generated - users rarely place it manually",
+    "Width=60 is non-standard but required for this block"
+  ],
+  "commonUses": [
+    "Internal XCOS placeholder for clock synchronization",
+    "Maintaining compatibility between continuous and event systems",
+    "Supporting legacy models"
+  ],
+  "relatedBlocks": ["CLKINV_f", "CLKOUTV_f", "CLKFROM", "CLKGOTO"]
+}

@@ -1,0 +1,91 @@
+{
+  "name": "CLKGOTO",
+  "description": "Clock Goto block - sends clock/event signals to a CLKFROM block via tag",
+  "category": "Signal Routing/Events",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CLKGOTO",
+  "simulationFunctionName": "clkgoto",
+  "simulationFunctionType": "DEFAULT",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "width": 40,
+    "height": 20
+  },
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 2,
+      "width": 1,
+      "data": [
+        {"line": 0, "column": 0, "value": "A"},
+        {"line": 1, "column": 0, "value": "1"}
+      ]
+    },
+    "realParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "type": "ScilabInteger",
+      "height": 1,
+      "width": 1,
+      "intPrecision": "sci_int32",
+      "data": [
+        {"line": 0, "column": 0, "value": 1}
+      ]
+    },
+    "state": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": 0,
+    "nmode": 0
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"...\" interfaceFunctionName=\"CLKGOTO\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"clkgoto\" simulationFunctionType=\"DEFAULT\" style=\"CLKGOTO\" value=\"Goto\">\n  <ScilabString as=\"exprs\" height=\"2\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"A\"/>\n    <data line=\"1\" column=\"0\" value=\"1\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\"/>\n  <ScilabInteger as=\"integerParameters\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"1\"/>\n  </ScilabInteger>\n  <Array as=\"objectsParameters\" scilabClass=\"ScilabList\">\n    <ScilabString height=\"1\" width=\"1\">\n      <data line=\"0\" column=\"0\" value=\"A\"/>\n    </ScilabString>\n  </Array>\n  <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabDouble as=\"state\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"dState\" height=\"0\" width=\"0\"/>\n  <mxGeometry as=\"geometry\" x=\"0.0\" y=\"-10.0\" width=\"40.0\" height=\"20.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Short height of 20 (half of standard 40)",
+    "Has 'value' attribute showing display label \"Goto\"",
+    "exprs has 2 rows - tag and tag visibility scope",
+    "Tag value 'A' is duplicated in exprs AND objectsParameters",
+    "integerParameters=1 maps to the visibility scope setting",
+    "Control port has initialState=0.0 (standard for control ports)"
+  ],
+  "criticalRules": [
+    "First exprs value is the tag name (must match CLKFROM)",
+    "Second exprs value is tag visibility scope (1=local, 2=scoped, 3=global)",
+    "integerParameters mirrors the visibility scope setting",
+    "Can connect to multiple CLKFROM blocks with same tag",
+    "Use CLKGotoTagVisibility to control tag scope explicitly"
+  ],
+  "commonUses": [
+    "Sending event signals across long distances in diagram",
+    "Event signal distribution from central source",
+    "Connecting event signals across subsystem boundaries",
+    "Implementing event broadcast patterns"
+  ],
+  "relatedBlocks": ["CLKFROM", "CLKGotoTagVisibility", "FROM", "GOTO", "GotoTagVisibility"]
+}

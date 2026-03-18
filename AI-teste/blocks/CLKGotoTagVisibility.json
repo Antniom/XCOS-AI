@@ -1,0 +1,76 @@
+{
+  "name": "CLKGotoTagVisibility",
+  "description": "Clock Goto Tag Visibility - controls the scope of clock/event goto tags",
+  "category": "Signal Routing/Events",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CLKGotoTagVisibility",
+  "simulationFunctionName": "clkgototagvisibility",
+  "simulationFunctionType": "DEFAULT",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "width": 40,
+    "height": 40
+  },
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 1,
+      "width": 1,
+      "data": [
+        {"line": 0, "column": 0, "value": "A"}
+      ]
+    },
+    "realParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "state": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": 0,
+    "nmode": 0
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"...\" interfaceFunctionName=\"CLKGotoTagVisibility\" blockType=\"c\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"clkgototagvisibility\" simulationFunctionType=\"DEFAULT\" style=\"CLKGotoTagVisibility\">\n  <ScilabString as=\"exprs\" height=\"1\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"A\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\"/>\n  <Array as=\"objectsParameters\" scilabClass=\"ScilabList\">\n    <ScilabString height=\"1\" width=\"1\">\n      <data line=\"0\" column=\"0\" value=\"A\"/>\n    </ScilabString>\n  </Array>\n  <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n  </ScilabInteger>\n  <ScilabDouble as=\"state\" height=\"0\" width=\"0\"/>\n  <ScilabDouble as=\"dState\" height=\"0\" width=\"0\"/>\n  <mxGeometry as=\"geometry\" x=\"0.0\" y=\"-10.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Zero ports - no inputs or outputs",
+    "Tag value 'A' is duplicated in exprs AND objectsParameters",
+    "simulationFunctionName is very long: 'clkgototagvisibility'",
+    "Purely a scope-defining block - no functional behavior",
+    "blockType='c' (continuous) despite dealing with event tags"
+  ],
+  "criticalRules": [
+    "Place in the subsystem where the goto tag should be visible",
+    "Tag name must match CLKGOTO/CLKFROM pairs exactly",
+    "Multiple visibility blocks can define different scopes for same tag",
+    "Does NOT connect to any other blocks - sets scope by position",
+    "blockType='c' means it's evaluated in continuous context"
+  ],
+  "commonUses": [
+    "Limiting goto tag scope to specific subsystems",
+    "Resolving tag name conflicts between subsystems",
+    "Managing event signal visibility in hierarchical models",
+    "Creating scoped event connections without visible wires"
+  ],
+  "relatedBlocks": ["CLKGOTO", "CLKFROM", "GotoTagVisibility", "GotoTagVisibilityMO"]
+}

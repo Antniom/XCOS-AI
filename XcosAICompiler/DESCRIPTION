@@ -1,0 +1,9 @@
+Toolbox=XcosAICompiler
+Title=AI-Powered Xcos Block Diagram Compiler
+Summary=Autonomous closed-loop Xcos diagram generation and correction via Gemini API
+Version=1.0-1
+Author=User
+Maintainer=User
+Category=Utilities
+ScilabVersion>=2026.0.0
+Depends=

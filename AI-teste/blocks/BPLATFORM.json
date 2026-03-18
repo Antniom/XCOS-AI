@@ -1,0 +1,132 @@
+{
+  "name": "BPLATFORM",
+  "description": "Platform/bat animation for bouncing ball games",
+  "category": "Sinks/Visualization",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "BPLATFORM",
+  "simulationFunctionName": "bplatform2",
+  "simulationFunctionType": "SCILAB",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "BPLATFORM",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 7,
+      "width": 1,
+      "values": [
+        "2",
+        "2",
+        "0",
+        "-5",
+        "5",
+        "0",
+        "15"
+      ],
+      "labels": [
+        "width_p",
+        "height_p",
+        "xpos",
+        "xmin",
+        "xmax",
+        "ymin",
+        "ymax"
+      ],
+      "descriptions": [
+        "Platform width in pixels",
+        "Platform height in pixels",
+        "Window X position",
+        "X-axis minimum",
+        "X-axis maximum",
+        "Y-axis minimum",
+        "Y-axis maximum"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 7,
+      "values": [2.0, 2.0, 0.0, -5.0, 5.0, 0.0, 15.0],
+      "description": "Platform dimensions and axis limits"
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 1,
+      "width": 1,
+      "values": [0.0],
+      "description": "Platform position state"
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Platform X position"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Platform Y position"
+      }
+    ],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for display update"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"BPLATFORM\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"bplatform2\" simulationFunctionType=\"SCILAB\" style=\"BPLATFORM\">\n  <ScilabString as=\"exprs\" height=\"7\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"2\"/>\n    <data line=\"1\" column=\"0\" value=\"2\"/>\n    <data line=\"2\" column=\"0\" value=\"0\"/>\n    <data line=\"3\" column=\"0\" value=\"-5\"/>\n    <data line=\"4\" column=\"0\" value=\"5\"/>\n    <data line=\"5\" column=\"0\" value=\"0\"/>\n    <data line=\"6\" column=\"0\" value=\"15\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"1\" width=\"7\">\n    <data line=\"0\" column=\"0\" realPart=\"2.0\"/>\n    <data line=\"0\" column=\"1\" realPart=\"2.0\"/>\n    <data line=\"0\" column=\"2\" realPart=\"0.0\"/>\n    <data line=\"0\" column=\"3\" realPart=\"-5.0\"/>\n    <data line=\"0\" column=\"4\" realPart=\"5.0\"/>\n    <data line=\"0\" column=\"5\" realPart=\"0.0\"/>\n    <data line=\"0\" column=\"6\" realPart=\"15.0\"/>\n  </ScilabDouble>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "simulationFunctionType='SCILAB' - interpreted Scilab code",
+    "Empty integerParameters - only uses real parameters",
+    "Has ControlPort like other visualization blocks",
+    "Simple 1-element dState for position tracking"
+  ],
+  "criticalRules": [
+    "Platform dimensions define bat size",
+    "Input defines center position",
+    "SCILAB type means slower but flexible execution"
+  ],
+  "commonUses": [
+    "Pong-style game displays",
+    "Platform visualization",
+    "Animation of moving platforms"
+  ],
+  "relatedBlocks": ["BOUNCE", "BOUNCEXY"]
+}

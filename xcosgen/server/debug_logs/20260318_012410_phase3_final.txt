@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<XcosDiagram debugLevel="0" finalIntegrationTime="30.0"
+    integratorAbsoluteTolerance="1.0E-6" integratorRelativeTolerance="1.0E-6"
+    toleranceOnTime="1.0E-10" maxIntegrationTimeInterval="100001.0"
+    maximumStepSize="0.0" realTimeScaling="0.0" solver="1.0"
+    background="-1" gridEnabled="1" title="Diagram">
+  <Array as="context" scilabClass="String[]"></Array>
+  <mxGraphModel as="model">
+    <root>
+      <mxCell id="0:1:0"/>
+      <mxCell id="0:2:0" parent="0:1:0"/>
+      <BasicBlock id="b1" parent="0:2:0" interfaceFunctionName="RAMP" blockType="c" dependsOnU="0" dependsOnT="1"
+                  style="RAMP" simulationFunctionName="ramp" simulationFunctionType="C_OR_FORTRAN">
+        <ScilabString as="exprs" height="3" width="1">
+          <data line="0" column="0" value="0"/>
+          <data line="1" column="0" value="0"/>
+          <data line="2" column="0" value="0"/>
+        </ScilabString>
+        <ScilabDouble as="realParameters" height="3" width="1">
+          <data line="0" column="0" realPart="0.0"/>
+          <data line="1" column="0" realPart="0.0"/>
+          <data line="2" column="0" realPart="0.0"/>
+        </ScilabDouble>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <ScilabDouble as="objectsParameters" height="0" width="0"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1">
+          <data line="0" column="0" value="1"/>
+        </ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1">
+          <data line="0" column="0" value="1"/>
+        </ScilabInteger>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <ScilabDouble as="oDState" height="0" width="0"/>
+        <ScilabDouble as="equations" height="0" width="0"/>
+        <mxGeometry as="geometry" height="20" width="20" x="100" y="100"/>
+      </BasicBlock>
+      <BasicBlock id="p1" parent="b1" interfaceFunctionName="OUT_f" blockType="c" dependsOnU="0" dependsOnT="0"
+                  style="OUT_f;rotation=0" simulationFunctionName="out_f" simulationFunctionType="DEFAULT">
+        <mxGeometry as="geometry" height="10" width="10" x="20" y="5"/>
+      </BasicBlock>
+      <BasicBlock id="b2" parent="0:2:0" interfaceFunctionName="CSCOPE" blockType="c" dependsOnU="1" dependsOnT="0"
+                  style="CSCOPE" simulationFunctionName="cscope" simulationFunctionType="C_OR_FORTRAN">
+        <ScilabString as="exprs" height="10" width="1">
+          <data line="0" column="0" value="1 3 5 7 9 11 13 15"/>
+          <data line="1" column="0" value="-1"/>
+          <data line="2" column="0" value="[]"/>
+          <data line="3" column="0" value="[600;400]"/>
+          <data line="4" column="0" value="-15"/>
+          <data line="5" column="0" value="15"/>
+          <data line="6" column="0" value="30"/>
+          <data line="7" column="0" value="20"/>
+          <data line="8" column="0" value="0"/>
+          <data line="9" column="0" value=""/>
+        </ScilabString>
+        <ScilabDouble as="realParameters" height="4" width="1">
+          <data line="0" column="0" realPart="0.0"/>
+          <data line="1" column="0" realPart="-15.0"/>
+          <data line="2" column="0" realPart="15.0"/>
+          <data line="3" column="0" realPart="30.0"/>
+        </ScilabDouble>
+        <ScilabInteger as="integerParameters" height="15" width="1">
+          <data line="0" column="0" value="-1"/>
+          <data line="1" column="0" value="1"/>
+          <data line="2" column="0" value="20"/>
+          <data line="3" column="0" value="1"/>
+          <data line="4" column="0" value="3"/>
+          <data line="5" column="0" value="5"/>
+          <data line="6" column="0" value="7"/>
+          <data line="7" column="0" value="9"/>
+          <data line="8" column="0" value="11"/>
+          <data line="9" column="0" value="13"/>
+          <data line="10" column="0" value="15"/>
+          <data line="11" column="0" value="-1"/>
+          <data line="12" column="0" value="-1"/>
+          <data line="13" column="0" value="600"/>
+          <data line="14" column="0" value="400"/>
+        </ScilabInteger>
+        <ScilabDouble as="objectsParameters" height="0" width="0"/>
+        <ScilabDouble as="nbZerosCrossing" height="0" width="0"/>
+        <ScilabDouble as="nmode" height="0" width="0"/>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <ScilabDouble as="oDState" height="0" width="0"/>
+        <ScilabDouble as="equations" height="0" width="0"/>
+        <mxGeometry as="geometry" height="20" width="20" x="300" y="100"/>
+      </BasicBlock>
+      <BasicBlock id="p2" parent="b2" interfaceFunctionName="IN_f" blockType="c" dependsOnU="0" dependsOnT="0"
+                  style="IN_f;rotation=0" simulationFunctionName="in_f" simulationFunctionType="DEFAULT">
+        <mxGeometry as="geometry" height="10" width="10" x="-10" y="5"/>
+      </BasicBlock>
+      <BasicBlock id="b3" parent="0:2:0" interfaceFunctionName="CLOCK_c" blockType="d" dependsOnU="0" dependsOnT="0"
+                  style="CLOCK_c" simulationFunctionName="genclk" simulationFunctionType="C_OR_FORTRAN">
+        <ScilabString as="exprs" height="2" width="1">
+          <data line="0" column="0" value="0.1"/>
+          <data line="1" column="0" value="0.0"/>
+        </ScilabString>
+        <ScilabDouble as="realParameters" height="2" width="1">
+          <data line="0" column="0" realPart="0.1"/>
+          <data line="1" column="0" realPart="0.0"/>
+        </ScilabDouble>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <ScilabDouble as="objectsParameters" height="0" width="0"/>
+        <ScilabDouble as="nbZerosCrossing" height="0" width="0"/>
+        <ScilabDouble as="nmode" height="0" width="0"/>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="2" width="1">
+          <data line="0" column="0" realPart="0.0"/>
+          <data line="1" column="0" realPart="0.0"/>
+        </ScilabDouble>
+        <ScilabDouble as="oDState" height="0" width="0"/>
+        <ScilabDouble as="equations" height="0" width="0"/>
+        <mxGeometry as="geometry" height="20" width="20" x="300" y="200"/>
+      </BasicBlock>
+      <EventOutBlock id="p3" parent="b3" interfaceFunctionName="CLKOUTV_f" blockType="d" dependsOnU="0" dependsOnT="0"
+                     style="CLKOUTV_f;rotation=0" simulationFunctionName="clkoutv_f" simulationFunctionType="DEFAULT">
+        <mxGeometry as="geometry" height="10" width="10" x="5" y="20"/>
+      </EventOutBlock>
+      <BasicBlock id="p4" parent="b2" interfaceFunctionName="CLKIN_f" blockType="d" dependsOnU="0" dependsOnT="0"
+                  style="CLKIN_f;rotation=270" simulationFunctionName="clkin_f" simulationFunctionType="DEFAULT">
+        <mxGeometry as="geometry" height="10" width="10" x="5" y="-10"/>
+      </BasicBlock>
+      <ExplicitLink id="l1" parent="0:2:0" style="ExplicitLink" value="">
+        <mxGeometry as="geometry">
+          <mxPoint x="120" y="110"/>
+          <mxPoint x="300" y="110"/>
+        </mxGeometry>
+      </ExplicitLink>
+      <CommandControlLink id="l2" parent="0:2:0" style="CommandControlLink" value="">
+        <mxGeometry as="geometry">
+          <mxPoint x="310" y="200"/>
+          <mxPoint x="310" y="100"/>
+        </mxGeometry>
+      </CommandControlLink>
+    </root>
+  </mxGraphModel>
+  <mxCell as="defaultParent" id="0:2:0" parent="0:1:0"/>
+</XcosDiagram>

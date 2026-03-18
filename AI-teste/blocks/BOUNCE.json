@@ -1,0 +1,127 @@
+{
+  "name": "BOUNCE",
+  "description": "Bouncing ball physics simulation with gravity and ground collision",
+  "category": "Physics/Simulation",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "BOUNCE",
+  "simulationFunctionName": "bounce_ball",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 1,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 60.0,
+    "height": 40.0
+  },
+  "style": "BOUNCE",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 7,
+      "width": 1,
+      "values": [
+        "[1;1]",
+        "[1;1]",
+        "[0;5;0;5]",
+        "[2;2.5]",
+        "[0;0]",
+        "[3;5]",
+        "[0;0]"
+      ],
+      "labels": [
+        "mass",
+        "radius",
+        "walls_position",
+        "initial_position",
+        "initial_velocity",
+        "x_para",
+        "y_para"
+      ],
+      "descriptions": [
+        "Mass of balls [m1;m2;...]",
+        "Radius of balls [r1;r2;...]",
+        "Wall positions [xmin;xmax;ymin;ymax]",
+        "Initial positions [x1;y1;x2;y2;...]",
+        "Initial velocities [vx1;vy1;vx2;vy2;...]",
+        "X-axis parameters [windx;dragx]",
+        "Y-axis parameters [gravity;dragy]"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 10,
+      "values": [1.0, 1.0, 1.0, 1.0, 0.0, 5.0, 0.0, 5.0, 9.81, 0.0],
+      "description": "Packed physics parameters: masses, radii, walls, gravity"
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 2,
+      "values": [1, 2],
+      "intPrecision": "sci_int32",
+      "description": "Number of balls and simulation mode"
+    },
+    "state": {
+      "height": 1,
+      "width": 8,
+      "values": [2.0, 0.0, 3.0, 0.0, 2.5, 0.0, 5.0, 0.0],
+      "description": "Initial state vector [x1,vx1,x2,vx2,y1,vy1,y2,vy2]"
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 9,
+      "description": "9 zero-crossing surfaces for collision detection"
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 2,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0;rotation=0",
+        "description": "X positions of balls"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 2,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0;rotation=0",
+        "description": "Y positions of balls"
+      }
+    ],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"BOUNCE\" blockType=\"c\" dependsOnU=\"0\" dependsOnT=\"1\" simulationFunctionName=\"bounce_ball\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"BOUNCE\">\n  <ScilabString as=\"exprs\" height=\"7\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"[1;1]\"/>\n    <data line=\"1\" column=\"0\" value=\"[1;1]\"/>\n    <data line=\"2\" column=\"0\" value=\"[0;5;0;5]\"/>\n    <data line=\"3\" column=\"0\" value=\"[2;2.5]\"/>\n    <data line=\"4\" column=\"0\" value=\"[0;0]\"/>\n    <data line=\"5\" column=\"0\" value=\"[3;5]\"/>\n    <data line=\"6\" column=\"0\" value=\"[0;0]\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"1\" width=\"10\">\n    <data line=\"0\" column=\"0\" realPart=\"1.0\"/>\n    <data line=\"0\" column=\"1\" realPart=\"1.0\"/>\n    <data line=\"0\" column=\"2\" realPart=\"1.0\"/>\n    <data line=\"0\" column=\"3\" realPart=\"1.0\"/>\n    <data line=\"0\" column=\"4\" realPart=\"0.0\"/>\n    <data line=\"0\" column=\"5\" realPart=\"5.0\"/>\n    <data line=\"0\" column=\"6\" realPart=\"0.0\"/>\n    <data line=\"0\" column=\"7\" realPart=\"5.0\"/>\n    <data line=\"0\" column=\"8\" realPart=\"9.81\"/>\n    <data line=\"0\" column=\"9\" realPart=\"0.0\"/>\n  </ScilabDouble>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"60.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Width=60 (non-standard, typically 40)",
+    "No input ports - generates positions autonomously",
+    "dependsOnT=1 - requires time input internally",
+    "High nbZerosCrossing=9 for collision detection",
+    "State vector of dimension 8 tracks positions and velocities"
+  ],
+  "criticalRules": [
+    "Zero-crossing surfaces detect ball-wall and ball-ball collisions",
+    "Gravity constant 9.81 embedded in realParameters",
+    "Position output is [2x1] for multiple balls"
+  ],
+  "commonUses": [
+    "Physics simulation demonstrations",
+    "Ball collision mechanics",
+    "Animation data generation"
+  ],
+  "relatedBlocks": ["BOUNCEXY", "BPLATFORM", "BARXY"]
+}

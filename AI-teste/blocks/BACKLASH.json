@@ -1,0 +1,91 @@
+{
+  "name": "BACKLASH",
+  "description": "Backlash/Deadzone block for mechanical systems with play",
+  "category": "Discontinuities",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "BACKLASH",
+  "simulationFunctionName": "backlash",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 60.0,
+    "height": 40.0
+  },
+  "style": "BACKLASH",
+  "parameters": {
+    "exprs": {
+      "height": 3,
+      "width": 1,
+      "values": ["0", "1", "1"],
+      "labels": ["initial_output", "gap", "zero_crossing"],
+      "descriptions": [
+        "Initial output value",
+        "Dead zone/gap width",
+        "Enable zero crossing detection (0=no, 1=yes)"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 2,
+      "values": [0.0, 1.0]
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 2
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Input signal"
+      }
+    ],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "Output with backlash applied"
+      }
+    ],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"BACKLASH\" blockType=\"c\" simulationFunctionName=\"backlash\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"BACKLASH\">\n  <ScilabString as=\"exprs\" height=\"3\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"0\"/>\n    <data line=\"1\" column=\"0\" value=\"1\"/>\n    <data line=\"2\" column=\"0\" value=\"1\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"1\" width=\"2\">\n    <data line=\"0\" column=\"0\" realPart=\"0.0\"/>\n    <data line=\"0\" column=\"1\" realPart=\"1.0\"/>\n  </ScilabDouble>\n  <mxGeometry as=\"geometry\" x=\"150.0\" y=\"150.0\" width=\"60.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "nbZerosCrossing=2 (rare - most blocks have 0 or -1)",
+    "Width is 60 (1.5x standard 40) to fit label",
+    "Uses 2 zero crossings for gap entry/exit detection",
+    "Models mechanical play/backlash phenomenon"
+  ],
+  "criticalRules": [
+    "exprs[0]=initial output, [1]=gap value, [2]=use zero-crossing",
+    "Backlash uses 2 zero crossings for gap entry/exit detection",
+    "Standard 1x1 data in/out block"
+  ],
+  "commonUses": [
+    "Modeling gear backlash",
+    "Mechanical play simulation",
+    "Deadzone compensation",
+    "Hysteresis modeling"
+  ]
+}

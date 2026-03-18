@@ -1,0 +1,136 @@
+{
+  "name": "AUTOMAT",
+  "description": "Finite state machine (hybrid automaton) block for modeling state transitions",
+  "category": "Signal Processing/Control",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "AUTOMAT",
+  "simulationFunctionName": "automat",
+  "simulationFunctionType": "IMPLICIT_C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 1,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 100.0,
+    "height": 50.0
+  },
+  "style": "AUTOMAT",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 7,
+      "width": 1,
+      "values": ["2", "1", "1", "0", "[1;1]", "2", "1"],
+      "labels": ["nx", "max_m1", "max_m2", "max_m3", "Minitial", "nm", "flag"],
+      "descriptions": [
+        "Number of states",
+        "Max dimension of first mode",
+        "Max dimension of second mode",
+        "Max dimension of third mode",
+        "Initial mode matrix [state;mode]",
+        "Number of modes",
+        "Flag for additional options"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 1,
+      "values": [0.0]
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 7,
+      "values": [2, 1, 1, 1, 1, 2, 1]
+    },
+    "state": {
+      "height": 1,
+      "width": 2,
+      "values": [1.0, 1.0]
+    },
+    "nbZerosCrossing": {
+      "value": 1
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 3,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Mode selection input (3 elements)"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 3,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Continuous dynamics input (3 elements)"
+      }
+    ],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 2,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "Current state output (2 elements)"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 2,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "Current mode output (2 elements)"
+      }
+    ],
+    "controls": [],
+    "commands": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": -1.0,
+        "style": "CommandPort;align=center;verticalAlign=bottom;spacing=10.0",
+        "description": "Event output for mode transition"
+      }
+    ]
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"AUTOMAT\" blockType=\"c\" simulationFunctionName=\"automat\" simulationFunctionType=\"IMPLICIT_C_OR_FORTRAN\" dependsOnU=\"0\" dependsOnT=\"1\" style=\"AUTOMAT\">\n  <ScilabString as=\"exprs\" height=\"7\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"2\"/>\n    <data line=\"1\" column=\"0\" value=\"1\"/>\n    <data line=\"2\" column=\"0\" value=\"1\"/>\n    <data line=\"3\" column=\"0\" value=\"0\"/>\n    <data line=\"4\" column=\"0\" value=\"[1;1]\"/>\n    <data line=\"5\" column=\"0\" value=\"2\"/>\n    <data line=\"6\" column=\"0\" value=\"1\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"1\" width=\"1\">\n    <data line=\"0\" column=\"0\" realPart=\"0.0\"/>\n  </ScilabDouble>\n  <mxGeometry as=\"geometry\" x=\"100.0\" y=\"100.0\" width=\"100.0\" height=\"50.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Largest block so far: 100x50 geometry",
+    "Uses IMPLICIT_C_OR_FORTRAN (not standard C_OR_FORTRAN)",
+    "Has 2 explicit inputs with dataLines=3 (3 elements each)",
+    "Has 2 explicit outputs with dataLines=2 (2 elements each)",
+    "Has 1 command port with initialState=-1.0",
+    "exprs parameter encodes complex state machine configuration",
+    "dependsOnU=0 but dependsOnT=1 (time-dependent, not input-dependent)"
+  ],
+  "criticalRules": [
+    "AUTOMAT is a finite state machine (hybrid automaton) block",
+    "Has 2 explicit inputs with dataLines=3 (3 elements each)",
+    "Has 2 explicit outputs with dataLines=2 (2 elements each)",
+    "Has 1 command port (event output) with initialState=-1.0",
+    "Uses implicit simulation function (IMPLICIT_C_OR_FORTRAN)",
+    "exprs parameter encodes state machine configuration"
+  ],
+  "commonUses": [
+    "Modeling hybrid systems with discrete and continuous dynamics",
+    "State transition logic",
+    "Mode-dependent system behavior",
+    "Switching controller design"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "name": "CLR",
+  "description": "Continuous Linear System Representation - Transfer function block with polynomial coefficients",
+  "category": "Continuous/Linear Systems",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CLR",
+  "simulationFunctionName": "csslti4",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 1,
+  "geometry": {
+    "width": 60,
+    "height": 60
+  },
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 2,
+      "width": 1,
+      "values": ["1", "1+s"],
+      "description": "exprs[0]=numerator polynomial, exprs[1]=denominator polynomial"
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 4,
+      "values": [-1.0, 1.0, 1.0, 0.0],
+      "description": "State-space representation matrix values"
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": 0,
+    "nmode": 0,
+    "state": {
+      "height": 1,
+      "width": 1,
+      "initialValue": 0.0
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0;rotation=0"
+      }
+    ],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0;rotation=0"
+      }
+    ],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CLR\" blockType=\"c\" dependsOnU=\"0\" dependsOnT=\"1\" simulationFunctionName=\"csslti4\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"CLR\">\n  <ScilabString as=\"exprs\" height=\"2\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"1\"/>\n    <data line=\"1\" column=\"0\" value=\"1+s\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"1\" width=\"4\">\n    <data line=\"0\" column=\"0\" realPart=\"-1.0\"/>\n    <data line=\"0\" column=\"1\" realPart=\"1.0\"/>\n    <data line=\"0\" column=\"2\" realPart=\"1.0\"/>\n    <data line=\"0\" column=\"3\" realPart=\"0.0\"/>\n  </ScilabDouble>\n  <mxGeometry as=\"geometry\" x=\"0.0\" y=\"-10.0\" width=\"60.0\" height=\"60.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Geometry is 60x60 (non-standard, usually 40x40)",
+    "rotation attribute included in port style",
+    "dependsOnT=1 (time-dependent) but dependsOnU=0 (not input-dependent) - uses internal state"
+  ],
+  "criticalRules": [
+    "Uses polynomial representation in exprs (numerator/denominator)",
+    "Converts to state-space internally (4 realParameters)",
+    "Time-dependent but not directly input-dependent (internal dynamics)",
+    "Standard SISO transfer function block"
+  ],
+  "commonUses": [
+    "Implementing linear filters and transfer functions",
+    "Modeling first and second order systems",
+    "Creating PID controllers",
+    "Signal conditioning with known frequency response"
+  ],
+  "relatedBlocks": ["CLSS", "DLR", "DLSS", "INTEGRAL_m", "DERIV"]
+}

@@ -1,0 +1,6 @@
+// etc/module.end
+if getscilabmode() == 'STD' then
+    try; delmenu(0, 'Applications', 'Xcos AI Compiler'); catch; end
+    try; delmenu(0, 'Xcos AI'); catch; end
+end
+mprintf('[XcosAICompiler] Module unloaded.\n');

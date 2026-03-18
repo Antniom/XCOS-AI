@@ -1,0 +1,90 @@
+{
+  "name": "CLOCK_c",
+  "description": "Clock generator - generates periodic events with configurable period",
+  "category": "Sources/Event Generation",
+  "blockType": "h",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CLOCK_c",
+  "simulationFunctionName": "csuper",
+  "simulationFunctionType": "DEFAULT",
+  "isSuperBlock": true,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "CLOCK_c",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "internalStructure": {
+    "contains": ["CLKOUTV_f", "EVTDLY_c", "CLKSPLIT_f"],
+    "description": "SuperBlock containing event delay and output with feedback loop"
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [],
+    "commands": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": -1.0,
+        "style": "CommandPort;align=center;verticalAlign=bottom;spacing=10.0",
+        "description": "Generated clock events"
+      }
+    ]
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CLOCK_c\" blockType=\"h\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"csuper\" simulationFunctionType=\"DEFAULT\" style=\"CLOCK_c\">\n  <ScilabDouble as=\"exprs\" height=\"0\" width=\"0\" />\n  <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\" />\n  <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\" />\n  <Array as=\"objectsParameters\" scilabClass=\"ScilabList\" />\n  <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\" />\n  </ScilabInteger>\n  <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n    <data line=\"0\" column=\"0\" value=\"0\" />\n  </ScilabInteger>\n  <ScilabDouble as=\"state\" height=\"0\" width=\"0\" />\n  <ScilabDouble as=\"dState\" height=\"0\" width=\"0\" />\n  <Array as=\"oDState\" scilabClass=\"ScilabList\" />\n  <Array as=\"equations\" scilabClass=\"ScilabList\" />\n  <mxGeometry as=\"geometry\" x=\"0.0\" y=\"-10.0\" width=\"40.0\" height=\"40.0\" />\n  <SuperBlockDiagram as=\"child\" background=\"-1\" gridEnabled=\"1\" title=\"\">\n    <Array as=\"context\" scilabClass=\"String[]\" />\n    <mxGraphModel as=\"model\">\n      <root>\n        <mxCell id=\"0:3:0\" />\n        <mxCell id=\"0:4:0\" parent=\"0:3:0\" />\n        <EventOutBlock id=\"clkout\" interfaceFunctionName=\"CLKOUTV_f\" parent=\"0:4:0\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"output\" simulationFunctionType=\"DEFAULT\">\n          <ScilabString as=\"exprs\" height=\"1\" width=\"1\">\n            <data line=\"0\" column=\"0\" value=\"1\" />\n          </ScilabString>\n          <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\" />\n          <ScilabInteger as=\"integerParameters\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"1\" />\n          </ScilabInteger>\n          <Array as=\"objectsParameters\" scilabClass=\"ScilabList\" />\n          <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"0\" />\n          </ScilabInteger>\n          <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"0\" />\n          </ScilabInteger>\n          <ScilabDouble as=\"state\" height=\"0\" width=\"0\" />\n          <ScilabDouble as=\"dState\" height=\"0\" width=\"0\" />\n          <Array as=\"oDState\" scilabClass=\"ScilabList\" />\n          <Array as=\"equations\" scilabClass=\"ScilabList\" />\n          <mxGeometry as=\"geometry\" x=\"399.0\" y=\"162.0\" width=\"20.0\" height=\"20.0\" />\n        </EventOutBlock>\n        <ControlPort id=\"clkout_p\" parent=\"clkout\" ordering=\"1\" dataType=\"REAL_MATRIX\" dataColumns=\"1\" dataLines=\"1\" initialState=\"0.0\" style=\"\" value=\"\" />\n        <BasicBlock id=\"evtdly\" interfaceFunctionName=\"EVTDLY_c\" parent=\"0:4:0\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"evtdly4\" simulationFunctionType=\"C_OR_FORTRAN\">\n          <ScilabString as=\"exprs\" height=\"2\" width=\"1\">\n            <data line=\"0\" column=\"0\" value=\"0.1\" />\n            <data line=\"1\" column=\"0\" value=\"0.1\" />\n          </ScilabString>\n          <ScilabDouble as=\"realParameters\" height=\"1\" width=\"2\">\n            <data line=\"0\" column=\"0\" realPart=\"0.1\" />\n            <data line=\"0\" column=\"1\" realPart=\"0.1\" />\n          </ScilabDouble>\n          <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\" />\n          <Array as=\"objectsParameters\" scilabClass=\"ScilabList\" />\n          <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"0\" />\n          </ScilabInteger>\n          <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"0\" />\n          </ScilabInteger>\n          <ScilabDouble as=\"state\" height=\"0\" width=\"0\" />\n          <ScilabDouble as=\"dState\" height=\"0\" width=\"0\" />\n          <Array as=\"oDState\" scilabClass=\"ScilabList\" />\n          <Array as=\"equations\" scilabClass=\"ScilabList\" />\n          <mxGeometry as=\"geometry\" x=\"320.0\" y=\"232.0\" width=\"40.0\" height=\"40.0\" />\n        </BasicBlock>\n        <ControlPort id=\"evtdly_p1\" parent=\"evtdly\" ordering=\"1\" dataType=\"REAL_MATRIX\" dataColumns=\"1\" dataLines=\"1\" initialState=\"0.0\" style=\"\" value=\"\" />\n        <CommandPort id=\"evtdly_p2\" parent=\"evtdly\" ordering=\"1\" dataType=\"REAL_MATRIX\" dataColumns=\"1\" dataLines=\"1\" initialState=\"0.1\" style=\"\" value=\"\" />\n        <SplitBlock id=\"split\" interfaceFunctionName=\"CLKSPLIT_f\" parent=\"0:4:0\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"split\" simulationFunctionType=\"DEFAULT\">\n          <ScilabDouble as=\"exprs\" height=\"0\" width=\"0\" />\n          <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\" />\n          <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\" />\n          <Array as=\"objectsParameters\" scilabClass=\"ScilabList\" />\n          <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"0\" />\n          </ScilabInteger>\n          <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n            <data line=\"0\" column=\"0\" value=\"0\" />\n          </ScilabInteger>\n          <ScilabDouble as=\"state\" height=\"0\" width=\"0\" />\n          <ScilabDouble as=\"dState\" height=\"0\" width=\"0\" />\n          <Array as=\"oDState\" scilabClass=\"ScilabList\" />\n          <Array as=\"equations\" scilabClass=\"ScilabList\" />\n          <mxGeometry as=\"geometry\" x=\"380.71\" y=\"172.0\" width=\"0.33\" height=\"0.33\" />\n        </SplitBlock>\n        <ControlPort id=\"split_p1\" parent=\"split\" ordering=\"1\" dataType=\"REAL_MATRIX\" dataColumns=\"1\" dataLines=\"1\" initialState=\"0.0\" style=\"\" value=\"\" />\n        <CommandPort id=\"split_p2\" parent=\"split\" ordering=\"1\" dataType=\"REAL_MATRIX\" dataColumns=\"1\" dataLines=\"1\" initialState=\"-1.0\" style=\"\" value=\"\" />\n        <CommandPort id=\"split_p3\" parent=\"split\" ordering=\"2\" dataType=\"REAL_MATRIX\" dataColumns=\"1\" dataLines=\"1\" initialState=\"-1.0\" style=\"\" value=\"\" />\n        <CommandControlLink id=\"l1\" parent=\"0:4:0\" source=\"evtdly_p2\" target=\"split_p1\" />\n        <CommandControlLink id=\"l2\" parent=\"0:4:0\" source=\"split_p2\" target=\"clkout_p\" />\n        <CommandControlLink id=\"l3\" parent=\"0:4:0\" source=\"split_p3\" target=\"evtdly_p1\" />\n      </root>\n    </mxGraphModel>\n    <mxCell as=\"defaultParent\" id=\"0:4:0\" parent=\"0:3:0\" />\n  </SuperBlockDiagram>\n</BasicBlock>",
+  "anomalies": [
+    "SuperBlock - contains internal EVTDLY_c and CLKSPLIT_f blocks",
+    "Has CommandPort at bottom (event output)",
+    "Internal feedback loop for periodic event generation",
+    "No explicit configuration parameters at top level"
+  ],
+  "criticalRules": [
+    "Clock generator - periodic event source",
+    "Ports are defined by CLKOUTV_f internal block",
+    "Period configured via internal EVTDLY_c parameters"
+  ],
+  "commonUses": [
+    "Periodic sampling triggers",
+    "Timed event generation",
+    "Simulation clock synchronization"
+  ],
+  "paramSets": {
+    "default_period_0.1": {
+      "period": 0.1,
+      "offset": 0.1
+    },
+    "slow_1s": {
+      "period": 1.0,
+      "offset": 1.0
+    },
+    "fast_0.01s": {
+      "period": 0.01,
+      "offset": 0.01
+    }
+  }
+}

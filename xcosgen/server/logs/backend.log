@@ -1,0 +1,581 @@
+--- Xcos AI Backend Session Started: 2026-03-18 01:13:35.924511 ---
+[2026-03-18 01:13:36] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 01:13:36] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 01:13:36] [INFO] System: Client production build found and mounted.
+[2026-03-18 01:13:36] [INFO] System: WebSocket connection accepted.
+[2026-03-18 01:13:36] [INFO] Heartbeat: Port 62226 polling (LoopID: 4069)
+[2026-03-18 01:13:41] [INFO] Job: [req_1773796421] New generation request received: gemini-flash-latest. Prompt length: 39
+[2026-03-18 01:13:41] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 01:13:41] [INFO] System: [req_1773796421] Scheduling background task for generation...
+[2026-03-18 01:13:41] [INFO] Generating: [req_1773796421] Iter #1: ...
+[2026-03-18 01:14:07] [INFO] Heartbeat: Port 59522 polling (LoopID: 4069)
+[2026-03-18 01:14:37] [INFO] Heartbeat: Port 59574 polling (LoopID: 4069)
+[2026-03-18 01:15:08] [INFO] Heartbeat: Port 59617 polling (LoopID: 4069)
+[2026-03-18 01:15:39] [INFO] Heartbeat: Port 50449 polling (LoopID: 4069)
+[2026-03-18 01:16:09] [INFO] Heartbeat: Port 55279 polling (LoopID: 4069)
+[2026-03-18 01:16:40] [INFO] Heartbeat: Port 49948 polling (LoopID: 4069)
+[2026-03-18 01:17:11] [INFO] Heartbeat: Port 50299 polling (LoopID: 4069)
+[2026-03-18 01:17:41] [INFO] Heartbeat: Port 54721 polling (LoopID: 4069)
+[2026-03-18 01:18:12] [INFO] Heartbeat: Port 50233 polling (LoopID: 4069)
+[2026-03-18 01:18:42] [INFO] Heartbeat: Port 63901 polling (LoopID: 4069)
+[2026-03-18 01:19:13] [INFO] Heartbeat: Port 59392 polling (LoopID: 4069)
+[2026-03-18 01:19:44] [INFO] Heartbeat: Port 59532 polling (LoopID: 4069)
+[2026-03-18 01:20:14] [INFO] Heartbeat: Port 59439 polling (LoopID: 4069)
+[2026-03-18 01:20:45] [INFO] Heartbeat: Port 57751 polling (LoopID: 4069)
+[2026-03-18 01:21:16] [INFO] Heartbeat: Port 62862 polling (LoopID: 4069)
+[2026-03-18 01:21:47] [INFO] Heartbeat: Port 52310 polling (LoopID: 4069)
+[2026-03-18 01:22:09] [ERROR] Error: [req_1773796421] Generation failed: Error code: 429 - {'error': {'message': 'You do not have enough quota to make this request.', 'code': 'too_many_requests'}}
+[2026-03-18 01:22:18] [INFO] Heartbeat: Port 65264 polling (LoopID: 4069)
+[2026-03-18 01:22:49] [INFO] Heartbeat: Port 54376 polling (LoopID: 4069)
+[2026-03-18 01:23:20] [INFO] Heartbeat: Port 50115 polling (LoopID: 4069)
+[2026-03-18 01:23:27] [INFO] Job: [req_1773797007] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 01:23:27] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 01:23:27] [INFO] System: [req_1773797007] Scheduling background task for generation...
+[2026-03-18 01:23:27] [INFO] Generating: [req_1773797007] Iter #1: ...
+[2026-03-18 01:23:47] [INFO] Verifying: [req_1773797007] Iter #1: ...
+[2026-03-18 01:23:47] [INFO] IPC: Queuing verification task v_1773797027 with file C:\Users\anton\AppData\Local\Temp\SCB01D~1\tmp0pkkkub3.xcos
+[2026-03-18 01:23:47] [INFO] IPC: Task v_1773797027 DISPATCHED to 127.0.0.1:58613 (LoopID: 4069, Port: 58613). Data: {"status": "pending", "task_id": "v_1773797027", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCB01D~1\\tmp0pkkkub3.xcos", "attempt": 1}
+[2026-03-18 01:23:51] [INFO] IPC: Result received for v_1773797027: success=False
+[2026-03-18 01:23:51] [WARN] IPC: Verification Error Detail: Attempt to reference field of non-structure array.
+[2026-03-18 01:23:51] [INFO] Fixing: [req_1773797007] Iter #1: Attempt to reference field of non-structure array.
+[2026-03-18 01:23:51] [INFO] Generating: [req_1773797007] Iter #2: ...
+[2026-03-18 01:23:52] [INFO] Heartbeat: Port 58623 polling (LoopID: 4069)
+[2026-03-18 01:24:09] [INFO] Verifying: [req_1773797007] Iter #2: ...
+[2026-03-18 01:24:09] [INFO] IPC: Queuing verification task v_1773797049 with file C:\Users\anton\AppData\Local\Temp\SCB01D~1\tmpyy0aras4.xcos
+[2026-03-18 01:24:09] [INFO] IPC: Task v_1773797049 DISPATCHED to 127.0.0.1:58871 (LoopID: 4069, Port: 58871). Data: {"status": "pending", "task_id": "v_1773797049", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCB01D~1\\tmpyy0aras4.xcos", "attempt": 1}
+[2026-03-18 01:24:10] [INFO] IPC: Result received for v_1773797049: success=False
+[2026-03-18 01:24:10] [WARN] IPC: Verification Error Detail: do_eval: Error while calling block CLOCK_c [uid='b3']: invalid parameter (ier=999.000000, %scicos_prob=%F).
+[2026-03-18 01:24:10] [INFO] Fixing: [req_1773797007] Iter #2: do_eval: Error while calling block CLOCK_c [uid='b3']: invalid parameter (ier=999.000000, %scicos_prob=%F).
+[2026-03-18 01:24:10] [INFO] Generating: [req_1773797007] Iter #3: ...
+[2026-03-18 01:24:23] [INFO] Heartbeat: Port 55481 polling (LoopID: 4069)
+[2026-03-18 01:24:27] [INFO] Verifying: [req_1773797007] Iter #3: ...
+[2026-03-18 01:24:27] [INFO] IPC: Queuing verification task v_1773797067 with file C:\Users\anton\AppData\Local\Temp\SCB01D~1\tmpu05nxu57.xcos
+[2026-03-18 01:24:27] [INFO] IPC: Task v_1773797067 DISPATCHED to 127.0.0.1:55487 (LoopID: 4069, Port: 55487). Data: {"status": "pending", "task_id": "v_1773797067", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCB01D~1\\tmpu05nxu57.xcos", "attempt": 1}
+[2026-03-18 01:24:27] [INFO] IPC: Result received for v_1773797067: success=False
+[2026-03-18 01:24:27] [WARN] IPC: Verification Error Detail: do_eval: Error while calling block CLOCK_c [uid='b3']: invalid parameter (ier=999.000000, %scicos_prob=%F).
+[2026-03-18 01:24:28] [INFO] Fixing: [req_1773797007] Iter #3: do_eval: Error while calling block CLOCK_c [uid='b3']: invalid parameter (ier=999.000000, %scicos_prob=%F).
+[2026-03-18 01:24:28] [INFO] Generating: [req_1773797007] Iter #4: ...
+[2026-03-18 01:24:44] [INFO] Verifying: [req_1773797007] Iter #4: ...
+[2026-03-18 01:24:44] [INFO] IPC: Queuing verification task v_1773797084 with file C:\Users\anton\AppData\Local\Temp\SCB01D~1\tmp1yg06uxh.xcos
+[2026-03-18 01:24:45] [INFO] IPC: Task v_1773797084 DISPATCHED to 127.0.0.1:54978 (LoopID: 4069, Port: 54978). Data: {"status": "pending", "task_id": "v_1773797084", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCB01D~1\\tmp1yg06uxh.xcos", "attempt": 1}
+[2026-03-18 01:24:53] [INFO] Heartbeat: Port 49274 polling (LoopID: 4069)
+[2026-03-18 01:25:24] [INFO] Heartbeat: Port 60251 polling (LoopID: 4069)
+[2026-03-18 01:25:55] [INFO] Heartbeat: Port 64141 polling (LoopID: 4069)
+[2026-03-18 01:26:25] [INFO] Heartbeat: Port 57466 polling (LoopID: 4069)
+[2026-03-18 01:26:56] [INFO] Heartbeat: Port 64189 polling (LoopID: 4069)
+[2026-03-18 01:27:27] [INFO] Heartbeat: Port 50450 polling (LoopID: 4069)
+[2026-03-18 01:27:57] [INFO] Heartbeat: Port 62227 polling (LoopID: 4069)
+[2026-03-18 01:28:28] [INFO] Heartbeat: Port 53833 polling (LoopID: 4069)
+[2026-03-18 01:28:59] [INFO] Heartbeat: Port 57702 polling (LoopID: 4069)
+[2026-03-18 01:29:29] [INFO] Heartbeat: Port 55209 polling (LoopID: 4069)
+[2026-03-18 01:29:44] [ERROR] IPC: Task v_1773797084 timed out waiting for Scilab.
+[2026-03-18 01:29:44] [INFO] Fixing: [req_1773797007] Iter #4: Timed out waiting for Scilab polling.
+[2026-03-18 01:29:44] [INFO] Generating: [req_1773797007] Iter #5: ...
+[2026-03-18 01:30:00] [INFO] Heartbeat: Port 51913 polling (LoopID: 4069)
+[2026-03-18 01:30:06] [INFO] Verifying: [req_1773797007] Iter #5: ...
+[2026-03-18 01:30:06] [INFO] IPC: Queuing verification task v_1773797406 with file C:\Users\anton\AppData\Local\Temp\SCB01D~1\tmp3iwbga6f.xcos
+[2026-03-18 01:30:06] [INFO] IPC: Task v_1773797406 DISPATCHED to 127.0.0.1:60800 (LoopID: 4069, Port: 60800). Data: {"status": "pending", "task_id": "v_1773797406", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCB01D~1\\tmp3iwbga6f.xcos", "attempt": 1}
+[2026-03-18 01:30:31] [INFO] Heartbeat: Port 50111 polling (LoopID: 4069)
+[2026-03-18 01:31:02] [INFO] Heartbeat: Port 56396 polling (LoopID: 4069)
+[2026-03-18 01:31:33] [INFO] Heartbeat: Port 63883 polling (LoopID: 4069)
+[2026-03-18 01:32:03] [INFO] Heartbeat: Port 62633 polling (LoopID: 4069)
+[2026-03-18 01:32:34] [INFO] Heartbeat: Port 57565 polling (LoopID: 4069)
+[2026-03-18 01:33:04] [INFO] Heartbeat: Port 51165 polling (LoopID: 4069)
+[2026-03-18 01:33:35] [INFO] Heartbeat: Port 51640 polling (LoopID: 4069)
+[2026-03-18 01:34:05] [INFO] Heartbeat: Port 54208 polling (LoopID: 4069)
+[2026-03-18 01:34:36] [INFO] Heartbeat: Port 60484 polling (LoopID: 4069)
+[2026-03-18 01:35:06] [ERROR] IPC: Task v_1773797406 timed out waiting for Scilab.
+[2026-03-18 01:35:06] [INFO] Fixing: [req_1773797007] Iter #5: Timed out waiting for Scilab polling.
+[2026-03-18 01:35:06] [ERROR] Error: [req_1773797007] Max iterations reached without success.
+[2026-03-18 01:35:07] [INFO] Heartbeat: Port 51308 polling (LoopID: 4069)
+[2026-03-18 01:35:37] [INFO] Heartbeat: Port 65110 polling (LoopID: 4069)
+[2026-03-18 01:36:08] [INFO] Heartbeat: Port 52510 polling (LoopID: 4069)
+[2026-03-18 01:36:39] [INFO] Heartbeat: Port 57577 polling (LoopID: 4069)
+[2026-03-18 01:37:10] [INFO] Heartbeat: Port 55923 polling (LoopID: 4069)
+[2026-03-18 01:37:40] [INFO] Heartbeat: Port 54167 polling (LoopID: 4069)
+[2026-03-18 01:38:11] [INFO] Heartbeat: Port 59787 polling (LoopID: 4069)
+[2026-03-18 01:38:42] [INFO] Heartbeat: Port 61861 polling (LoopID: 4069)
+[2026-03-18 01:39:12] [INFO] Heartbeat: Port 49856 polling (LoopID: 4069)
+[2026-03-18 01:39:43] [INFO] Heartbeat: Port 60627 polling (LoopID: 4069)
+[2026-03-18 01:40:14] [INFO] Heartbeat: Port 56631 polling (LoopID: 4069)
+[2026-03-18 01:40:45] [INFO] Heartbeat: Port 61493 polling (LoopID: 4069)
+[2026-03-18 01:41:16] [INFO] Heartbeat: Port 59581 polling (LoopID: 4069)
+[2026-03-18 01:41:46] [INFO] Heartbeat: Port 63515 polling (LoopID: 4069)
+[2026-03-18 01:42:17] [INFO] Heartbeat: Port 57866 polling (LoopID: 4069)
+[2026-03-18 01:42:48] [INFO] Heartbeat: Port 52245 polling (LoopID: 4069)
+
+--- Xcos AI Backend Session Started: 2026-03-18 01:43:15.271201 ---
+[2026-03-18 01:43:15] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 01:43:15] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 01:43:15] [INFO] System: Client production build found and mounted.
+[2026-03-18 01:43:15] [INFO] Heartbeat: Port 64266 polling (LoopID: 6258)
+[2026-03-18 01:43:17] [INFO] System: WebSocket connection accepted.
+[2026-03-18 01:43:30] [INFO] Job: [req_1773798210] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 01:43:30] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 01:43:30] [INFO] System: [req_1773798210] Scheduling background task for generation...
+[2026-03-18 01:43:30] [INFO] Generating: [req_1773798210] Iter #1: ...
+[2026-03-18 01:43:46] [INFO] Heartbeat: Port 51758 polling (LoopID: 6258)
+[2026-03-18 01:43:49] [INFO] Verifying: [req_1773798210] Iter #1: ...
+[2026-03-18 01:43:49] [INFO] IPC: Queuing verification task v_1773798229 with file C:\Users\anton\AppData\Local\Temp\SCD74B~1\tmplwj72qtf.xcos
+[2026-03-18 01:43:49] [INFO] IPC: Task v_1773798229 DISPATCHED to 127.0.0.1:51766 (LoopID: 6258, Port: 51766). Data: {"status": "pending", "task_id": "v_1773798229", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCD74B~1\\tmplwj72qtf.xcos", "attempt": 1}
+[2026-03-18 01:44:16] [INFO] Heartbeat: Port 60852 polling (LoopID: 6258)
+[2026-03-18 01:44:47] [INFO] Heartbeat: Port 52880 polling (LoopID: 6258)
+[2026-03-18 01:45:17] [INFO] Heartbeat: Port 50432 polling (LoopID: 6258)
+[2026-03-18 01:45:48] [INFO] Heartbeat: Port 54493 polling (LoopID: 6258)
+[2026-03-18 01:46:19] [INFO] Heartbeat: Port 53600 polling (LoopID: 6258)
+[2026-03-18 01:46:50] [INFO] Heartbeat: Port 63444 polling (LoopID: 6258)
+[2026-03-18 01:47:20] [INFO] Heartbeat: Port 60446 polling (LoopID: 6258)
+[2026-03-18 01:47:51] [INFO] Heartbeat: Port 61839 polling (LoopID: 6258)
+[2026-03-18 01:48:22] [INFO] Heartbeat: Port 50852 polling (LoopID: 6258)
+[2026-03-18 01:48:49] [ERROR] IPC: Task v_1773798229 timed out waiting for Scilab.
+[2026-03-18 01:48:49] [INFO] Fixing: [req_1773798210] Iter #1: Timed out waiting for Scilab polling.
+[2026-03-18 01:48:49] [INFO] Generating: [req_1773798210] Iter #2: ...
+[2026-03-18 01:48:52] [INFO] Heartbeat: Port 50918 polling (LoopID: 6258)
+[2026-03-18 01:49:05] [INFO] Verifying: [req_1773798210] Iter #2: ...
+[2026-03-18 01:49:05] [INFO] IPC: Queuing verification task v_1773798545 with file C:\Users\anton\AppData\Local\Temp\SCD74B~1\tmpme949ugq.xcos
+[2026-03-18 01:49:06] [INFO] IPC: Task v_1773798545 DISPATCHED to 127.0.0.1:58242 (LoopID: 6258, Port: 58242). Data: {"status": "pending", "task_id": "v_1773798545", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCD74B~1\\tmpme949ugq.xcos", "attempt": 1}
+[2026-03-18 01:49:23] [INFO] Heartbeat: Port 52149 polling (LoopID: 6258)
+[2026-03-18 01:49:54] [INFO] Heartbeat: Port 52216 polling (LoopID: 6258)
+[2026-03-18 01:50:25] [INFO] Heartbeat: Port 59381 polling (LoopID: 6258)
+[2026-03-18 01:50:55] [INFO] Heartbeat: Port 51143 polling (LoopID: 6258)
+[2026-03-18 01:51:26] [INFO] Heartbeat: Port 50303 polling (LoopID: 6258)
+[2026-03-18 01:51:57] [INFO] Heartbeat: Port 52858 polling (LoopID: 6258)
+[2026-03-18 01:52:27] [INFO] Heartbeat: Port 54377 polling (LoopID: 6258)
+[2026-03-18 01:52:58] [INFO] Heartbeat: Port 58468 polling (LoopID: 6258)
+[2026-03-18 01:53:29] [INFO] Heartbeat: Port 63411 polling (LoopID: 6258)
+[2026-03-18 01:53:59] [INFO] Heartbeat: Port 63459 polling (LoopID: 6258)
+[2026-03-18 01:54:05] [ERROR] IPC: Task v_1773798545 timed out waiting for Scilab.
+[2026-03-18 01:54:05] [INFO] Fixing: [req_1773798210] Iter #2: Timed out waiting for Scilab polling.
+[2026-03-18 01:54:05] [INFO] Generating: [req_1773798210] Iter #3: ...
+[2026-03-18 01:54:21] [INFO] Verifying: [req_1773798210] Iter #3: ...
+[2026-03-18 01:54:21] [INFO] IPC: Queuing verification task v_1773798861 with file C:\Users\anton\AppData\Local\Temp\SCD74B~1\tmpflaht3u8.xcos
+[2026-03-18 01:54:22] [INFO] IPC: Task v_1773798861 DISPATCHED to 127.0.0.1:60896 (LoopID: 6258, Port: 60896). Data: {"status": "pending", "task_id": "v_1773798861", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCD74B~1\\tmpflaht3u8.xcos", "attempt": 1}
+[2026-03-18 01:54:30] [INFO] Heartbeat: Port 63650 polling (LoopID: 6258)
+[2026-03-18 01:55:01] [INFO] Heartbeat: Port 63780 polling (LoopID: 6258)
+[2026-03-18 01:55:31] [INFO] Heartbeat: Port 58284 polling (LoopID: 6258)
+[2026-03-18 01:56:02] [INFO] Heartbeat: Port 64085 polling (LoopID: 6258)
+[2026-03-18 01:56:33] [INFO] Heartbeat: Port 60840 polling (LoopID: 6258)
+[2026-03-18 01:57:03] [INFO] Heartbeat: Port 57268 polling (LoopID: 6258)
+[2026-03-18 01:57:34] [INFO] Heartbeat: Port 54192 polling (LoopID: 6258)
+[2026-03-18 01:58:05] [INFO] Heartbeat: Port 54783 polling (LoopID: 6258)
+[2026-03-18 01:58:35] [INFO] Heartbeat: Port 51494 polling (LoopID: 6258)
+[2026-03-18 01:59:06] [INFO] Heartbeat: Port 51126 polling (LoopID: 6258)
+[2026-03-18 01:59:21] [ERROR] IPC: Task v_1773798861 timed out waiting for Scilab.
+[2026-03-18 01:59:21] [INFO] Fixing: [req_1773798210] Iter #3: Timed out waiting for Scilab polling.
+[2026-03-18 01:59:21] [INFO] Generating: [req_1773798210] Iter #4: ...
+[2026-03-18 01:59:37] [INFO] Heartbeat: Port 61032 polling (LoopID: 6258)
+[2026-03-18 01:59:39] [INFO] Verifying: [req_1773798210] Iter #4: ...
+[2026-03-18 01:59:39] [INFO] IPC: Queuing verification task v_1773799179 with file C:\Users\anton\AppData\Local\Temp\SCD74B~1\tmpjbrm1e0z.xcos
+[2026-03-18 01:59:39] [INFO] IPC: Task v_1773799179 DISPATCHED to 127.0.0.1:61035 (LoopID: 6258, Port: 61035). Data: {"status": "pending", "task_id": "v_1773799179", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCD74B~1\\tmpjbrm1e0z.xcos", "attempt": 1}
+[2026-03-18 02:00:08] [INFO] Heartbeat: Port 60156 polling (LoopID: 6258)
+[2026-03-18 02:00:38] [INFO] Heartbeat: Port 60502 polling (LoopID: 6258)
+[2026-03-18 02:01:09] [INFO] Heartbeat: Port 65039 polling (LoopID: 6258)
+[2026-03-18 02:01:40] [INFO] Heartbeat: Port 54513 polling (LoopID: 6258)
+[2026-03-18 02:02:10] [INFO] Heartbeat: Port 60258 polling (LoopID: 6258)
+[2026-03-18 02:02:41] [INFO] Heartbeat: Port 50739 polling (LoopID: 6258)
+[2026-03-18 02:03:12] [INFO] Heartbeat: Port 56595 polling (LoopID: 6258)
+[2026-03-18 02:03:43] [INFO] Heartbeat: Port 58772 polling (LoopID: 6258)
+[2026-03-18 02:04:13] [INFO] Heartbeat: Port 62125 polling (LoopID: 6258)
+[2026-03-18 02:04:39] [ERROR] IPC: Task v_1773799179 timed out waiting for Scilab.
+[2026-03-18 02:04:39] [INFO] Fixing: [req_1773798210] Iter #4: Timed out waiting for Scilab polling.
+[2026-03-18 02:04:39] [INFO] Generating: [req_1773798210] Iter #5: ...
+[2026-03-18 02:04:44] [INFO] Heartbeat: Port 61829 polling (LoopID: 6258)
+[2026-03-18 02:04:56] [INFO] Verifying: [req_1773798210] Iter #5: ...
+[2026-03-18 02:04:56] [INFO] IPC: Queuing verification task v_1773799496 with file C:\Users\anton\AppData\Local\Temp\SCD74B~1\tmpmtrvkg_f.xcos
+[2026-03-18 02:04:57] [INFO] IPC: Task v_1773799496 DISPATCHED to 127.0.0.1:65205 (LoopID: 6258, Port: 65205). Data: {"status": "pending", "task_id": "v_1773799496", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCD74B~1\\tmpmtrvkg_f.xcos", "attempt": 1}
+[2026-03-18 02:05:14] [INFO] Heartbeat: Port 60956 polling (LoopID: 6258)
+[2026-03-18 02:05:45] [INFO] Heartbeat: Port 59254 polling (LoopID: 6258)
+[2026-03-18 02:06:16] [INFO] Heartbeat: Port 53067 polling (LoopID: 6258)
+[2026-03-18 02:06:46] [INFO] Heartbeat: Port 54023 polling (LoopID: 6258)
+[2026-03-18 02:07:17] [INFO] Heartbeat: Port 60382 polling (LoopID: 6258)
+[2026-03-18 02:07:48] [INFO] Heartbeat: Port 54493 polling (LoopID: 6258)
+[2026-03-18 02:08:18] [INFO] Heartbeat: Port 63148 polling (LoopID: 6258)
+[2026-03-18 02:08:49] [INFO] Heartbeat: Port 64960 polling (LoopID: 6258)
+[2026-03-18 02:09:20] [INFO] Heartbeat: Port 60815 polling (LoopID: 6258)
+[2026-03-18 02:09:50] [INFO] Heartbeat: Port 60859 polling (LoopID: 6258)
+[2026-03-18 02:09:56] [ERROR] IPC: Task v_1773799496 timed out waiting for Scilab.
+[2026-03-18 02:09:56] [INFO] Fixing: [req_1773798210] Iter #5: Timed out waiting for Scilab polling.
+[2026-03-18 02:09:56] [ERROR] Error: [req_1773798210] Max iterations reached without success.
+[2026-03-18 02:10:21] [INFO] Heartbeat: Port 53807 polling (LoopID: 6258)
+[2026-03-18 02:10:52] [INFO] Heartbeat: Port 58464 polling (LoopID: 6258)
+[2026-03-18 02:11:22] [INFO] Heartbeat: Port 61841 polling (LoopID: 6258)
+[2026-03-18 02:11:53] [INFO] Heartbeat: Port 61642 polling (LoopID: 6258)
+[2026-03-18 02:12:23] [INFO] Heartbeat: Port 52067 polling (LoopID: 6258)
+[2026-03-18 02:12:54] [INFO] Heartbeat: Port 54432 polling (LoopID: 6258)
+[2026-03-18 02:13:25] [INFO] Heartbeat: Port 51464 polling (LoopID: 6258)
+[2026-03-18 02:13:55] [INFO] Heartbeat: Port 63247 polling (LoopID: 6258)
+[2026-03-18 02:14:26] [INFO] Heartbeat: Port 60697 polling (LoopID: 6258)
+[2026-03-18 02:14:57] [INFO] Heartbeat: Port 60684 polling (LoopID: 6258)
+[2026-03-18 02:15:27] [INFO] Heartbeat: Port 49663 polling (LoopID: 6258)
+[2026-03-18 02:15:58] [INFO] Heartbeat: Port 56981 polling (LoopID: 6258)
+[2026-03-18 02:16:29] [INFO] Heartbeat: Port 56243 polling (LoopID: 6258)
+[2026-03-18 02:16:59] [INFO] Heartbeat: Port 62427 polling (LoopID: 6258)
+[2026-03-18 02:17:30] [INFO] Heartbeat: Port 52022 polling (LoopID: 6258)
+[2026-03-18 02:18:00] [INFO] Heartbeat: Port 61178 polling (LoopID: 6258)
+[2026-03-18 02:18:31] [INFO] Heartbeat: Port 56883 polling (LoopID: 6258)
+[2026-03-18 02:19:02] [INFO] Heartbeat: Port 56943 polling (LoopID: 6258)
+[2026-03-18 02:19:32] [INFO] Heartbeat: Port 57331 polling (LoopID: 6258)
+[2026-03-18 02:20:03] [INFO] Heartbeat: Port 57375 polling (LoopID: 6258)
+[2026-03-18 02:20:33] [INFO] Heartbeat: Port 50824 polling (LoopID: 6258)
+[2026-03-18 02:21:04] [INFO] Heartbeat: Port 51277 polling (LoopID: 6258)
+[2026-03-18 02:21:35] [INFO] Heartbeat: Port 58315 polling (LoopID: 6258)
+[2026-03-18 02:22:05] [INFO] Heartbeat: Port 60648 polling (LoopID: 6258)
+[2026-03-18 02:22:36] [INFO] Heartbeat: Port 59474 polling (LoopID: 6258)
+[2026-03-18 02:23:07] [INFO] Heartbeat: Port 55832 polling (LoopID: 6258)
+[2026-03-18 02:23:37] [INFO] Heartbeat: Port 52542 polling (LoopID: 6258)
+[2026-03-18 02:24:08] [INFO] Heartbeat: Port 65222 polling (LoopID: 6258)
+[2026-03-18 02:24:39] [INFO] Heartbeat: Port 51248 polling (LoopID: 6258)
+[2026-03-18 02:25:10] [INFO] Heartbeat: Port 60936 polling (LoopID: 6258)
+[2026-03-18 02:25:40] [INFO] Heartbeat: Port 51440 polling (LoopID: 6258)
+[2026-03-18 02:26:11] [INFO] Heartbeat: Port 62583 polling (LoopID: 6258)
+[2026-03-18 02:26:42] [INFO] Heartbeat: Port 62628 polling (LoopID: 6258)
+[2026-03-18 02:27:12] [INFO] Heartbeat: Port 62674 polling (LoopID: 6258)
+[2026-03-18 02:27:43] [INFO] Heartbeat: Port 64039 polling (LoopID: 6258)
+[2026-03-18 02:28:14] [INFO] Heartbeat: Port 61387 polling (LoopID: 6258)
+[2026-03-18 02:28:44] [INFO] Heartbeat: Port 64108 polling (LoopID: 6258)
+[2026-03-18 02:29:15] [INFO] Heartbeat: Port 64154 polling (LoopID: 6258)
+[2026-03-18 02:29:46] [INFO] Heartbeat: Port 54006 polling (LoopID: 6258)
+[2026-03-18 02:30:17] [INFO] Heartbeat: Port 63603 polling (LoopID: 6258)
+[2026-03-18 02:30:47] [INFO] Heartbeat: Port 59166 polling (LoopID: 6258)
+[2026-03-18 02:31:18] [INFO] Heartbeat: Port 53667 polling (LoopID: 6258)
+[2026-03-18 02:31:49] [INFO] Heartbeat: Port 53594 polling (LoopID: 6258)
+[2026-03-18 02:32:19] [INFO] Heartbeat: Port 57024 polling (LoopID: 6258)
+[2026-03-18 02:32:50] [INFO] Heartbeat: Port 57074 polling (LoopID: 6258)
+[2026-03-18 02:33:21] [INFO] Heartbeat: Port 58591 polling (LoopID: 6258)
+[2026-03-18 02:33:51] [INFO] Heartbeat: Port 55918 polling (LoopID: 6258)
+[2026-03-18 02:34:22] [INFO] Heartbeat: Port 55960 polling (LoopID: 6258)
+[2026-03-18 02:34:53] [INFO] Heartbeat: Port 49837 polling (LoopID: 6258)
+[2026-03-18 02:35:24] [INFO] Heartbeat: Port 57199 polling (LoopID: 6258)
+[2026-03-18 02:35:54] [INFO] Heartbeat: Port 56961 polling (LoopID: 6258)
+[2026-03-18 02:36:25] [INFO] Heartbeat: Port 54161 polling (LoopID: 6258)
+[2026-03-18 02:36:56] [INFO] Heartbeat: Port 63900 polling (LoopID: 6258)
+[2026-03-18 02:37:27] [INFO] Heartbeat: Port 61367 polling (LoopID: 6258)
+[2026-03-18 02:37:58] [INFO] Heartbeat: Port 59525 polling (LoopID: 6258)
+[2026-03-18 02:38:29] [INFO] Heartbeat: Port 50583 polling (LoopID: 6258)
+[2026-03-18 02:38:59] [INFO] Heartbeat: Port 56717 polling (LoopID: 6258)
+
+--- Xcos AI Backend Session Started: 2026-03-18 02:39:16.534539 ---
+
+--- Xcos AI Backend Session Started: 2026-03-18 02:41:22.199480 ---
+
+--- Xcos AI Backend Session Started: 2026-03-18 02:44:41.765593 ---
+[2026-03-18 02:44:42] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 02:44:42] [INFO] System: Base Directory: c:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 02:44:42] [INFO] System: Client production build found and mounted.
+[2026-03-18 02:44:42] [INFO] Heartbeat: Port 59001 polling (LoopID: 2729)
+[2026-03-18 02:45:13] [INFO] Heartbeat: Port 49177 polling (LoopID: 2729)
+
+--- Xcos AI Backend Session Started: 2026-03-18 02:48:12.078979 ---
+[2026-03-18 02:48:12] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 02:48:12] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 02:48:12] [INFO] System: Client production build found and mounted.
+[2026-03-18 02:48:12] [INFO] System: WebSocket connection accepted.
+[2026-03-18 02:48:12] [INFO] Heartbeat: Port 63311 polling (LoopID: 3669)
+[2026-03-18 02:48:16] [INFO] Job: [req_1773802096] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 02:48:16] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 02:48:16] [INFO] System: [req_1773802096] Scheduling background task for generation...
+[2026-03-18 02:48:16] [INFO] Generating: [req_1773802096] Iter #1: Analyzing prompt and calling tools...
+[2026-03-18 02:48:20] [INFO] Generating: [req_1773802096] Iter #1: Tool call: get_xcos_block_source(RAMP)
+[2026-03-18 02:48:20] [INFO] Generating: [req_1773802096] Iter #1: Tool call: get_xcos_block_info(RAMP)
+[2026-03-18 02:48:20] [INFO] Generating: [req_1773802096] Iter #1: Tool call: get_xcos_block_source(CSCOPE)
+[2026-03-18 02:48:20] [INFO] Generating: [req_1773802096] Iter #1: Tool call: get_xcos_block_info(CSCOPE)
+[2026-03-18 02:48:26] [INFO] Verifying: [req_1773802096] Iter #1: Verifying with Scilab...
+[2026-03-18 02:48:26] [INFO] IPC: Queuing verification task v_1773802106 with file C:\Users\anton\AppData\Local\Temp\SC7363~1\tmp60up58o3.xcos
+[2026-03-18 02:48:26] [INFO] IPC: Task v_1773802106 DISPATCHED to 127.0.0.1:50693 (LoopID: 3669, Port: 50693). Data: {"status": "pending", "task_id": "v_1773802106", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC7363~1\\tmp60up58o3.xcos", "attempt": 1}
+[2026-03-18 02:48:42] [INFO] Heartbeat: Port 53801 polling (LoopID: 3669)
+[2026-03-18 02:49:13] [INFO] Heartbeat: Port 60221 polling (LoopID: 3669)
+[2026-03-18 02:49:44] [INFO] Heartbeat: Port 53583 polling (LoopID: 3669)
+[2026-03-18 02:50:14] [INFO] Heartbeat: Port 57686 polling (LoopID: 3669)
+[2026-03-18 02:50:45] [INFO] Heartbeat: Port 65152 polling (LoopID: 3669)
+[2026-03-18 02:51:16] [INFO] Heartbeat: Port 61466 polling (LoopID: 3669)
+[2026-03-18 02:51:47] [INFO] Heartbeat: Port 63233 polling (LoopID: 3669)
+[2026-03-18 02:52:17] [INFO] Heartbeat: Port 64554 polling (LoopID: 3669)
+[2026-03-18 02:52:48] [INFO] Heartbeat: Port 61803 polling (LoopID: 3669)
+[2026-03-18 02:53:19] [INFO] Heartbeat: Port 49778 polling (LoopID: 3669)
+[2026-03-18 02:53:26] [ERROR] IPC: Task v_1773802106 timed out waiting for Scilab.
+[2026-03-18 02:53:26] [INFO] Fixing: [req_1773802096] Iter #1: Timed out waiting for Scilab polling.
+[2026-03-18 02:53:33] [INFO] Verifying: [req_1773802096] Iter #2: Verifying with Scilab...
+[2026-03-18 02:53:33] [INFO] IPC: Queuing verification task v_1773802413 with file C:\Users\anton\AppData\Local\Temp\SC7363~1\tmp2vwzi0u3.xcos
+[2026-03-18 02:53:33] [INFO] IPC: Task v_1773802413 DISPATCHED to 127.0.0.1:60644 (LoopID: 3669, Port: 60644). Data: {"status": "pending", "task_id": "v_1773802413", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC7363~1\\tmp2vwzi0u3.xcos", "attempt": 1}
+[2026-03-18 02:57:02] [INFO] IPC: Result received for v_1773802413: success=False
+[2026-03-18 02:57:02] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 02:57:02] [INFO] Fixing: [req_1773802096] Iter #2: scicos_simulate: Error during block parameters update.
+[2026-03-18 02:57:10] [INFO] Verifying: [req_1773802096] Iter #3: Verifying with Scilab...
+[2026-03-18 02:57:10] [INFO] IPC: Queuing verification task v_1773802630 with file C:\Users\anton\AppData\Local\Temp\SC7363~1\tmpemka06cl.xcos
+[2026-03-18 02:57:10] [INFO] Heartbeat: Port 62325 polling (LoopID: 3669)
+[2026-03-18 02:57:10] [INFO] IPC: Task v_1773802630 DISPATCHED to 127.0.0.1:62325 (LoopID: 3669, Port: 62325). Data: {"status": "pending", "task_id": "v_1773802630", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC7363~1\\tmpemka06cl.xcos", "attempt": 1}
+[2026-03-18 02:57:13] [INFO] IPC: Result received for v_1773802630: success=False
+[2026-03-18 02:57:13] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 02:57:13] [INFO] Fixing: [req_1773802096] Iter #3: scicos_simulate: Error during block parameters update.
+[2026-03-18 02:57:20] [INFO] Verifying: [req_1773802096] Iter #4: Verifying with Scilab...
+[2026-03-18 02:57:20] [INFO] IPC: Queuing verification task v_1773802640 with file C:\Users\anton\AppData\Local\Temp\SC7363~1\tmpz36lelfk.xcos
+[2026-03-18 02:57:20] [INFO] IPC: Task v_1773802640 DISPATCHED to 127.0.0.1:62467 (LoopID: 3669, Port: 62467). Data: {"status": "pending", "task_id": "v_1773802640", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC7363~1\\tmpz36lelfk.xcos", "attempt": 1}
+
+--- Xcos AI Backend Session Started: 2026-03-18 02:57:42.930730 ---
+[2026-03-18 02:57:43] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 02:57:43] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 02:57:43] [INFO] System: Client production build found and mounted.
+[2026-03-18 02:57:43] [INFO] System: WebSocket connection accepted.
+[2026-03-18 02:57:43] [INFO] Heartbeat: Port 52918 polling (LoopID: 9907)
+[2026-03-18 02:57:46] [INFO] Job: [req_1773802666] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 02:57:46] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 02:57:46] [INFO] System: [req_1773802666] Scheduling background task for generation...
+[2026-03-18 02:57:46] [INFO] Generating: [req_1773802666] Iter #1: Analyzing prompt and calling tools...
+[2026-03-18 02:57:49] [INFO] Generating: [req_1773802666] Iter #1: Tool call: get_xcos_block_source(RAMP)
+[2026-03-18 02:57:49] [INFO] Generating: [req_1773802666] Iter #1: Tool call: get_xcos_block_source(CSCOPE)
+[2026-03-18 02:57:49] [INFO] Generating: [req_1773802666] Iter #1: Tool call: get_xcos_block_info(RAMP)
+[2026-03-18 02:57:49] [INFO] Generating: [req_1773802666] Iter #1: Tool call: get_xcos_block_info(CSCOPE)
+[2026-03-18 02:57:53] [INFO] Verifying: [req_1773802666] Iter #1: Verifying with Scilab...
+[2026-03-18 02:57:53] [INFO] IPC: Queuing verification task v_1773802673 with file C:\Users\anton\AppData\Local\Temp\SC5C39~1\tmp7lgp0ots.xcos
+[2026-03-18 02:57:53] [INFO] IPC: Task v_1773802673 DISPATCHED to 127.0.0.1:56751 (LoopID: 9907, Port: 56751). Data: {"status": "pending", "task_id": "v_1773802673", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC5C39~1\\tmp7lgp0ots.xcos", "attempt": 1}
+[2026-03-18 02:58:14] [INFO] Heartbeat: Port 56789 polling (LoopID: 9907)
+[2026-03-18 02:58:44] [INFO] Heartbeat: Port 59668 polling (LoopID: 9907)
+[2026-03-18 02:59:15] [INFO] Heartbeat: Port 55562 polling (LoopID: 9907)
+[2026-03-18 02:59:46] [INFO] Heartbeat: Port 63173 polling (LoopID: 9907)
+[2026-03-18 03:00:17] [INFO] Heartbeat: Port 64545 polling (LoopID: 9907)
+[2026-03-18 03:00:48] [INFO] Heartbeat: Port 54172 polling (LoopID: 9907)
+[2026-03-18 03:01:18] [INFO] Heartbeat: Port 63226 polling (LoopID: 9907)
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:01:21.124202 ---
+[2026-03-18 03:01:21] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:01:21] [INFO] System: Base Directory: c:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:01:21] [INFO] System: Client production build found and mounted.
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:01:50.529584 ---
+[2026-03-18 03:01:50] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:01:50] [INFO] System: Base Directory: c:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:01:50] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:01:50] [INFO] Heartbeat: Port 65487 polling (LoopID: 9907)
+[2026-03-18 03:01:51] [INFO] System: WebSocket connection accepted.
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:03:27.663418 ---
+[2026-03-18 03:03:27] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:03:27] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:03:27] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:03:28] [INFO] System: WebSocket connection accepted.
+[2026-03-18 03:03:28] [INFO] System: WebSocket connection accepted.
+[2026-03-18 03:03:28] [INFO] Heartbeat: Port 58559 polling (LoopID: 4719)
+[2026-03-18 03:03:38] [INFO] Job: [req_1773803018] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 03:03:38] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 03:03:38] [INFO] System: [req_1773803018] Scheduling background task for generation...
+[2026-03-18 03:03:38] [INFO] Generating: [req_1773803018] Iter #1: Analyzing prompt and calling tools...
+[2026-03-18 03:03:41] [INFO] Generating: [req_1773803018] Iter #1: Tool call: get_xcos_block_source(RAMP)
+[2026-03-18 03:03:41] [INFO] Generating: [req_1773803018] Iter #1: Tool call: get_xcos_block_info(RAMP)
+[2026-03-18 03:03:41] [INFO] Generating: [req_1773803018] Iter #1: Tool call: get_xcos_block_source(CSCOPE)
+[2026-03-18 03:03:41] [INFO] Generating: [req_1773803018] Iter #1: Tool call: get_xcos_block_info(CSCOPE)
+[2026-03-18 03:03:46] [INFO] Verifying: [req_1773803018] Iter #1: Verifying with Scilab...
+[2026-03-18 03:03:46] [INFO] IPC: Queuing verification task v_1773803026 with file C:\Users\anton\AppData\Local\Temp\SCCD75~1\tmpo1n4n_kz.xcos
+[2026-03-18 03:03:46] [INFO] IPC: Task v_1773803026 DISPATCHED to 127.0.0.1:51928 (LoopID: 4719, Port: 51928). Data: {"status": "pending", "task_id": "v_1773803026", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCCD75~1\\tmpo1n4n_kz.xcos", "attempt": 1}
+[2026-03-18 03:03:59] [INFO] Heartbeat: Port 64914 polling (LoopID: 4719)
+[2026-03-18 03:04:29] [INFO] Heartbeat: Port 57915 polling (LoopID: 4719)
+[2026-03-18 03:05:00] [INFO] Heartbeat: Port 63876 polling (LoopID: 4719)
+[2026-03-18 03:05:31] [INFO] Heartbeat: Port 65132 polling (LoopID: 4719)
+[2026-03-18 03:06:02] [INFO] Heartbeat: Port 56122 polling (LoopID: 4719)
+[2026-03-18 03:06:33] [INFO] Heartbeat: Port 50202 polling (LoopID: 4719)
+[2026-03-18 03:07:04] [INFO] Heartbeat: Port 49226 polling (LoopID: 4719)
+[2026-03-18 03:07:34] [INFO] Heartbeat: Port 62588 polling (LoopID: 4719)
+[2026-03-18 03:08:05] [INFO] Heartbeat: Port 63571 polling (LoopID: 4719)
+[2026-03-18 03:08:36] [INFO] Heartbeat: Port 57904 polling (LoopID: 4719)
+[2026-03-18 03:08:46] [ERROR] IPC: Task v_1773803026 timed out waiting for Scilab.
+[2026-03-18 03:08:46] [INFO] Fixing: [req_1773803018] Iter #1: Timed out waiting for Scilab polling.
+[2026-03-18 03:08:52] [INFO] Verifying: [req_1773803018] Iter #2: Verifying with Scilab...
+[2026-03-18 03:08:52] [INFO] IPC: Queuing verification task v_1773803332 with file C:\Users\anton\AppData\Local\Temp\SCCD75~1\tmp4xfza8_y.xcos
+[2026-03-18 03:08:52] [INFO] IPC: Task v_1773803332 DISPATCHED to 127.0.0.1:52737 (LoopID: 4719, Port: 52737). Data: {"status": "pending", "task_id": "v_1773803332", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCCD75~1\\tmp4xfza8_y.xcos", "attempt": 1}
+[2026-03-18 03:08:57] [INFO] IPC: Result received for v_1773803332: success=False
+[2026-03-18 03:08:57] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:08:57] [INFO] Fixing: [req_1773803018] Iter #2: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:09:05] [INFO] Verifying: [req_1773803018] Iter #3: Verifying with Scilab...
+[2026-03-18 03:09:05] [INFO] IPC: Queuing verification task v_1773803345 with file C:\Users\anton\AppData\Local\Temp\SCCD75~1\tmpyqv6yzm1.xcos
+[2026-03-18 03:09:05] [INFO] IPC: Task v_1773803345 DISPATCHED to 127.0.0.1:52745 (LoopID: 4719, Port: 52745). Data: {"status": "pending", "task_id": "v_1773803345", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCCD75~1\\tmpyqv6yzm1.xcos", "attempt": 1}
+[2026-03-18 03:09:06] [INFO] IPC: Result received for v_1773803345: success=False
+[2026-03-18 03:09:06] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:09:07] [INFO] Fixing: [req_1773803018] Iter #3: scicos_simulate: Error during block parameters update.
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:09:12.330009 ---
+[2026-03-18 03:09:12] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:09:12] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:09:12] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:09:13] [INFO] Verifying: [req_1773803018] Iter #4: Verifying with Scilab...
+[2026-03-18 03:09:13] [INFO] IPC: Queuing verification task v_1773803353 with file C:\Users\anton\AppData\Local\Temp\SCCD75~1\tmpl8c3c5uy.xcos
+[2026-03-18 03:09:13] [INFO] Heartbeat: Port 60602 polling (LoopID: 4719)
+[2026-03-18 03:09:13] [INFO] IPC: Task v_1773803353 DISPATCHED to 127.0.0.1:60602 (LoopID: 4719, Port: 60602). Data: {"status": "pending", "task_id": "v_1773803353", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCCD75~1\\tmpl8c3c5uy.xcos", "attempt": 1}
+[2026-03-18 03:09:14] [INFO] IPC: Result received for v_1773803353: success=False
+[2026-03-18 03:09:14] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:09:14] [INFO] Fixing: [req_1773803018] Iter #4: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:09:20] [INFO] Verifying: [req_1773803018] Iter #5: Verifying with Scilab...
+[2026-03-18 03:09:20] [INFO] IPC: Queuing verification task v_1773803360 with file C:\Users\anton\AppData\Local\Temp\SCCD75~1\tmptdrfzkb9.xcos
+[2026-03-18 03:09:20] [INFO] IPC: Task v_1773803360 DISPATCHED to 127.0.0.1:65321 (LoopID: 4719, Port: 65321). Data: {"status": "pending", "task_id": "v_1773803360", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SCCD75~1\\tmptdrfzkb9.xcos", "attempt": 1}
+[2026-03-18 03:09:22] [INFO] IPC: Result received for v_1773803360: success=False
+[2026-03-18 03:09:22] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:09:22] [INFO] Fixing: [req_1773803018] Iter #5: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:09:28] [ERROR] Error: [req_1773803018] Maximum fix iterations reached. Final XML still has errors.
+[2026-03-18 03:09:43] [INFO] Heartbeat: Port 58566 polling (LoopID: 4719)
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:10:08.299136 ---
+[2026-03-18 03:10:08] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:10:08] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:10:08] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:10:12] [INFO] Heartbeat: Port 58598 polling (LoopID: 4719)
+[2026-03-18 03:10:43] [INFO] Heartbeat: Port 57322 polling (LoopID: 4719)
+[2026-03-18 03:11:14] [INFO] Heartbeat: Port 63091 polling (LoopID: 4719)
+[2026-03-18 03:11:45] [INFO] Heartbeat: Port 51560 polling (LoopID: 4719)
+[2026-03-18 03:12:15] [INFO] Heartbeat: Port 64008 polling (LoopID: 4719)
+[2026-03-18 03:12:46] [INFO] Heartbeat: Port 61897 polling (LoopID: 4719)
+[2026-03-18 03:13:17] [INFO] Heartbeat: Port 64481 polling (LoopID: 4719)
+[2026-03-18 03:13:48] [INFO] Heartbeat: Port 52810 polling (LoopID: 4719)
+[2026-03-18 03:14:18] [INFO] Heartbeat: Port 56070 polling (LoopID: 4719)
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:14:28.189058 ---
+[2026-03-18 03:14:28] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:14:28] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:14:28] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:14:28] [INFO] System: WebSocket connection accepted.
+[2026-03-18 03:14:28] [INFO] Heartbeat: Port 49868 polling (LoopID: 2606)
+[2026-03-18 03:14:31] [INFO] Job: [req_1773803671] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 03:14:31] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 03:14:31] [INFO] System: [req_1773803671] Scheduling background task for generation...
+[2026-03-18 03:14:31] [INFO] Generating: [req_1773803671] Iter #1: Analyzing prompt and calling tools...
+[2026-03-18 03:14:35] [INFO] Generating: [req_1773803671] Iter #1: Tool call: get_xcos_block_source(RAMP)
+[2026-03-18 03:14:35] [INFO] Generating: [req_1773803671] Iter #1: Tool call: get_xcos_block_info(RAMP)
+[2026-03-18 03:14:35] [INFO] Generating: [req_1773803671] Iter #1: Tool call: get_xcos_block_source(CSCOPE)
+[2026-03-18 03:14:35] [INFO] Generating: [req_1773803671] Iter #1: Tool call: get_xcos_block_info(CSCOPE)
+[2026-03-18 03:14:40] [INFO] Verifying: [req_1773803671] Iter #1: Verifying with Scilab...
+[2026-03-18 03:14:40] [INFO] Fixing: [req_1773803671] Iter #1: No XML tags found in your response. You MUST generate valid Xcos XML enclosed in <?xml ...?> tags.
+[2026-03-18 03:14:43] [INFO] Verifying: [req_1773803671] Iter #2: Verifying with Scilab...
+[2026-03-18 03:14:43] [INFO] IPC: Queuing verification task v_1773803683 with file C:\Users\anton\AppData\Local\Temp\SC2257~1\tmpwcoyt6yb.xcos
+[2026-03-18 03:14:43] [INFO] IPC: Task v_1773803683 DISPATCHED to 127.0.0.1:57840 (LoopID: 2606, Port: 57840). Data: {"status": "pending", "task_id": "v_1773803683", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC2257~1\\tmpwcoyt6yb.xcos", "attempt": 1}
+[2026-03-18 03:16:13] [INFO] IPC: Result received for v_1773803683: success=False
+[2026-03-18 03:16:13] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:13] [INFO] Fixing: [req_1773803671] Iter #2: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:18] [INFO] Verifying: [req_1773803671] Iter #3: Verifying with Scilab...
+[2026-03-18 03:16:18] [INFO] IPC: Queuing verification task v_1773803778 with file C:\Users\anton\AppData\Local\Temp\SC2257~1\tmp936pzkfg.xcos
+[2026-03-18 03:16:18] [INFO] Heartbeat: Port 57262 polling (LoopID: 2606)
+[2026-03-18 03:16:18] [INFO] IPC: Task v_1773803778 DISPATCHED to 127.0.0.1:57262 (LoopID: 2606, Port: 57262). Data: {"status": "pending", "task_id": "v_1773803778", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC2257~1\\tmp936pzkfg.xcos", "attempt": 1}
+[2026-03-18 03:16:22] [INFO] IPC: Result received for v_1773803778: success=False
+[2026-03-18 03:16:22] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:22] [INFO] Fixing: [req_1773803671] Iter #3: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:27] [INFO] Verifying: [req_1773803671] Iter #4: Verifying with Scilab...
+[2026-03-18 03:16:27] [INFO] IPC: Queuing verification task v_1773803787 with file C:\Users\anton\AppData\Local\Temp\SC2257~1\tmpxrim_g28.xcos
+[2026-03-18 03:16:27] [INFO] IPC: Task v_1773803787 DISPATCHED to 127.0.0.1:56429 (LoopID: 2606, Port: 56429). Data: {"status": "pending", "task_id": "v_1773803787", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC2257~1\\tmpxrim_g28.xcos", "attempt": 1}
+[2026-03-18 03:16:29] [INFO] IPC: Result received for v_1773803787: success=False
+[2026-03-18 03:16:29] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:29] [INFO] Fixing: [req_1773803671] Iter #4: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:33] [INFO] Verifying: [req_1773803671] Iter #5: Verifying with Scilab...
+[2026-03-18 03:16:33] [INFO] IPC: Queuing verification task v_1773803793 with file C:\Users\anton\AppData\Local\Temp\SC2257~1\tmpx8i5ztxf.xcos
+[2026-03-18 03:16:33] [INFO] IPC: Task v_1773803793 DISPATCHED to 127.0.0.1:62583 (LoopID: 2606, Port: 62583). Data: {"status": "pending", "task_id": "v_1773803793", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC2257~1\\tmpx8i5ztxf.xcos", "attempt": 1}
+[2026-03-18 03:16:36] [INFO] IPC: Result received for v_1773803793: success=False
+[2026-03-18 03:16:36] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:36] [INFO] Fixing: [req_1773803671] Iter #5: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:16:41] [ERROR] Error: [req_1773803671] Maximum fix iterations reached. Final XML still has errors.
+[2026-03-18 03:16:48] [INFO] Heartbeat: Port 64977 polling (LoopID: 2606)
+[2026-03-18 03:17:19] [INFO] Heartbeat: Port 58705 polling (LoopID: 2606)
+[2026-03-18 03:17:50] [INFO] Heartbeat: Port 61756 polling (LoopID: 2606)
+[2026-03-18 03:18:20] [INFO] Heartbeat: Port 58029 polling (LoopID: 2606)
+[2026-03-18 03:18:51] [INFO] Heartbeat: Port 59219 polling (LoopID: 2606)
+[2026-03-18 03:19:22] [INFO] Heartbeat: Port 49906 polling (LoopID: 2606)
+[2026-03-18 03:19:53] [INFO] Heartbeat: Port 49951 polling (LoopID: 2606)
+[2026-03-18 03:20:24] [INFO] Heartbeat: Port 53928 polling (LoopID: 2606)
+[2026-03-18 03:20:54] [INFO] Heartbeat: Port 60532 polling (LoopID: 2606)
+[2026-03-18 03:21:25] [INFO] Heartbeat: Port 54547 polling (LoopID: 2606)
+[2026-03-18 03:21:56] [INFO] Heartbeat: Port 54593 polling (LoopID: 2606)
+[2026-03-18 03:22:27] [INFO] Heartbeat: Port 57709 polling (LoopID: 2606)
+[2026-03-18 03:22:57] [INFO] Heartbeat: Port 57750 polling (LoopID: 2606)
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:23:33.704095 ---
+[2026-03-18 03:23:33] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:23:33] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:23:33] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:23:37] [INFO] Heartbeat: Port 56088 polling (LoopID: 2606)
+[2026-03-18 03:23:40] [INFO] Job: [req_1773804220] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 03:23:40] [INFO] System: [req_1773804220] Scheduling background task for generation...
+[2026-03-18 03:24:08] [INFO] Heartbeat: Port 56139 polling (LoopID: 2606)
+[2026-03-18 03:24:38] [INFO] Heartbeat: Port 56184 polling (LoopID: 2606)
+[2026-03-18 03:25:09] [INFO] Heartbeat: Port 56225 polling (LoopID: 2606)
+[2026-03-18 03:25:40] [INFO] Heartbeat: Port 65481 polling (LoopID: 2606)
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:26:33.834737 ---
+[2026-03-18 03:26:34] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:26:34] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:26:34] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:26:34] [INFO] Heartbeat: Port 53746 polling (LoopID: 7529)
+[2026-03-18 03:26:34] [INFO] System: WebSocket connection accepted.
+[2026-03-18 03:26:36] [INFO] Job: [req_1773804396] New generation request received: gemini-flash-latest. Prompt length: 40
+[2026-03-18 03:26:36] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 03:26:36] [INFO] System: [req_1773804396] Scheduling background task for generation...
+[2026-03-18 03:26:36] [INFO] Generating: [req_1773804396] Iter #1: Analyzing prompt and calling tools...
+[2026-03-18 03:26:42] [INFO] Generating: [req_1773804396] Iter #1: Tool call: get_xcos_block_source(RAMP)
+[2026-03-18 03:26:42] [INFO] Generating: [req_1773804396] Iter #1: Tool call: get_xcos_block_info(RAMP)
+[2026-03-18 03:26:42] [INFO] Generating: [req_1773804396] Iter #1: Tool call: get_xcos_block_source(CSCOPE)
+[2026-03-18 03:26:42] [INFO] Generating: [req_1773804396] Iter #1: Tool call: get_xcos_block_info(CSCOPE)
+[2026-03-18 03:26:54] [INFO] Generating: [req_1773804396] Iter #1: Tool call: get_xcos_block_xml(RAMP)
+[2026-03-18 03:26:54] [INFO] Generating: [req_1773804396] Iter #1: Tool call: get_xcos_block_xml(CSCOPE)
+[2026-03-18 03:26:58] [ERROR] Error: [req_1773804396] Error code: 429 - {'error': {'message': 'You do not have enough quota to make this request.', 'code': 'too_many_requests'}}
+[2026-03-18 03:27:02] [INFO] Job: [req_1773804422] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 40
+[2026-03-18 03:27:02] [INFO] System: Custom API Key applied for this session.
+[2026-03-18 03:27:02] [INFO] System: [req_1773804422] Scheduling background task for generation...
+[2026-03-18 03:27:02] [INFO] Generating: [req_1773804422] Iter #1: Analyzing prompt and calling tools...
+[2026-03-18 03:27:05] [INFO] Generating: [req_1773804422] Iter #1: Tool call: get_xcos_block_source(RAMP)
+[2026-03-18 03:27:05] [INFO] Generating: [req_1773804422] Iter #1: Tool call: get_xcos_block_info(RAMP)
+[2026-03-18 03:27:05] [INFO] Generating: [req_1773804422] Iter #1: Tool call: get_xcos_block_source(CSCOPE)
+[2026-03-18 03:27:05] [INFO] Generating: [req_1773804422] Iter #1: Tool call: get_xcos_block_info(CSCOPE)
+[2026-03-18 03:27:10] [INFO] Verifying: [req_1773804422] Iter #1: Verifying with Scilab...
+[2026-03-18 03:27:10] [INFO] Fixing: [req_1773804422] Iter #1: No XML tags found in your response. You MUST generate valid Xcos XML enclosed in <?xml ...?> tags.
+[2026-03-18 03:27:15] [INFO] Verifying: [req_1773804422] Iter #2: Verifying with Scilab...
+[2026-03-18 03:27:15] [INFO] IPC: Queuing verification task v_1773804435 with file C:\Users\anton\AppData\Local\Temp\SC5067~1\tmpn14cdro5.xcos
+[2026-03-18 03:27:15] [INFO] Heartbeat: Port 63831 polling (LoopID: 7529)
+[2026-03-18 03:27:15] [INFO] IPC: Task v_1773804435 DISPATCHED to 127.0.0.1:63831 (LoopID: 7529, Port: 63831). Data: {"status": "pending", "task_id": "v_1773804435", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC5067~1\\tmpn14cdro5.xcos", "attempt": 1}
+[2026-03-18 03:27:30] [INFO] IPC: Result received for v_1773804435: success=False
+[2026-03-18 03:27:30] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:30] [INFO] Fixing: [req_1773804422] Iter #2: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:35] [INFO] Verifying: [req_1773804422] Iter #3: Verifying with Scilab...
+[2026-03-18 03:27:35] [INFO] IPC: Queuing verification task v_1773804455 with file C:\Users\anton\AppData\Local\Temp\SC5067~1\tmpqj8up_p3.xcos
+[2026-03-18 03:27:35] [INFO] IPC: Task v_1773804455 DISPATCHED to 127.0.0.1:63061 (LoopID: 7529, Port: 63061). Data: {"status": "pending", "task_id": "v_1773804455", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC5067~1\\tmpqj8up_p3.xcos", "attempt": 1}
+[2026-03-18 03:27:39] [INFO] IPC: Result received for v_1773804455: success=False
+[2026-03-18 03:27:39] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:39] [INFO] Fixing: [req_1773804422] Iter #3: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:44] [INFO] Verifying: [req_1773804422] Iter #4: Verifying with Scilab...
+[2026-03-18 03:27:44] [INFO] IPC: Queuing verification task v_1773804464 with file C:\Users\anton\AppData\Local\Temp\SC5067~1\tmp9g2i7yh8.xcos
+[2026-03-18 03:27:44] [INFO] IPC: Task v_1773804464 DISPATCHED to 127.0.0.1:63068 (LoopID: 7529, Port: 63068). Data: {"status": "pending", "task_id": "v_1773804464", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC5067~1\\tmp9g2i7yh8.xcos", "attempt": 1}
+[2026-03-18 03:27:46] [INFO] IPC: Result received for v_1773804464: success=False
+[2026-03-18 03:27:46] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:47] [INFO] Fixing: [req_1773804422] Iter #4: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:51] [INFO] Verifying: [req_1773804422] Iter #5: Verifying with Scilab...
+[2026-03-18 03:27:51] [INFO] IPC: Queuing verification task v_1773804471 with file C:\Users\anton\AppData\Local\Temp\SC5067~1\tmp1xfwarw8.xcos
+[2026-03-18 03:27:51] [INFO] Heartbeat: Port 49913 polling (LoopID: 7529)
+[2026-03-18 03:27:51] [INFO] IPC: Task v_1773804471 DISPATCHED to 127.0.0.1:49913 (LoopID: 7529, Port: 49913). Data: {"status": "pending", "task_id": "v_1773804471", "zcos_path": "C:\\Users\\anton\\AppData\\Local\\Temp\\SC5067~1\\tmp1xfwarw8.xcos", "attempt": 1}
+[2026-03-18 03:27:54] [INFO] IPC: Result received for v_1773804471: success=False
+[2026-03-18 03:27:54] [WARN] IPC: Verification Error Detail: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:55] [INFO] Fixing: [req_1773804422] Iter #5: scicos_simulate: Error during block parameters update.
+[2026-03-18 03:27:59] [ERROR] Error: [req_1773804422] Maximum fix iterations reached. Final XML still has errors.
+[2026-03-18 03:28:22] [INFO] Heartbeat: Port 63567 polling (LoopID: 7529)
+[2026-03-18 03:28:53] [INFO] Heartbeat: Port 60258 polling (LoopID: 7529)
+[2026-03-18 03:29:24] [INFO] Heartbeat: Port 62863 polling (LoopID: 7529)
+[2026-03-18 03:29:55] [INFO] Heartbeat: Port 65340 polling (LoopID: 7529)
+[2026-03-18 03:30:25] [INFO] Heartbeat: Port 52597 polling (LoopID: 7529)
+[2026-03-18 03:30:56] [INFO] Heartbeat: Port 64658 polling (LoopID: 7529)
+[2026-03-18 03:31:27] [INFO] Heartbeat: Port 65220 polling (LoopID: 7529)
+[2026-03-18 03:31:58] [INFO] Heartbeat: Port 63850 polling (LoopID: 7529)
+
+--- Xcos AI Backend Session Started: 2026-03-18 03:32:45.092119 ---
+[2026-03-18 03:32:45] [INFO] System: Xcos AI Backend starting up...
+[2026-03-18 03:32:45] [INFO] System: Base Directory: C:\Users\anton\Desktop\AI xcos module\xcosgen
+[2026-03-18 03:32:45] [INFO] System: Client production build found and mounted.
+[2026-03-18 03:32:45] [INFO] Heartbeat: Port 64272 polling (LoopID: 7529)
+[2026-03-18 03:32:54] [INFO] Job: [req_1773804774] New generation request received: gemini-3.1-flash-lite-preview. Prompt length: 39
+[2026-03-18 03:32:54] [INFO] System: [req_1773804774] Scheduling background task for generation...
+[2026-03-18 03:33:16] [INFO] Heartbeat: Port 51031 polling (LoopID: 7529)
+[2026-03-18 03:33:47] [INFO] Heartbeat: Port 54001 polling (LoopID: 7529)
+[2026-03-18 03:34:18] [INFO] Heartbeat: Port 54043 polling (LoopID: 7529)
+[2026-03-18 03:34:49] [INFO] Heartbeat: Port 58864 polling (LoopID: 7529)
+[2026-03-18 03:35:20] [INFO] Heartbeat: Port 65425 polling (LoopID: 7529)
+[2026-03-18 03:35:50] [INFO] Heartbeat: Port 57978 polling (LoopID: 7529)
+[2026-03-18 03:36:21] [INFO] Heartbeat: Port 57099 polling (LoopID: 7529)
+[2026-03-18 03:36:52] [INFO] Heartbeat: Port 55542 polling (LoopID: 7529)
+[2026-03-18 03:37:23] [INFO] Heartbeat: Port 51122 polling (LoopID: 7529)
+[2026-03-18 03:37:54] [INFO] Heartbeat: Port 55278 polling (LoopID: 7529)
+[2026-03-18 03:38:25] [INFO] Heartbeat: Port 56116 polling (LoopID: 7529)
+[2026-03-18 03:38:56] [INFO] Heartbeat: Port 50731 polling (LoopID: 7529)
+[2026-03-18 03:39:27] [INFO] Heartbeat: Port 65099 polling (LoopID: 7529)
+[2026-03-18 03:39:58] [INFO] Heartbeat: Port 52935 polling (LoopID: 7529)
+[2026-03-18 03:40:28] [INFO] Heartbeat: Port 59107 polling (LoopID: 7529)
+[2026-03-18 11:04:58] [INFO] Heartbeat: Port 52192 polling (LoopID: 7529)

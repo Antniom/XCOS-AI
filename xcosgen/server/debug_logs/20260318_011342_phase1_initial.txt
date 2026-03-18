@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XcosDiagram background="-1" debugLevel="0" finalIntegrationTime="30.0" gridEnabled="1" integratorAbsoluteTolerance="1.0E-6" integratorRelativeTolerance="1.0E-6" maxIntegrationTimeInterval="100001.0" maximumStepSize="0.0" realTimeScaling="0.0" solver="1.0" title="Diagram" toleranceOnTime="1.0E-10">
+  <Array as="context" scilabClass="String[]"/>
+  <mxGraphModel as="model">
+    <root>
+      <mxCell id="0:1:0"/>
+      <mxCell id="0:2:0" parent="0:1:0"/>
+      <BasicBlock blockType="c" dependsOnT="1" dependsOnU="0" id="b1" interfaceFunctionName="RAMP" parent="0:2:0" simulationFunctionName="ramp" simulationFunctionType="C_OR_FORTRAN" style="RAMP">
+        <ScilabString as="exprs" height="3" width="1">
+          <data column="0" line="0" value="0"/>
+          <data column="0" line="1" value="0"/>
+          <data column="0" line="2" value="0"/>
+        </ScilabString>
+        <ScilabDouble as="realParameters" height="3" width="1">
+          <data column="0" line="0" realPart="0.0"/>
+          <data column="0" line="1" realPart="0.0"/>
+          <data column="0" line="2" realPart="0.0"/>
+        </ScilabDouble>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <ScilabDouble as="objectsParameters" height="0" width="0"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+          <data column="0" line="0" value="1"/>
+        </ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+          <data column="0" line="0" value="1"/>
+        </ScilabInteger>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <ScilabDouble as="oDState" height="0" width="0"/>
+        <ScilabDouble as="equations" height="0" width="0"/>
+        <mxGeometry as="geometry" height="40.0" width="40.0" x="100.0" y="100.0"/>
+      </BasicBlock>
+      <BasicBlock blockType="c" dependsOnT="0" dependsOnU="1" id="b2" interfaceFunctionName="CSCOPE" parent="0:2:0" simulationFunctionName="cscope" simulationFunctionType="C_OR_FORTRAN" style="CSCOPE">
+        <ScilabString as="exprs" height="10" width="1">
+          <data column="0" line="0" value="1 3 5 7 9 11 13 15"/>
+          <data column="0" line="1" value="-1"/>
+          <data column="0" line="2" value="[]"/>
+          <data column="0" line="3" value="[600;400]"/>
+          <data column="0" line="4" value="-15"/>
+          <data column="0" line="5" value="15"/>
+          <data column="0" line="6" value="30"/>
+          <data column="0" line="7" value="20"/>
+          <data column="0" line="8" value="0"/>
+          <data column="0" line="9" value=""/>
+        </ScilabString>
+        <ScilabDouble as="realParameters" height="4" width="1">
+          <data column="0" line="0" realPart="0.0"/>
+          <data column="0" line="1" realPart="-15.0"/>
+          <data column="0" line="2" realPart="15.0"/>
+          <data column="0" line="3" realPart="30.0"/>
+        </ScilabDouble>
+        <ScilabInteger as="integerParameters" height="15" width="1" intPrecision="sci_int32">
+          <data column="0" line="0" value="-1"/>
+          <data column="0" line="1" value="1"/>
+          <data column="0" line="2" value="20"/>
+          <data column="0" line="3" value="1"/>
+          <data column="0" line="4" value="3"/>
+          <data column="0" line="5" value="5"/>
+          <data column="0" line="6" value="7"/>
+          <data column="0" line="7" value="9"/>
+          <data column="0" line="8" value="11"/>
+          <data column="0" line="9" value="13"/>
+          <data column="0" line="10" value="15"/>
+          <data column="0" line="11" value="-1"/>
+          <data column="0" line="12" value="-1"/>
+          <data column="0" line="13" value="600"/>
+          <data column="0" line="14" value="400"/>
+        </ScilabInteger>
+        <ScilabDouble as="objectsParameters" height="0" width="0"/>
+        <ScilabDouble as="nbZerosCrossing" height="0" width="0"/>
+        <ScilabDouble as="nmode" height="0" width="0"/>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <ScilabDouble as="oDState" height="0" width="0"/>
+        <ScilabDouble as="equations" height="0" width="0"/>
+        <mxGeometry as="geometry" height="40.0" width="40.0" x="300.0" y="100.0"/>
+      </BasicBlock>
+      <BasicBlock blockType="h" dependsOnT="0" dependsOnU="0" id="b3" interfaceFunctionName="CLOCK_c" parent="0:2:0" simulationFunctionName="csuper" simulationFunctionType="DEFAULT" style="CLOCK_c">
+        <ScilabDouble as="exprs" height="0" width="0"/>
+        <ScilabDouble as="realParameters" height="0" width="0"/>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <Array as="objectsParameters" scilabClass="ScicosList">
+          <SuperBlockDiagram background="-1" gridEnabled="1" title="">
+            <Array as="context" scilabClass="String[]"/>
+            <mxGraphModel as="model">
+              <root>
+                <mxCell id="b3:1:0"/>
+                <mxCell id="b3:2:0" parent="b3:1:0"/>
+                <BasicBlock blockType="d" dependsOnT="0" dependsOnU="0" id="b3_1" interfaceFunctionName="EVTDLY_c" parent="b3:2:0" simulationFunctionName="evtdly4" simulationFunctionType="C_OR_FORTRAN" style="EVTDLY_c">
+                  <ScilabString as="exprs" height="2" width="1">
+                    <data column="0" line="0" value="0.1"/>
+                    <data column="0" line="1" value="0.1"/>
+                  </ScilabString>
+                  <ScilabDouble as="realParameters" height="2" width="1">
+                    <data column="0" line="0" realPart="0.1"/>
+                    <data column="0" line="1" realPart="0.1"/>
+                  </ScilabDouble>
+                  <ScilabDouble as="integerParameters" height="0" width="0"/>
+                  <ScilabDouble as="objectsParameters" height="0" width="0"/>
+                  <ScilabDouble as="nbZerosCrossing" height="0" width="0"/>
+                  <ScilabDouble as="nmode" height="0" width="0"/>
+                  <ScilabDouble as="state" height="0" width="0"/>
+                  <ScilabDouble as="dState" height="0" width="0"/>
+                  <ScilabDouble as="oDState" height="0" width="0"/>
+                  <ScilabDouble as="equations" height="0" width="0"/>
+                  <mxGeometry as="geometry" height="40.0" width="60.0" x="100.0" y="100.0"/>
+                </BasicBlock>
+                <SplitBlock blockType="d" dependsOnT="0" dependsOnU="0" id="b3_2" interfaceFunctionName="CLKSPLIT_f" parent="b3:2:0" simulationFunctionName="split" simulationFunctionType="SPLIT" style="CLKSPLIT_f">
+                  <ScilabDouble as="exprs" height="0" width="0"/>
+                  <ScilabDouble as="realParameters" height="0" width="0"/>
+                  <ScilabDouble as="integerParameters" height="0" width="0"/>
+                  <ScilabDouble as="objectsParameters" height="0" width="0"/>
+                  <ScilabDouble as="nbZerosCrossing" height="0" width="0"/>
+                  <ScilabDouble as="nmode" height="0" width="0"/>
+                  <ScilabDouble as="state" height="0" width="0"/>
+                  <ScilabDouble as="dState" height="0" width="0"/>
+                  <ScilabDouble as="oDState" height="0" width="0"/>
+                  <ScilabDouble as="equations" height="0" width="0"/>
+                  <mxGeometry as="geometry" height="0.33" width="0.33" x="200.0" y="100.0"/>
+                </SplitBlock>
+                <EventOutBlock blockType="d" dependsOnT="0" dependsOnU="0" id="b3_3" interfaceFunctionName="CLKOUTV_f" parent="b3:2:0" simulationFunctionName="output" simulationFunctionType="C_OR_FORTRAN" style="CLKOUTV_f">
+                  <ScilabString as="exprs" height="1" width="1">
+                    <data column="0" line="0" value="1"/>
+                  </ScilabString>
+                  <ScilabDouble as="realParameters" height="0" width="0"/>
+                  <ScilabInteger as="integerParameters" height="1" width="1" intPrecision="sci_int32">
+                    <data column="0" line="0" value="1"/>
+                  </ScilabInteger>
+                  <ScilabDouble as="objectsParameters

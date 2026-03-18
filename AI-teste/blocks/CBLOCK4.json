@@ -1,0 +1,159 @@
+{
+  "name": "CBLOCK4",
+  "description": "C-code block for custom continuous dynamics (4 continuous states)",
+  "category": "User-Defined Functions",
+  "blockType": "c",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "CBLOCK4",
+  "simulationFunctionName": " ",
+  "simulationFunctionType": "DYNAMIC_EXPLICIT_4",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 80.0,
+    "height": 40.0
+  },
+  "style": "CBLOCK4",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 19,
+      "width": 1,
+      "values": [
+        "toto",
+        "n",
+        "[1,1]",
+        "1",
+        "[1,1]",
+        "1",
+        "[]",
+        "[]",
+        "[]",
+        "[]",
+        "list()",
+        "[]",
+        "[]",
+        "list()",
+        "0",
+        "0",
+        "[]",
+        "y",
+        "n"
+      ],
+      "labels": [
+        "simulation_function",
+        "input_type",
+        "input_size",
+        "input2",
+        "output_size",
+        "output2",
+        "parameters",
+        "param2",
+        "initial_states",
+        "state2",
+        "R",
+        "L",
+        "mode",
+        "nzcross",
+        "block_type",
+        "zcrosv",
+        "function_name",
+        "firing_mode",
+        "dep_ut"
+      ],
+      "descriptions": [
+        "Name of C function file",
+        "Input data type",
+        "Input sizes [rows,cols]",
+        "Secondary input",
+        "Output sizes [rows,cols]",
+        "Secondary output",
+        "Parameters vector",
+        "Secondary parameters",
+        "Initial continuous states",
+        "Secondary states",
+        "R matrix",
+        "L matrix",
+        "Mode flags",
+        "Zero crossing config",
+        "Block type flag",
+        "Zero crossing mode",
+        "Function name override",
+        "Firing mode",
+        "Dependency on u/t flags"
+      ]
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Input to custom C function"
+      }
+    ],
+    "explicitOutputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0",
+        "description": "Output from custom C function"
+      }
+    ],
+    "controls": [],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CBLOCK4\" blockType=\"c\" dependsOnU=\"1\" dependsOnT=\"0\" simulationFunctionName=\" \" simulationFunctionType=\"DYNAMIC_EXPLICIT_4\" style=\"CBLOCK4\">\n  <Array as=\"exprs\" scilabClass=\"ScilabList\">\n    <ScilabString height=\"19\" width=\"1\">\n      <data line=\"0\" column=\"0\" value=\"toto\"/>\n      <data line=\"1\" column=\"0\" value=\"n\"/>\n      <data line=\"2\" column=\"0\" value=\"[1,1]\"/>\n      <data line=\"3\" column=\"0\" value=\"1\"/>\n      <data line=\"4\" column=\"0\" value=\"[1,1]\"/>\n      <data line=\"5\" column=\"0\" value=\"1\"/>\n      <data line=\"6\" column=\"0\" value=\"[]\"/>\n      <data line=\"7\" column=\"0\" value=\"[]\"/>\n      <data line=\"8\" column=\"0\" value=\"[]\"/>\n      <data line=\"9\" column=\"0\" value=\"[]\"/>\n      <data line=\"10\" column=\"0\" value=\"list()\"/>\n      <data line=\"11\" column=\"0\" value=\"[]\"/>\n      <data line=\"12\" column=\"0\" value=\"[]\"/>\n      <data line=\"13\" column=\"0\" value=\"list()\"/>\n      <data line=\"14\" column=\"0\" value=\"0\"/>\n      <data line=\"15\" column=\"0\" value=\"0\"/>\n      <data line=\"16\" column=\"0\" value=\"[]\"/>\n      <data line=\"17\" column=\"0\" value=\"y\"/>\n      <data line=\"18\" column=\"0\" value=\"n\"/>\n    </ScilabString>\n    <ScilabDouble height=\"0\" width=\"0\"/>\n  </Array>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"80.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Width=80 (non-standard)",
+    "19 parameters - most complex exprs structure",
+    "exprs contains ScilabList with nested ScilabString + ScilabDouble",
+    "Uses list() syntax in exprs[10] and exprs[13]",
+    "simulationFunctionName=' ' (space) dynamic lookup",
+    "Empty realParameters/integerParameters but accepts matrix expressions like [1,1]"
+  ],
+  "criticalRules": [
+    "Special list() syntax for empty Scilab lists",
+    "Matrix expressions like [1,1] stored as strings",
+    "19 configuration parameters for advanced C blocks",
+    "Same DYNAMIC_EXPLICIT_4 type as CBLOCK"
+  ],
+  "commonUses": [
+    "Complex custom C functions",
+    "MIMO system implementations",
+    "State-space systems in C",
+    "Advanced user-defined blocks"
+  ],
+  "relatedBlocks": ["CBLOCK", "c_block", "scifunc_block_m"]
+}

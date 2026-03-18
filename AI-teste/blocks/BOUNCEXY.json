@@ -1,0 +1,138 @@
+{
+  "name": "BOUNCEXY",
+  "description": "XY animation scope displaying bouncing balls with event refresh",
+  "category": "Sinks/Visualization",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "BOUNCEXY",
+  "simulationFunctionName": "bouncexy",
+  "simulationFunctionType": "C_OR_FORTRAN",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "BOUNCEXY",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabString",
+      "height": 8,
+      "width": 1,
+      "values": [
+        "[1;2]",
+        "[1;1]",
+        "-1",
+        "1",
+        "-5",
+        "5",
+        "0",
+        "15"
+      ],
+      "labels": [
+        "colors",
+        "radii",
+        "xmin",
+        "xmax",
+        "ymin",
+        "ymax",
+        "xpos",
+        "ypos"
+      ],
+      "descriptions": [
+        "Ball color indices [c1;c2;...]",
+        "Ball radii [r1;r2;...]",
+        "X-axis minimum (-1=auto)",
+        "X-axis maximum (-1=auto)",
+        "Y-axis minimum (-1=auto)",
+        "Y-axis maximum (-1=auto)",
+        "Window X position",
+        "Window Y position"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 4,
+      "values": [-5.0, 5.0, 0.0, 15.0],
+      "description": "Axis limits and window position"
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 4,
+      "values": [-1, 1, 1, 2],
+      "intPrecision": "sci_int32",
+      "description": "Auto-axis flag, num inputs, display mode, window ID"
+    },
+    "state": {
+      "height": 0,
+      "width": 0
+    },
+    "dState": {
+      "height": 1,
+      "width": 12,
+      "values": [0.0, 0.0, 2.0, 2.0, 0.0, 23040.0, 0.0, 0.0, 2.0, 2.0, 0.0, 23040.0],
+      "description": "Display state buffer with figure handles"
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": -1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "X coordinates of balls (variable size)"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": -1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Y coordinates of balls"
+      }
+    ],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for display refresh"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"BOUNCEXY\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"bouncexy\" simulationFunctionType=\"C_OR_FORTRAN\" style=\"BOUNCEXY\">\n  <ScilabString as=\"exprs\" height=\"8\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"[1;2]\"/>\n    <data line=\"1\" column=\"0\" value=\"[1;1]\"/>\n    <data line=\"2\" column=\"0\" value=\"-1\"/>\n    <data line=\"3\" column=\"0\" value=\"1\"/>\n    <data line=\"4\" column=\"0\" value=\"-5\"/>\n    <data line=\"5\" column=\"0\" value=\"5\"/>\n    <data line=\"6\" column=\"0\" value=\"0\"/>\n    <data line=\"7\" column=\"0\" value=\"15\"/>\n  </ScilabString>\n  <mxGeometry as=\"geometry\" x=\"300.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "dataLines=-1 for variable-size vector inputs",
+    "Has ControlPort for event-triggered refresh (like CSCOPE)",
+    "12-dimensional dState for figure graphics handles",
+    "blockType='d' - discrete event-driven visualization"
+  ],
+  "criticalRules": [
+    "ControlPort must receive events to update display",
+    "dataLines=-1 allows any number of balls",
+    "No outputs - pure visualization block"
+  ],
+  "commonUses": [
+    "Visualizing BOUNCE block output",
+    "XY scatter animation",
+    "Particle system visualization"
+  ],
+  "relatedBlocks": ["BOUNCE", "BPLATFORM", "CANIMXY", "CSCOPE"]
+}

@@ -1,0 +1,87 @@
+{
+  "name": "CLKSPLIT_f",
+  "description": "Clock Split block - forks an event signal into two identical event signals",
+  "category": "Event Handling",
+  "blockType": "d",
+  "tag": "SplitBlock",
+  "interfaceFunctionName": "CLKSPLIT_f",
+  "simulationFunctionName": "split",
+  "simulationFunctionType": "DEFAULT",
+  "dependsOnU": 0,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": 0.0,
+    "width": 0.3333333333333333,
+    "height": 0.3333333333333333
+  },
+  "style": "CLKSPLIT_f",
+  "parameters": {
+    "exprs": {
+      "type": "ScilabDouble",
+      "height": 0,
+      "width": 0
+    },
+    "realParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "integerParameters": {
+      "height": 0,
+      "width": 0
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0"
+      }
+    ],
+    "commands": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": -1.0,
+        "style": "CommandPort;align=center;verticalAlign=bottom;spacing=10.0"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": -1.0,
+        "style": "CommandPort;align=center;verticalAlign=bottom;spacing=10.0"
+      }
+    ]
+  },
+  "xmlExample": "<SplitBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"CLKSPLIT_f\" blockType=\"d\" dependsOnU=\"0\" dependsOnT=\"0\" simulationFunctionName=\"split\" simulationFunctionType=\"DEFAULT\" style=\"CLKSPLIT_f\">\n    <ScilabDouble as=\"exprs\" height=\"0\" width=\"0\" />\n    <ScilabDouble as=\"realParameters\" height=\"0\" width=\"0\" />\n    <ScilabDouble as=\"integerParameters\" height=\"0\" width=\"0\" />\n    <Array as=\"objectsParameters\" scilabClass=\"ScilabList\" />\n    <ScilabInteger as=\"nbZerosCrossing\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n        <data line=\"0\" column=\"0\" value=\"0\" />\n    </ScilabInteger>\n    <ScilabInteger as=\"nmode\" height=\"1\" width=\"1\" intPrecision=\"sci_int32\">\n        <data line=\"0\" column=\"0\" value=\"0\" />\n    </ScilabInteger>\n    <ScilabDouble as=\"state\" height=\"0\" width=\"0\" />\n    <ScilabDouble as=\"dState\" height=\"0\" width=\"0\" />\n    <Array as=\"oDState\" scilabClass=\"ScilabList\" />\n    <Array as=\"equations\" scilabClass=\"ScilabList\" />\n    <mxGeometry as=\"geometry\" x=\"380.71\" y=\"172.0\" width=\"0.333\" height=\"0.333\" />\n</SplitBlock>",
+  "anomalies": [
+    "Uses SplitBlock tag",
+    "Near-zero width/height (0.33) - represents a junction point",
+    "Splits event/clock signals (no explicit data ports)"
+  ],
+  "criticalRules": [
+    "Uses SplitBlock tag",
+    "Minimal geometry size",
+    "Exactly one control port and two command ports"
+  ],
+  "commonUses": [
+    "Forking clock signals to multiple blocks",
+    "Creating feedback loops in event-driven systems"
+  ]
+}

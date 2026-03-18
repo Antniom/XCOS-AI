@@ -1,0 +1,104 @@
+{
+  "name": "BARXY",
+  "description": "XY Bar chart visualization - displays 2D data as bar graph",
+  "category": "Sinks/Visualization",
+  "blockType": "d",
+  "tag": "BasicBlock",
+  "interfaceFunctionName": "BARXY",
+  "simulationFunctionName": "BARXY_sim",
+  "simulationFunctionType": "SCILAB",
+  "dependsOnU": 1,
+  "dependsOnT": 0,
+  "geometry": {
+    "x": 0.0,
+    "y": -10.0,
+    "width": 40.0,
+    "height": 40.0
+  },
+  "style": "BARXY",
+  "parameters": {
+    "exprs": {
+      "height": 5,
+      "width": 1,
+      "values": ["-15", "15", "-15", "15", "1"],
+      "labels": ["xmin", "xmax", "ymin", "ymax", "thickness"],
+      "descriptions": [
+        "Minimum X value",
+        "Maximum X value",
+        "Minimum Y value",
+        "Maximum Y value",
+        "Bar thickness/width"
+      ]
+    },
+    "realParameters": {
+      "height": 1,
+      "width": 4,
+      "values": [-15.0, 15.0, -15.0, 15.0]
+    },
+    "integerParameters": {
+      "height": 1,
+      "width": 1,
+      "values": [1]
+    },
+    "nbZerosCrossing": {
+      "value": 0
+    },
+    "nmode": {
+      "value": 0
+    }
+  },
+  "ports": {
+    "explicitInputs": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": -1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "X coordinate data"
+      },
+      {
+        "ordering": 2,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": -1,
+        "initialState": 0.0,
+        "style": "ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0",
+        "description": "Y coordinate data"
+      }
+    ],
+    "explicitOutputs": [],
+    "controls": [
+      {
+        "ordering": 1,
+        "dataType": "REAL_MATRIX",
+        "dataColumns": 1,
+        "dataLines": 1,
+        "initialState": 0.0,
+        "style": "ControlPort;align=center;verticalAlign=top;spacing=10.0",
+        "description": "Event trigger for refresh"
+      }
+    ],
+    "commands": []
+  },
+  "xmlExample": "<BasicBlock id=\"b1\" parent=\"0:2:0\" interfaceFunctionName=\"BARXY\" blockType=\"d\" simulationFunctionName=\"BARXY_sim\" simulationFunctionType=\"SCILAB\" style=\"BARXY\">\n  <ScilabString as=\"exprs\" height=\"5\" width=\"1\">\n    <data line=\"0\" column=\"0\" value=\"-15\"/>\n    <data line=\"1\" column=\"0\" value=\"15\"/>\n    <data line=\"2\" column=\"0\" value=\"-15\"/>\n    <data line=\"3\" column=\"0\" value=\"15\"/>\n    <data line=\"4\" column=\"0\" value=\"1\"/>\n  </ScilabString>\n  <ScilabDouble as=\"realParameters\" height=\"1\" width=\"4\">\n    <data line=\"0\" column=\"0\" realPart=\"-15.0\"/>\n    <data line=\"0\" column=\"1\" realPart=\"15.0\"/>\n    <data line=\"0\" column=\"2\" realPart=\"-15.0\"/>\n    <data line=\"0\" column=\"3\" realPart=\"15.0\"/>\n  </ScilabDouble>\n  <mxGeometry as=\"geometry\" x=\"200.0\" y=\"200.0\" width=\"40.0\" height=\"40.0\"/>\n</BasicBlock>",
+  "anomalies": [
+    "Has 1 ControlPort (event trigger) - unique for scope/visualization",
+    "Has 2 ExplicitInputPorts for X and Y data",
+    "Uses SCILAB simulationFunctionType (interpreted, not compiled)",
+    "No explicit outputs - visualization only",
+    "dataLines=-1 allows variable-size inputs"
+  ],
+  "criticalRules": [
+    "Has 1 ControlPort (event trigger) - unique for scope/visualization",
+    "Has 2 ExplicitInputPorts for X and Y data",
+    "exprs: [xmin, xmax, ymin, ymax, bar thickness]",
+    "dataLines=-1 indicates variable/auto-dimensioned inputs"
+  ],
+  "commonUses": [
+    "XY bar chart visualization",
+    "2D histogram display",
+    "Data distribution plots"
+  ]
+}
