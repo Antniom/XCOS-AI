@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XcosDiagram debugLevel="0" finalIntegrationTime="30.0"
+    integratorAbsoluteTolerance="1.0E-6" integratorRelativeTolerance="1.0E-6"
+    toleranceOnTime="1.0E-10" maxIntegrationTimeInterval="100001.0"
+    maximumStepSize="0.0" realTimeScaling="0.0" solver="1.0"
+    background="-1" gridEnabled="1" title="PenduloSimples">
+  <Array as="context" scilabClass="String[]"></Array>
+  <mxGraphModel as="model">
+    <root>
+      <mxCell id="0:1:0"/>
+      <mxCell id="0:2:0" parent="0:1:0"/>
+
+      <!-- CONST_m: g/L = 5 -->
+      <BasicBlock id="b1" parent="0:2:0" interfaceFunctionName="CONST_m" blockType="d" dependsOnU="0" dependsOnT="0" style="CONST_m" simulationFunctionName="cstblk4" simulationFunctionType="C_OR_FORTRAN">
+        <ScilabString as="exprs" height="1" width="1"><data line="0" column="0" value="5"/></ScilabString>
+        <ScilabDouble as="realParameters" height="1" width="1"><data line="0" column="0" realPart="5.0"/></ScilabDouble>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <Array as="objectsParameters" scilabClass="ScilabList"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <Array as="oDState" scilabClass="ScilabList"/>
+        <Array as="equations" scilabClass="ScilabList"/>
+        <mxGeometry as="geometry" x="20" y="20" width="40" height="40"/>
+      </BasicBlock>
+      <ExplicitOutputPort id="p1" parent="b1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+      <!-- SINBLK_f: sin(theta) -->
+      <BasicBlock id="b2" parent="0:2:0" interfaceFunctionName="SINBLK_f" blockType="c" dependsOnU="1" dependsOnT="0" style="SINBLK_f" simulationFunctionName="sinblk" simulationFunctionType="DEFAULT">
+        <ScilabString as="exprs" height="1" width="1"><data line="0" column="0" value=" "/></ScilabString>
+        <ScilabDouble as="realParameters" height="0" width="0"/>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <Array as="objectsParameters" scilabClass="ScilabList"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <Array as="oDState" scilabClass="ScilabList"/>
+        <Array as="equations" scilabClass="ScilabList"/>
+        <mxGeometry as="geometry" x="100" y="100" width="40" height="40"/>
+      </BasicBlock>
+      <ExplicitInputPort id="p2" parent="b2" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="-1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+      <ExplicitOutputPort id="p3" parent="b2" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="-1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+      <!-- PRODUCT: (g/L) * sin(theta) -->
+      <RoundBlock id="b3" parent="0:2:0" interfaceFunctionName="PRODUCT" blockType="c" dependsOnU="1" dependsOnT="0" style="PRODUCT" simulationFunctionName="prod" simulationFunctionType="C_OR_FORTRAN">
+        <ScilabDouble as="exprs" height="0" width="0"/>
+        <ScilabDouble as="realParameters" height="0" width="0"/>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <Array as="objectsParameters" scilabClass="ScilabList"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabDouble as="state" height="0" width="0"/>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <Array as="oDState" scilabClass="ScilabList"/>
+        <Array as="equations" scilabClass="ScilabList"/>
+        <mxGeometry as="geometry" x="200" y="60" width="40" height="40"/>
+      </RoundBlock>
+      <ExplicitInputPort id="p4" parent="b3" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="-1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+      <ExplicitInputPort id="p5" parent="b3" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="-1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+      <ExplicitOutputPort id="p6" parent="b3" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="-1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+      <!-- INTEGRAL_f: (double integration) -->
+      <BasicBlock id="b4" parent="0:2:0" interfaceFunctionName="INTEGRAL_f" blockType="c" dependsOnU="0" dependsOnT="1" style="INTEGRAL_f" simulationFunctionName="integr" simulationFunctionType="DEFAULT">
+        <ScilabString as="exprs" height="1" width="1"><data line="0" column="0" value="0"/></ScilabString>
+        <ScilabDouble as="realParameters" height="0" width="0"/>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <Array as="objectsParameters" scilabClass="ScilabList"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabDouble as="state" height="1" width="1"><data line="0" column="0" realPart="0.0"/></ScilabDouble>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <Array as="oDState" scilabClass="ScilabList"/>
+        <Array as="equations" scilabClass="ScilabList"/>
+        <mxGeometry as="geometry" x="300" y="60" width="40" height="40"/>
+      </BasicBlock>
+      <ExplicitInputPort id="p7" parent="b4" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+      <ExplicitOutputPort id="p8" parent="b4" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+      <BasicBlock id="b5" parent="0:2:0" interfaceFunctionName="INTEGRAL_f" blockType="c" dependsOnU="0" dependsOnT="1" style="INTEGRAL_f" simulationFunctionName="integr" simulationFunctionType="DEFAULT">
+        <ScilabString as="exprs" height="1" width="1"><data line="0" column="0" value="0"/></ScilabString>
+        <ScilabDouble as="realParameters" height="0" width="0"/>
+        <ScilabDouble as="integerParameters" height="0" width="0"/>
+        <Array as="objectsParameters" scilabClass="ScilabList"/>
+        <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+        <ScilabDouble as="state" height="1" width="1"><data line="0" column="0" realPart="0.0"/></ScilabDouble>
+        <ScilabDouble as="dState" height="0" width="0"/>
+        <Array as="oDState" scilabClass="ScilabList"/>
+        <Array as="equations" scilabClass="ScilabList"/>
+        <mxGeometry as="geometry" x="400" y="60" width="40" height="40"/>
+      </BasicBlock>
+      <ExplicitInputPort id="p9" parent="b5" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+      <ExplicitOutputPort id="p10" parent="b5" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+    </root>
+  </mxGraphModel>
+  <mxCell as="defaultParent" id="0:2:0" parent="0:1:0"/>
+</XcosDiagram>

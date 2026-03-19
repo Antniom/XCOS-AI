@@ -15,34 +15,47 @@ function launch_ai_compiler_gui()
     
     server_script = XCOSAI_MODULE_ROOT + "/../xcosgen/server/main.py";
     dq = ascii(34);
+    // Use ascii(39) for single quotes — Scilab treats ' inside "..." as transpose
+    // operator and throws "Heterogeneous string" errors. Never write ' inside "".
+    sq = ascii(39);
     
     mprintf('[XcosAI] Performing pre-launch cleanup...\n');
     if getos() == "Windows" then
-        // Kill previous Python backend instances
-        host("taskkill /F /IM python.exe /FI " + dq + "COMMANDLINE eq *main.py*" + dq + " >nul 2>&1");
+        // Kill old Python backend by command line content.
+        // Previous approach used /FI WINDOWTITLE but the server is launched with
+        // /B (no window), so it has no window title and was never killed.
+        // wmic process where "commandline like '%main.py%'" delete is reliable.
+        mprintf('[XcosAI] Killing old Python backend (if any)...\n');
+        kill_py_cmd = "wmic process where " + dq + "commandline like " + sq + "%main.py%" + sq + dq + " delete >nul 2>&1";
+        host(kill_py_cmd);
         
-        // Kill Scilab ghosts (processes with no visible window holding onto the loop)
-        // 2. Kill ghost Scilab processes (polls from old sessions)
-        // We target WScilex (GUI) and scilab-bin (headless/backend)
-        // We protect the CURRENT Scilab process to avoid self-termination
+        // Kill ghost Scilab processes (protect current PID)
         curr_pid = string(getpid());
         mprintf("[XcosAI] Clearing ghost Scilab pollers (Protecting PID %s)...\n", curr_pid);
         
-        // PowerShell command to kill all other Scilab instances
-        kill_cmd = "powershell -Command ""Get-Process scilab-bin, WScilex -ErrorAction SilentlyContinue | " + ..
+        kill_scilab_cmd = "powershell -NoProfile -NonInteractive -Command " + dq + ..
+                   "Get-Process scilab-bin,WScilex -ErrorAction SilentlyContinue | " + ..
                    "Where-Object { $_.Id -ne " + curr_pid + " } | " + ..
-                   "Stop-Process -Force -ErrorAction SilentlyContinue""";
-        host(kill_cmd);
+                   "Stop-Process -Force -ErrorAction SilentlyContinue" + dq;
+        host(kill_scilab_cmd);
         
-        // 3. Clear the IPC port 8000 (if lingering)
+        // Clear port 8000 with a hard 5-second timeout so host() can never block
+        // indefinitely (e.g. if the owning process is elevated and resists kill).
         mprintf("[XcosAI] Clearing port 8000...\n");
-        host("powershell -Command " + dq + "Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }" + dq);
+        clear_port_cmd = "powershell -NoProfile -NonInteractive -Command " + dq + ..
+            "$j = Start-Job { " + ..
+                "Get-NetTCPConnection -LocalPort 8000 -ErrorAction SilentlyContinue | " + ..
+                "ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue } " + ..
+            "}; " + ..
+            "Wait-Job $j -Timeout 5 | Out-Null; " + ..
+            "Remove-Job $j -Force -ErrorAction SilentlyContinue" + dq;
+        host(clear_port_cmd);
+        mprintf("[XcosAI] Port cleanup done.\n");
     else
         host("pkill -f " + dq + server_script + dq);
     end
     
     mprintf('[XcosAI] Launching Python Backend...\n');
-    // Start FastAPI in background
     if getos() == "Windows" then
         host("start " + dq + "XcosAI_Backend" + dq + " /B " + py + " " + dq + server_script + dq);
     else

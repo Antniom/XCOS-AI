@@ -32,8 +32,8 @@ LOG_FILE = os.path.join(LOG_DIR, "backend.log")
 
 # Clear/Initialize log file
 try:
-    with open(LOG_FILE, "a") as f: # Use 'a' to avoid immediate truncation on every reload in dev
-        f.write(f"\n--- Xcos AI Backend Session Started: {datetime.datetime.now()} ---\n")
+    with open(LOG_FILE, "w") as f: # Use 'w' to ensure each backend start starts with fresh logs
+        f.write(f"--- Xcos AI Backend Session Started: {datetime.datetime.now()} ---\n")
 except Exception as e:
     print(f"FAILED TO INITIALIZE LOG FILE: {e}")
 
@@ -59,6 +59,7 @@ def log_event(step: str, message: str = "", level: str = "info"):
 
 # Shared state
 system_logs = []
+SESSION_TIMESTAMP = datetime.datetime.now().isoformat()
 loop_manager = AutonomousLoop()
 
 # Polling IPC state
@@ -154,6 +155,7 @@ current_job = JobStatus()
 
 @app.on_event("startup")
 async def startup_event():
+    log_event("Session", f"BACKEND_ID: {SESSION_TIMESTAMP}")
     log_event("System", "Xcos AI Backend starting up...")
     log_event("System", f"Base Directory: {BASE_DIR}")
     if os.path.exists(DIST_DIR):
@@ -261,6 +263,7 @@ async def generate_diagram(request: GenerateRequest, background_tasks: Backgroun
     global current_job
     req_id = f"req_{int(datetime.datetime.now().timestamp())}"
     current_job = JobStatus()
+    system_logs.clear() # Clear memory logs for the new generation session
     
     # RESET Master Poller on new generation to ensure the newest session takes over
     master_poller["loop_id"] = None
