@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XcosDiagram background="-1" gridEnabled="1" title="Untitled" finalIntegrationTime="100000.0" integratorAbsoluteTolerance="1.0E-6" integratorRelativeTolerance="1.0E-6" toleranceOnTime="1.0E-10" maxIntegrationTimeInterval="100001.0" maximumStepSize="0.0" realTimeScaling="1.0" solver="0.0">
+  <Array as="context" scilabClass="String[]"></Array>
+  <mxGraphModel as="model" grid="1" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff">
+    <root>
+      <mxCell id="0"/>
+      <mxCell id="1" parent="0"/>
+      <!-- draft comment -->
+<BasicBlock id="const1" parent="0:2:0" interfaceFunctionName="CONST_m" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="cstblk4_m" simulationFunctionType="DEFAULT" style="CONST_m">
+  <ScilabString as="exprs" height="1" width="1">
+    <data line="0" column="0" value="1"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="0.0" y="-10.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitOutputPort id="const1:out" parent="const1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+    </root>
+  </mxGraphModel>
+</XcosDiagram>

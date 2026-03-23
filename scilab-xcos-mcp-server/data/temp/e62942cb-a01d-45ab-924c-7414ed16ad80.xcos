@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XcosDiagram background="-1" gridEnabled="1" title="Untitled" finalIntegrationTime="100000.0" integratorAbsoluteTolerance="1.0E-6" integratorRelativeTolerance="1.0E-6" toleranceOnTime="1.0E-10" maxIntegrationTimeInterval="100001.0" maximumStepSize="0.0" realTimeScaling="1.0" solver="0.0">
+  <Array as="context" scilabClass="String[]"></Array>
+  <mxGraphModel as="model" grid="1" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff">
+    <root>
+      <mxCell id="0"/>
+      <mxCell id="1" parent="0"/>
+      
+<!-- BIGSOM_f: single input, sign=[-1], computes thetadotdot = -(g/L)*sin(theta) -->
+<BigSom id="BIGSOM1" parent="0:2:0" interfaceFunctionName="BIGSOM_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="sum" simulationFunctionType="TYPE_2" style="BIGSOM_f">
+  <ScilabString as="exprs" height="1" width="1">
+    <data line="0" column="0" value="[-1]"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="1">
+    <data line="0" column="0" realPart="-1.0"/>
+  </ScilabDouble>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="120.0" y="250.0" width="40.0" height="40.0"/>
+</BigSom>
+<ExplicitInputPort id="BIGSOM1_in1" parent="BIGSOM1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="BIGSOM1_out" parent="BIGSOM1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- INTEGRAL_f #1: thetadotdot -> thetadot, IC=1 rad/s -->
+<BasicBlock id="INTEG1" parent="0:2:0" interfaceFunctionName="INTEGRAL_f" blockType="c" dependsOnU="0" dependsOnT="1" simulationFunctionName="integr" simulationFunctionType="DEFAULT" style="INTEGRAL_f">
+  <ScilabString as="exprs" height="1" width="1">
+    <data line="0" column="0" value="1"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="1" width="1">
+    <data line="0" column="0" realPart="1.0"/>
+  </ScilabDouble>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="230.0" y="250.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="INTEG1_in" parent="INTEG1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="INTEG1_out" parent="INTEG1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- INTEGRAL_f #2: thetadot -> theta, IC=0 rad -->
+<BasicBlock id="INTEG2" parent="0:2:0" interfaceFunctionName="INTEGRAL_f" blockType="c" dependsOnU="0" dependsOnT="1" simulationFunctionName="integr" simulationFunctionType="DEFAULT" style="INTEGRAL_f">
+  <ScilabString as="exprs" height="1" width="1">
+    <data line="0" column="0" value="0"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="1" width="1">
+    <data line="0" column="0" realPart="0.0"/>
+  </ScilabDouble>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="340.0" y="250.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="INTEG2_in" parent="INTEG2" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="INTEG2_out" parent="INTEG2" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- GAIN_f: gain = 5 = g/L = 10/2, applied before SINBLK so flow is: theta->GAIN(5)->SIN->BIGSOM(-1) -->
+<BasicBlock id="GAIN1" parent="0:2:0" interfaceFunctionName="GAIN_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="gain" simulationFunctionType="DEFAULT" style="GAIN_f">
+  <ScilabString as="exprs" height="3" width="1">
+    <data line="0" column="0" value="5"/>
+    <data line="1" column="0" value="1"/>
+    <data line="2" column="0" value="1"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="1">
+    <data line="0" column="0" realPart="5.0"/>
+  </ScilabDouble>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="460.0" y="340.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="GAIN1_in" parent="GAIN1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="GAIN1_out" parent="GAIN1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- SINBLK_f: computes sin(g/L * theta) — NOTE: this is non-standard; correct flow is g/L * sin(theta).
+     So the order must be: theta -> SIN -> GAIN(5) -> BIGSOM(-1).
+     Place SINBLK before GAIN: theta -> SIN -> GAIN(5) -> BIGSOM(-1) = -(g/L)*sin(theta) = thetadotdot. -->
+<BasicBlock id="SIN1" parent="0:2:0" interfaceFunctionName="SINBLK_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="sinblk" simulationFunctionType="DEFAULT" style="SINBLK_f">
+  <ScilabString as="exprs" height="1" width="1">
+    <data line="0" column="0" value=" "/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="350.0" y="340.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="SIN1_in" parent="SIN1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SIN1_out" parent="SIN1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+      
+<!-- GAIN_f #2: passes theta to CANIMXY x-input (gain=1) -->
+<BasicBlock id="GAIN2" parent="0:2:0" interfaceFunctionName="GAIN_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="gain" simulationFunctionType="DEFAULT" style="GAIN_f">
+  <ScilabString as="exprs" height="3" width="1">
+    <data line="0" column="0" value="1"/>
+    <data line="1" column="0" value="1"/>
+    <data line="2" column="0" value="1"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="1">
+    <data line="0" column="0" realPart="1.0"/>
+  </ScilabDouble>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="560.0" y="160.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="GAIN2_in" parent="GAIN2" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="GAIN2_out" parent="GAIN2" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- GAIN_f #3: passes thetadot to CANIMXY y-input (gain=1) -->
+<BasicBlock id="GAIN3" parent="0:2:0" interfaceFunctionName="GAIN_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="gain" simulationFunctionType="DEFAULT" style="GAIN_f">
+  <ScilabString as="exprs" height="3" width="1">
+    <data line="0" column="0" value="1"/>
+    <data line="1" column="0" value="1"/>
+    <data line="2" column="0" value="1"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="1">
+    <data line="0" column="0" realPart="1.0"/>
+  </ScilabDouble>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="560.0" y="210.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="GAIN3_in" parent="GAIN3" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="GAIN3_out" parent="GAIN3" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- COSBLK_f: cos(theta) for BARXY x-axis -->
+<BasicBlock id="COS1" parent="0:2:0" interfaceFunctionName="COSBLK_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="cosblk" simulationFunctionType="DEFAULT" style="COSBLK_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="460.0" y="420.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ExplicitInputPort id="COS1_in" parent="COS1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0;rotation=0" value=""/>
+<ExplicitOutputPort id="COS1_out" parent="COS1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0;rotation=0" value=""/>
+
+<!-- CANIMXY: animated XY phase portrait (theta vs thetadot), range -2..2 -->
+<BasicBlock id="CANIM1" parent="0:2:0" interfaceFunctionName="CANIMXY" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="canimxy" simulationFunctionType="C_OR_FORTRAN" style="CANIMXY">
+  <ScilabString as="exprs" height="11" width="1">
+    <data line="0" column="0" value="1"/>
+    <data line="1" column="0" value="-4"/>
+    <data line="2" column="0" value="1"/>
+    <data line="3" column="0" value="-1"/>
+    <data line="4" column="0" value="[]"/>
+    <data line="5" column="0" value="[]"/>
+    <data line="6" column="0" value="-2"/>
+    <data line="7" column="0" value="2"/>
+    <data line="8" column="0" value="-2"/>
+    <data line="9" column="0" value="2"/>
+    <data line="10" column="0" value="2"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="4">
+    <data line="0" column="0" realPart="-2.0"/>
+    <data line="0" column="1" realPart="2.0"/>
+    <data line="0" column="2" realPart="-2.0"/>
+    <data line="0" column="3" realPart="2.0"/>
+  </ScilabDouble>
+  <ScilabInteger as="integerParameters" height="1" width="11" intPrecision="sci_int32">
+    <data line="0" column="0" value="-1"/>
+    <data line="0" column="1" value="1"/>
+    <data line="0" column="2" value="2"/>
+    <data line="0" column="3" value="-4"/>
+    <data line="0" column="4" value="1"/>
+    <data line="0" column="5" value="0"/>
+    <data line="0" column="6" value="-1"/>
+    <data line="0" column="7" value="-1"/>
+    <data line="0" column="8" value="-1"/>
+    <data line="0" column="9" value="-1"/>
+    <data line="0" column="10" value="1"/>
+  </ScilabInteger>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="700.0" y="140.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ControlPort id="CANIM1_ctrl" parent="CANIM1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ControlPort;align=center;verticalAlign=top;spacing=10.0" value=""/>
+<ExplicitInputPort id="CANIM1_in1" parent="CANIM1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitInputPort id="CANIM1_in2" parent="CANIM1" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- BARXY: bar chart showing pendulum x/y position (cos theta vs sin theta) -->
+<BasicBlock id="BARXY1" parent="0:2:0" interfaceFunctionName="BARXY" blockType="d" dependsOnU="1" dependsOnT="0" simulationFunctionName="BARXY_sim" simulationFunctionType="SCILAB" style="BARXY">
+  <ScilabString as="exprs" height="5" width="1">
+    <data line="0" column="0" value="-2"/>
+    <data line="1" column="0" value="2"/>
+    <data line="2" column="0" value="-2"/>
+    <data line="3" column="0" value="2"/>
+    <data line="4" column="0" value="1"/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="4">
+    <data line="0" column="0" realPart="-2.0"/>
+    <data line="0" column="1" realPart="2.0"/>
+    <data line="0" column="2" realPart="-2.0"/>
+    <data line="0" column="3" realPart="2.0"/>
+  </ScilabDouble>
+  <ScilabInteger as="integerParameters" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="1"/>
+  </ScilabInteger>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="700.0" y="240.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ControlPort id="BARXY1_ctrl" parent="BARXY1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ControlPort;align=center;verticalAlign=top;spacing=10.0" value=""/>
+<ExplicitInputPort id="BARXY1_in1" parent="BARXY1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitInputPort id="BARXY1_in2" parent="BARXY1" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- CMSCOPE: single-input time-domain scope for theta(t) -->
+<BasicBlock id="CMSCOPE1" parent="0:2:0" interfaceFunctionName="CMSCOPE" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="cmscope" simulationFunctionType="C_OR_FORTRAN" style="CMSCOPE">
+  <ScilabString as="exprs" height="11" width="1">
+    <data line="0" column="0" value="1"/>
+    <data line="1" column="0" value="1"/>
+    <data line="2" column="0" value="-1"/>
+    <data line="3" column="0" value="[]"/>
+    <data line="4" column="0" value="[]"/>
+    <data line="5" column="0" value="-2"/>
+    <data line="6" column="0" value="2"/>
+    <data line="7" column="0" value="30"/>
+    <data line="8" column="0" value="20"/>
+    <data line="9" column="0" value="0"/>
+    <data line="10" column="0" value=""/>
+  </ScilabString>
+  <ScilabDouble as="realParameters" height="1" width="4">
+    <data line="0" column="0" realPart="0.0"/>
+    <data line="0" column="1" realPart="30.0"/>
+    <data line="0" column="2" realPart="-2.0"/>
+    <data line="0" column="3" realPart="2.0"/>
+  </ScilabDouble>
+  <ScilabInteger as="integerParameters" height="1" width="11" intPrecision="sci_int32">
+    <data line="0" column="0" value="-1"/>
+    <data line="0" column="1" value="1"/>
+    <data line="0" column="2" value="20"/>
+    <data line="0" column="3" value="-1"/>
+    <data line="0" column="4" value="-1"/>
+    <data line="0" column="5" value="-1"/>
+    <data line="0" column="6" value="-1"/>
+    <data line="0" column="7" value="1"/>
+    <data line="0" column="8" value="1"/>
+    <data line="0" column="9" value="0"/>
+    <data line="0" column="10" value="0"/>
+  </ScilabInteger>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="700.0" y="340.0" width="40.0" height="40.0"/>
+</BasicBlock>
+<ControlPort id="CMSCOPE1_ctrl" parent="CMSCOPE1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ControlPort;align=center;verticalAlign=top;spacing=10.0" value=""/>
+<ExplicitInputPort id="CMSCOPE1_in1" parent="CMSCOPE1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- CLOCK_c: periodic clock, period=0.1s -->
+<BasicBlock id="CLOCK1" parent="0:2:0" interfaceFunctionName="CLOCK_c" blockType="h" dependsOnU="0" dependsOnT="0" simulationFunctionName="csuper" simulationFunctionType="DEFAULT" style="CLOCK_c">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32">
+    <data line="0" column="0" value="0"/>
+  </ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="30.0" y="30.0" width="40.0" height="40.0"/>
+  <SuperBlockDiagram as="child" background="-1" gridEnabled="1" title="">
+    <Array as="context" scilabClass="String[]"></Array>
+    <mxGraphModel as="model">
+      <root>
+        <mxCell id="CLK_IR"/>
+        <mxCell id="CLK_IP" parent="CLK_IR"/>
+        <EventOutBlock id="CLK_OUT" parent="CLK_IP" interfaceFunctionName="CLKOUT_f" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="output" simulationFunctionType="DEFAULT" style="">
+          <ScilabString as="exprs" height="1" width="1"><data line="0" column="0" value="1"/></ScilabString>
+          <ScilabDouble as="realParameters" height="0" width="0"/>
+          <ScilabInteger as="integerParameters" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="1"/></ScilabInteger>
+          <Array as="objectsParameters" scilabClass="ScilabList"/>
+          <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+          <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+          <ScilabDouble as="state" height="0" width="0"/>
+          <ScilabDouble as="dState" height="0" width="0"/>
+          <Array as="oDState" scilabClass="ScilabList"/>
+          <Array as="equations" scilabClass="ScilabList"/>
+          <mxGeometry as="geometry" x="399.0" y="162.0" width="20.0" height="20.0"/>
+        </EventOutBlock>
+        <ControlPort id="CLK_OUT_ctrl" parent="CLK_OUT" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="" value=""/>
+        <BasicBlock id="CLK_EVTDLY" parent="CLK_IP" interfaceFunctionName="EVTDLY_c" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="evtdly4" simulationFunctionType="C_OR_FORTRAN" style="">
+          <ScilabString as="exprs" height="2" width="1">
+            <data line="0" column="0" value="0.1"/>
+            <data line="1" column="0" value="0.1"/>
+          </ScilabString>
+          <ScilabDouble as="realParameters" height="1" width="2">
+            <data line="0" column="0" realPart="0.1"/>
+            <data line="0" column="1" realPart="0.1"/>
+          </ScilabDouble>
+          <ScilabDouble as="integerParameters" height="0" width="0"/>
+          <Array as="objectsParameters" scilabClass="ScilabList"/>
+          <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+          <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+          <ScilabDouble as="state" height="0" width="0"/>
+          <ScilabDouble as="dState" height="0" width="0"/>
+          <Array as="oDState" scilabClass="ScilabList"/>
+          <Array as="equations" scilabClass="ScilabList"/>
+          <mxGeometry as="geometry" x="320.0" y="232.0" width="40.0" height="40.0"/>
+        </BasicBlock>
+        <ControlPort id="CLK_EVTDLY_ctrl" parent="CLK_EVTDLY" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="" value=""/>
+        <CommandPort id="CLK_EVTDLY_cmd" parent="CLK_EVTDLY" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.1" style="" value=""/>
+        <SplitBlock id="CLK_SPL" parent="CLK_IP" interfaceFunctionName="CLKSPLIT_f" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="">
+          <ScilabDouble as="exprs" height="0" width="0"/>
+          <ScilabDouble as="realParameters" height="0" width="0"/>
+          <ScilabDouble as="integerParameters" height="0" width="0"/>
+          <Array as="objectsParameters" scilabClass="ScilabList"/>
+          <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+          <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+          <ScilabDouble as="state" height="0" width="0"/>
+          <ScilabDouble as="dState" height="0" width="0"/>
+          <Array as="oDState" scilabClass="ScilabList"/>
+          <Array as="equations" scilabClass="ScilabList"/>
+          <mxGeometry as="geometry" x="380.71066" y="172.0" width="0.333" height="0.333"/>
+        </SplitBlock>
+        <ControlPort id="CLK_SPL_ctrl" parent="CLK_SPL" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="" value=""/>
+        <CommandPort id="CLK_SPL_cmd1" parent="CLK_SPL" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="" value=""/>
+        <CommandPort id="CLK_SPL_cmd2" parent="CLK_SPL" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="" value=""/>
+        <CommandControlLink id="CLK_L1" parent="CLK_IP" source="CLK_EVTDLY_cmd" target="CLK_SPL_ctrl" style="" value="">
+          <mxGeometry as="geometry">
+            <mxPoint as="sourcePoint" x="340.0" y="226.29"/>
+            <Array as="points"><mxPoint x="340.0" y="172.0"/></Array>
+            <mxPoint as="targetPoint" x="380.71" y="172.0"/>
+          </mxGeometry>
+        </CommandControlLink>
+        <CommandControlLink id="CLK_L2" parent="CLK_IP" source="CLK_SPL_cmd1" target="CLK_OUT_ctrl" style="" value="">
+          <mxGeometry as="geometry">
+            <mxPoint as="sourcePoint" x="380.71" y="172.0"/>
+            <Array as="points"></Array>
+            <mxPoint as="targetPoint" x="399.0" y="172.0"/>
+          </mxGeometry>
+        </CommandControlLink>
+        <CommandControlLink id="CLK_L3" parent="CLK_IP" source="CLK_SPL_cmd2" target="CLK_EVTDLY_ctrl" style="" value="">
+          <mxGeometry as="geometry">
+            <mxPoint as="sourcePoint" x="380.71" y="172.0"/>
+            <Array as="points">
+              <mxPoint x="380.71" y="302.0"/>
+              <mxPoint x="340.0" y="302.0"/>
+            </Array>
+            <mxPoint as="targetPoint" x="340.0" y="277.71"/>
+          </mxGeometry>
+        </CommandControlLink>
+      </root>
+    </mxGraphModel>
+    <mxCell as="defaultParent" id="CLK_IP" parent="CLK_IR"/>
+  </SuperBlockDiagram>
+</BasicBlock>
+<CommandPort id="CLOCK1_cmd" parent="CLOCK1" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="CommandPort;align=center;verticalAlign=bottom;spacing=10.0" value=""/>
+
+      
+<!-- Signal fanout plan:
+  INTEG1_out (thetadot) fans to: INTEG2_in + GAIN3_in  => SPLIT_THETADOT
+  INTEG2_out (theta) fans to: SIN1_in + GAIN2_in + COS1_in  => SPLIT_THETA_A (->SIN1, ->SPLIT_THETA_B), SPLIT_THETA_B (->GAIN2, ->COS1)
+  SIN1_out fans to: GAIN1_in (only one target, no split needed)
+  GAIN1_out (g/L*sin(theta)) fans to: BIGSOM1_in1 (only one target, no split needed)
+  GAIN2_out -> CANIM1_in1 (one target)
+  GAIN3_out -> CANIM1_in2 (one target)
+  COS1_out -> BARXY1_in1 (one target)
+  SIN1_out -> BARXY1_in2 — BUT SIN1_out already goes to GAIN1_in! Need SPLIT_SIN.
+  Actually: SIN1_out fans to GAIN1_in + BARXY1_in2 => SPLIT_SIN
+  Also: CMSCOPE1_in1 needs theta -> need 3rd output from theta fanout => SPLIT_THETA_B fans to GAIN2_in + SPLIT_THETA_C, SPLIT_THETA_C fans to COS1_in + CMSCOPE1_in1
+-->
+
+<!-- SPLIT_THETADOT: INTEG1_out -> {INTEG2_in, GAIN3_in} -->
+<SplitBlock id="SPL_TDOT" parent="0:2:0" interfaceFunctionName="SPLIT_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="SPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="290.0" y="270.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ExplicitInputPort id="SPL_TDOT_in" parent="SPL_TDOT" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TDOT_out1" parent="SPL_TDOT" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TDOT_out2" parent="SPL_TDOT" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- SPLIT_THETA_A: INTEG2_out -> {SIN1_in, SPLIT_THETA_B_in} -->
+<SplitBlock id="SPL_TH_A" parent="0:2:0" interfaceFunctionName="SPLIT_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="SPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="400.0" y="270.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ExplicitInputPort id="SPL_TH_A_in" parent="SPL_TH_A" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TH_A_out1" parent="SPL_TH_A" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TH_A_out2" parent="SPL_TH_A" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- SPLIT_THETA_B: SPL_TH_A_out2 -> {GAIN2_in, SPLIT_THETA_C_in} -->
+<SplitBlock id="SPL_TH_B" parent="0:2:0" interfaceFunctionName="SPLIT_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="SPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="490.0" y="270.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ExplicitInputPort id="SPL_TH_B_in" parent="SPL_TH_B" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TH_B_out1" parent="SPL_TH_B" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TH_B_out2" parent="SPL_TH_B" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- SPLIT_THETA_C: SPL_TH_B_out2 -> {COS1_in, CMSCOPE1_in1} -->
+<SplitBlock id="SPL_TH_C" parent="0:2:0" interfaceFunctionName="SPLIT_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="SPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="490.0" y="380.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ExplicitInputPort id="SPL_TH_C_in" parent="SPL_TH_C" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TH_C_out1" parent="SPL_TH_C" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_TH_C_out2" parent="SPL_TH_C" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+<!-- SPLIT_SIN: SIN1_out -> {GAIN1_in, BARXY1_in2} -->
+<SplitBlock id="SPL_SIN" parent="0:2:0" interfaceFunctionName="SPLIT_f" blockType="c" dependsOnU="1" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="SPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="510.0" y="360.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ExplicitInputPort id="SPL_SIN_in" parent="SPL_SIN" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitInputPort;align=left;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_SIN_out1" parent="SPL_SIN" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+<ExplicitOutputPort id="SPL_SIN_out2" parent="SPL_SIN" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ExplicitOutputPort;align=right;verticalAlign=middle;spacing=10.0" value=""/>
+
+      
+<!-- CLKSPLIT_TOP: CLOCK1_cmd -> {CANIM1_ctrl, CLKSPLIT_BOT} -->
+<SplitBlock id="CLKS_TOP" parent="0:2:0" interfaceFunctionName="CLKSPLIT_f" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="CLKSPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="200.0" y="50.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ControlPort id="CLKS_TOP_ctrl" parent="CLKS_TOP" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ControlPort;align=center;verticalAlign=top;spacing=10.0" value=""/>
+<CommandPort id="CLKS_TOP_cmd1" parent="CLKS_TOP" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="CommandPort;align=center;verticalAlign=bottom;spacing=10.0" value=""/>
+<CommandPort id="CLKS_TOP_cmd2" parent="CLKS_TOP" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="CommandPort;align=center;verticalAlign=bottom;spacing=10.0" value=""/>
+
+<!-- CLKSPLIT_BOT: CLKS_TOP_cmd2 -> {BARXY1_ctrl, CMSCOPE1_ctrl} -->
+<SplitBlock id="CLKS_BOT" parent="0:2:0" interfaceFunctionName="CLKSPLIT_f" blockType="d" dependsOnU="0" dependsOnT="0" simulationFunctionName="split" simulationFunctionType="DEFAULT" style="CLKSPLIT_f">
+  <ScilabDouble as="exprs" height="0" width="0"/>
+  <ScilabDouble as="realParameters" height="0" width="0"/>
+  <ScilabDouble as="integerParameters" height="0" width="0"/>
+  <Array as="objectsParameters" scilabClass="ScilabList"/>
+  <ScilabInteger as="nbZerosCrossing" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabInteger as="nmode" height="1" width="1" intPrecision="sci_int32"><data line="0" column="0" value="0"/></ScilabInteger>
+  <ScilabDouble as="state" height="0" width="0"/>
+  <ScilabDouble as="dState" height="0" width="0"/>
+  <Array as="oDState" scilabClass="ScilabList"/>
+  <Array as="equations" scilabClass="ScilabList"/>
+  <mxGeometry as="geometry" x="450.0" y="50.5" width="0.333" height="0.333"/>
+</SplitBlock>
+<ControlPort id="CLKS_BOT_ctrl" parent="CLKS_BOT" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="0.0" style="ControlPort;align=center;verticalAlign=top;spacing=10.0" value=""/>
+<CommandPort id="CLKS_BOT_cmd1" parent="CLKS_BOT" ordering="1" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="CommandPort;align=center;verticalAlign=bottom;spacing=10.0" value=""/>
+<CommandPort id="CLKS_BOT_cmd2" parent="CLKS_BOT" ordering="2" dataType="REAL_MATRIX" dataColumns="1" dataLines="1" initialState="-1.0" style="CommandPort;align=center;verticalAlign=bottom;spacing=10.0" value=""/>
+
+<!-- Event links -->
+<!-- CLOCK1_cmd -> CLKS_TOP_ctrl -->
+<CommandControlLink id="evl_clk_top" parent="0:2:0" source="CLOCK1_cmd" target="CLKS_TOP_ctrl" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="50.0" y="70.0"/>
+    <mxPoint as="targetPoint" x="200.0" y="50.5"/>
+  </mxGeometry>
+</CommandControlLink>
+
+<!-- CLKS_TOP_cmd1 -> CANIM1_ctrl -->
+<CommandControlLink id="evl_top_canim" parent="0:2:0" source="CLKS_TOP_cmd1" target="CANIM1_ctrl" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="200.0" y="50.5"/>
+    <Array as="points"><mxPoint x="720.0" y="50.5"/></Array>
+    <mxPoint as="targetPoint" x="720.0" y="140.0"/>
+  </mxGeometry>
+</CommandControlLink>
+
+<!-- CLKS_TOP_cmd2 -> CLKS_BOT_ctrl -->
+<CommandControlLink id="evl_top_bot" parent="0:2:0" source="CLKS_TOP_cmd2" target="CLKS_BOT_ctrl" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="200.0" y="50.5"/>
+    <mxPoint as="targetPoint" x="450.0" y="50.5"/>
+  </mxGeometry>
+</CommandControlLink>
+
+<!-- CLKS_BOT_cmd1 -> BARXY1_ctrl -->
+<CommandControlLink id="evl_bot_barxy" parent="0:2:0" source="CLKS_BOT_cmd1" target="BARXY1_ctrl" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="450.0" y="50.5"/>
+    <Array as="points"><mxPoint x="720.0" y="50.5"/></Array>
+    <mxPoint as="targetPoint" x="720.0" y="240.0"/>
+  </mxGeometry>
+</CommandControlLink>
+
+<!-- CLKS_BOT_cmd2 -> CMSCOPE1_ctrl -->
+<CommandControlLink id="evl_bot_cms" parent="0:2:0" source="CLKS_BOT_cmd2" target="CMSCOPE1_ctrl" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="450.0" y="50.5"/>
+    <Array as="points"><mxPoint x="720.0" y="50.5"/></Array>
+    <mxPoint as="targetPoint" x="720.0" y="340.0"/>
+  </mxGeometry>
+</CommandControlLink>
+
+      
+<!-- ===== ALL EXPLICIT DATA LINKS =====
+  Each source port drives exactly ONE target. All fanouts go through SplitBlocks.
+  
+  Full connection map:
+  BIGSOM1_out      -> INTEG1_in
+  INTEG1_out       -> SPL_TDOT_in
+  SPL_TDOT_out1    -> INTEG2_in
+  SPL_TDOT_out2    -> GAIN3_in
+  INTEG2_out       -> SPL_TH_A_in
+  SPL_TH_A_out1    -> SIN1_in
+  SPL_TH_A_out2    -> SPL_TH_B_in
+  SPL_TH_B_out1    -> GAIN2_in
+  SPL_TH_B_out2    -> SPL_TH_C_in
+  SPL_TH_C_out1    -> COS1_in
+  SPL_TH_C_out2    -> CMSCOPE1_in1
+  SIN1_out         -> SPL_SIN_in
+  SPL_SIN_out1     -> GAIN1_in
+  SPL_SIN_out2     -> BARXY1_in2
+  GAIN1_out        -> BIGSOM1_in1
+  GAIN2_out        -> CANIM1_in1
+  GAIN3_out        -> CANIM1_in2
+  COS1_out         -> BARXY1_in1
+-->
+
+<ExplicitLink id="lnk_bigsom_integ1" parent="0:2:0" source="BIGSOM1_out" target="INTEG1_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="160.0" y="270.0"/>
+    <mxPoint as="targetPoint" x="230.0" y="270.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_integ1_spltdot" parent="0:2:0" source="INTEG1_out" target="SPL_TDOT_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="270.0" y="270.0"/>
+    <mxPoint as="targetPoint" x="290.0" y="270.5"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_spltdot1_integ2" parent="0:2:0" source="SPL_TDOT_out1" target="INTEG2_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="290.0" y="270.5"/>
+    <mxPoint as="targetPoint" x="340.0" y="270.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_spltdot2_gain3" parent="0:2:0" source="SPL_TDOT_out2" target="GAIN3_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="290.0" y="270.5"/>
+    <Array as="points">
+      <mxPoint x="290.0" y="230.0"/>
+      <mxPoint x="560.0" y="230.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="560.0" y="230.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_integ2_spltha" parent="0:2:0" source="INTEG2_out" target="SPL_TH_A_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="380.0" y="270.0"/>
+    <mxPoint as="targetPoint" x="400.0" y="270.5"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_spltha1_sin1" parent="0:2:0" source="SPL_TH_A_out1" target="SIN1_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="400.0" y="270.5"/>
+    <Array as="points">
+      <mxPoint x="400.0" y="360.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="350.0" y="360.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_spltha2_splthb" parent="0:2:0" source="SPL_TH_A_out2" target="SPL_TH_B_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="400.0" y="270.5"/>
+    <mxPoint as="targetPoint" x="490.0" y="270.5"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_splthb1_gain2" parent="0:2:0" source="SPL_TH_B_out1" target="GAIN2_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="490.0" y="270.5"/>
+    <Array as="points">
+      <mxPoint x="490.0" y="180.0"/>
+      <mxPoint x="560.0" y="180.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="560.0" y="180.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_splthb2_splthc" parent="0:2:0" source="SPL_TH_B_out2" target="SPL_TH_C_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="490.0" y="270.5"/>
+    <Array as="points">
+      <mxPoint x="490.0" y="380.5"/>
+    </Array>
+    <mxPoint as="targetPoint" x="490.0" y="380.5"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_splthc1_cos1" parent="0:2:0" source="SPL_TH_C_out1" target="COS1_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="490.0" y="380.5"/>
+    <Array as="points">
+      <mxPoint x="490.0" y="440.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="460.0" y="440.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_splthc2_cms" parent="0:2:0" source="SPL_TH_C_out2" target="CMSCOPE1_in1" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="490.0" y="380.5"/>
+    <Array as="points">
+      <mxPoint x="680.0" y="380.5"/>
+      <mxPoint x="680.0" y="360.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="700.0" y="360.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_sin1_splsin" parent="0:2:0" source="SIN1_out" target="SPL_SIN_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="390.0" y="360.0"/>
+    <mxPoint as="targetPoint" x="510.0" y="360.5"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_splsin1_gain1" parent="0:2:0" source="SPL_SIN_out1" target="GAIN1_in" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="510.0" y="360.5"/>
+    <mxPoint as="targetPoint" x="460.0" y="360.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_splsin2_barxy2" parent="0:2:0" source="SPL_SIN_out2" target="BARXY1_in2" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="510.0" y="360.5"/>
+    <Array as="points">
+      <mxPoint x="670.0" y="360.5"/>
+      <mxPoint x="670.0" y="263.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="700.0" y="263.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_gain1_bigsom" parent="0:2:0" source="GAIN1_out" target="BIGSOM1_in1" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="500.0" y="360.0"/>
+    <Array as="points">
+      <mxPoint x="100.0" y="360.0"/>
+      <mxPoint x="100.0" y="270.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="120.0" y="270.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_gain2_canim1" parent="0:2:0" source="GAIN2_out" target="CANIM1_in1" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="600.0" y="180.0"/>
+    <mxPoint as="targetPoint" x="700.0" y="153.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_gain3_canim2" parent="0:2:0" source="GAIN3_out" target="CANIM1_in2" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="600.0" y="230.0"/>
+    <mxPoint as="targetPoint" x="700.0" y="167.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+<ExplicitLink id="lnk_cos1_barxy1" parent="0:2:0" source="COS1_out" target="BARXY1_in1" style="" value="">
+  <mxGeometry as="geometry">
+    <mxPoint as="sourcePoint" x="500.0" y="440.0"/>
+    <Array as="points">
+      <mxPoint x="670.0" y="440.0"/>
+      <mxPoint x="670.0" y="255.0"/>
+    </Array>
+    <mxPoint as="targetPoint" x="700.0" y="255.0"/>
+  </mxGeometry>
+</ExplicitLink>
+
+    </root>
+  </mxGraphModel>
+</XcosDiagram>
